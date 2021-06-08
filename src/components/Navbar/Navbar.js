@@ -13,6 +13,9 @@ function NavBar() {
     <Link to="/signup" className="login-button">            
       <div className="login">Sign Up</div>
     </Link>
+    <Link to="/Preferences" className="login-button">            
+      <div className="login">Preferences</div>
+    </Link>
     </nav>
     )
 }
