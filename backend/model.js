@@ -18,6 +18,6 @@ let users = new Schema({
   },
 });
 
-module.exports = mongoose.model("detail", detail);
+module.exports = mongoose.model("users", users);
 // 
 db.users.insertOne(    { "username" : "admin",      "email" : 'admin@admin.com',      "password" : 1234,      "isAdmin" : true    } )
