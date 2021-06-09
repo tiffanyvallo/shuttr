@@ -20,22 +20,34 @@
 
 // module.exports = connectDB;
 
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
 
-const connectDB = async () => {
-    try {
-        //database Name
-        const databaseName='cyber_playground';
-        const con = await mongoose.connect(`mongodb://127.0.0.1:27017/${databaseName}`, { 
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true
-    });
-        console.log(`Database connected : ${con.connection.host}`)
-    } catch (error) {
-        console.error(`Error: ${error.message}`)
-        process.exit(1)
-    }
-}
+// const connectDB = async () => {
+//     try {
+//         //database Name
+//         const databaseName='cyber_playground';
+//         const con = await mongoose.connect(`mongodb://127.0.0.1:27017/${databaseName}`, { 
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//         useCreateIndex: true
+//     });
+//         console.log(`Database connected : ${con.connection.host}`)
+//     } catch (error) {
+//         console.error(`Error: ${error.message}`)
+//         process.exit(1)
+//     }
+// }
 
-export default connectDB
+// export default connectDB
+
+const Pool = require('pg').Pool
+
+const pool = new Pool({
+    user: 'postgres',
+    password: '',
+    database: 'find_photos',
+    host: 'localhost',
+    port: 5432
+})
+
+module.exports = pool;
