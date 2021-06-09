@@ -1,54 +1,64 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const PORT = 3000;
-const multer = require('multer');
-const mongoose = require("mongoose");
-const router = express.Router();
+// pulls in the express library
+const express = require('express')
+const pool = require('./config/db')
 
-// CORS SETUP
-app.use(cors({
-  origin: true, 
-  methods: ["GET", "POST"],
-  credentials: true,
-}));
+// allows us to write app and the crud action we want ex. app.get | app.post | app.delete etc...
+const app = express()
+const cors = require('cors')
 
-app.use("/", router);
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
-});
+// middleware
+app.use(express.json()) // =>  allows us to read the request or req body
+app.use(cors())
 
-// DB CONNECTION
-mongoose.connect("mongodb://127.0.0.1:27017/cyberplayground", {
-  useNewUrlParser: true
-});
+//////////// Routes (to be filled out later in tutorial)
 
-const connection = mongoose.connection;
 
-connection.once("open", function() {
-  console.log("Connection with MongoDB was successful");
-});
-
-router.route("/getData").get(function(req, res) {
-  users.find({}, function(err, result) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
-
-// Multer PHOTO STORAGE
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./");},
-    filename: function(req, file, cb){
-      const ext = file.mimetype.split('/')[1];
-      cb(null, `uploads/${file.originalname}-${Date.now()}$.ext`);
-    }
+// define what localhost port we want our server to run on
+app.listen(3000, ()=> {
+    console.log(`Server running on port: 3000`)
 })
 
-const upload = multer({
-  storage: storage
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
+
+// create a user
+app.post('/users', async (req, res) => {
+  try {
+      // await
+      console.log(req.body)
+      const { username } = req.body
+      const { password } = req.body
+      const newUser = await pool.query(
+          "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *", // returning * lets us see the data in the json response
+          [username, password]
+      ) 
+      res.json(newUser.rows[0])
+  } catch (err) {
+      console.error(err.message)
+  }
+})
+
+// get all users
+app.get('/users', async (req, res) => {
+  try {
+      const allUsers = await pool.query("SELECT * FROM users")
+      res.json(allUsers.rows)
+  } catch (err) {
+      console.error(err.message)
+  }
+})
+
+// get only one user
+app.get('/users/:id', async (req, res) => {
+  console.log(req.params)
+  const { id } = req.params
+  try {
+      const user = await pool.query("SELECT * FROM users WHERE id = $1", [id]) 
+      // $1 is a placeholder, then the 2nd argument is what that variable is 
+      //going to be
+      res.json(user.rows[0])
+  } catch (err) {
+      console.error(err.message)
+  }
 })
