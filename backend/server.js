@@ -2,15 +2,23 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const PORT = 3000;
+const multer = require('multer');
 const mongoose = require("mongoose");
 const router = express.Router();
 
-app.use(cors());
+// CORS SETUP
+app.use(cors({
+  origin: true, 
+  methods: ["GET", "POST"],
+  credentials: true,
+}));
+
 app.use("/", router);
 app.listen(PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
 
+// DB CONNECTION
 mongoose.connect("mongodb://127.0.0.1:27017/cyberplayground", {
   useNewUrlParser: true
 });
@@ -30,3 +38,17 @@ router.route("/getData").get(function(req, res) {
     }
   });
 });
+
+// Multer PHOTO STORAGE
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./");},
+    filename: function(req, file, cb){
+      const ext = file.mimetype.split('/')[1];
+      cb(null, `uploads/${file.originalname}-${Date.now()}$.ext`);
+    }
+})
+
+const upload = multer({
+  storage: storage
+})

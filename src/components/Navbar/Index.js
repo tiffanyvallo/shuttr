@@ -1,20 +1,26 @@
 import React from "react"
 import { Link } from 'react-router-dom';
+import "./Index.css"
+// import 'materialize-css';
+// import { Button, Card, Row, Col } from 'react-materialize';
 
 function NavBar() {
   return (
-    <nav style={{color: "#FF8C00", backgroundColor: "coral-pink"}}>
+    <nav>
     <Link to="/" className="index-button">
-      <div className="Home">Home</div>
+      <li className="brand-logo">Home</li>
     </Link>
     <Link to="/login" className="login-button">            
-      <div className="login">Log In</div>
+      <li className="login">Log In</li>
     </Link>
     <Link to="/signup" className="login-button">            
-      <div className="login">Sign Up</div>
+      <li className="login">Sign Up</li>
     </Link>
     <Link to="/Preferences" className="login-button">            
-      <div className="login">Preferences</div>
+      <li className="login">Preferences</li>
+    </Link>
+    <Link to="/ImageUpload" className="login-button">            
+      <li className="login">Upload</li>
     </Link>
     </nav>
     )
