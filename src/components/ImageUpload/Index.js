@@ -9,9 +9,9 @@ export class ImageUpload extends Component {
   }
   // const [images, setImages] = React.useState([]);
   // const maxNumber = 69;
-  // const onChange = (imageList, addUpdateIndex) => {
+  // const onChange = (imageList, addUpdateindex) => {
   //   // data for submit
-  //   console.log(imageList, addUpdateIndex);
+  //   console.log(imageList, addUpdateindex);
   //   setImages(imageList);
   // };
   
