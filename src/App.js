@@ -1,13 +1,13 @@
 import './App.css';
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import NavBar from './components/Navbar/Index' 
-import Index from './components/Index/Index' 
-import Login from './components/Login/Login' 
+import NavBar from './components/Navbar' 
+import Index from './components/Index' 
+import Login from './components/Login' 
 import SignUp from './components/SignUp/SignUp' 
-import Preferences from './components/Preferences/Index'
-import ImageUpload from './components/ImageUpload/Index' 
-import PhotosPage from './components/PhotosPage/Index'
+import Preferences from './components/Preferences'
+import ImageUpload from './components/ImageUpload' 
+import PhotosPage from './components/photo-page'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route component={Error} />
       </Switch>
-      <PhotosPage />
+      {/* <PhotosPage /> */}
     </div>
   );
 }
