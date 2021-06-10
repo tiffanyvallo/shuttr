@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-import "./Index.css"
+import "./index.css"
 // import 'materialize-css';
 // import { Button, Card, Row, Col } from 'react-materialize';
 
