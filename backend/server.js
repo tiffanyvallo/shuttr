@@ -1,10 +1,10 @@
 // pulls in the express library
-const express = require('express')
-const pool = require('./config/db')
+const express = require('express');
+const pool = require('./config/db'); 
 
 // allows us to write app and the crud action we want ex. app.get | app.post | app.delete etc...
 const app = express()
-const cors = require('cors')
+const cors = require('cors');
 
 // middleware
 app.use(express.json()) // =>  allows us to read the request or req body
@@ -13,10 +13,7 @@ app.use(cors())
 //////////// Routes (to be filled out later in tutorial)
 
 
-// define what localhost port we want our server to run on
-app.listen(3000, ()=> {
-    console.log(`Server running on port: 3000`)
-})
+
 
 app.get('/', (req, res) => {
   res.send('Hello World')
@@ -61,4 +58,22 @@ app.get('/users/:id', async (req, res) => {
   } catch (err) {
       console.error(err.message)
   }
+})
+//to sign up
+//  app.post('/signup',async (req, res)=> {
+
+//   const username = req.body.username;
+//   const password = req.body.password; 
+//   pool.query(
+//     "INSERT INTO users (password, username) VALUES (?,?)",
+//     [password, username],
+//     (err, result)=> {
+//     console.log(err);
+//     }
+//   );
+// });
+
+// define what localhost port we want our server to run on
+app.listen(3001, ()=> {
+  console.log(`Server running on port: 3001`)
 })
