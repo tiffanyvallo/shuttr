@@ -8,6 +8,7 @@ import SignUp from './components/SignUp'
 import Preferences from './components/Preferences'
 import ImageUpload from './components/ImageUpload' 
 import PhotosPage from './components/photo-page'
+import Hashtags from '../src/Pages/Hashtags'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route component={Error} />
       </Switch>
       {/* <PhotosPage /> */}
+      <Hashtags/>
     </div>
   );
 }
