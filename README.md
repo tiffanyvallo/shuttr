@@ -1,11 +1,11 @@
 # Cyber Playground
-
+- 
 
 ## User Stories - Cyber Playground
 
 ```
 As a user 
-so that I can make friends 
+so that I can find interesting locations
 I would like to sign up to the website
 ```
 ```
@@ -14,38 +14,42 @@ Because I would like to be able to access my account
 I would like to login.
 ```
 ```
-As a frustrated user 
-That keeps losing 
-I would like to be able to rage quit. 
-```
-```
-As a lonely user 
-So that I can interact with people
-I would like to be able to add people to my friends list. 
-```
-```
-As a friendly person 
-So that I can create a team
-I would like to be able to communicate with all my friends online. 
+As a user
+So I can be part of the community 
+I would like to be able to upload photos
 ```
 ```
 As a user 
-So that I can be entertained 
-I would like to be able to play a game. 
+So I can see where the hotspots are
+I would like to be able to see the locations of the photos
+```
+```
+As an avid creative
+So I can be exposed to new genres
+I would like to view the photos sorted by hashtags
 ```
 ```
 As a user 
-So I can ruin my friendships 
-I would like to be able to play multiplayer games. 
+So I can see everything I posted
+I would like to see everything I've posted 
+```
+As a wanderer
+So I can see where I'm heading 
+I would like to see the locations pinned on a map
+```
+## Stretch Goals
+```
+As a user 
+So I can be on the leaderboard 
+I would like my photos to earn points
+```
+```
+As a social media king
+So I can get my photos on the homepage
+When a user spends time on my photo I would like it to rank high
 ```
 ```
 As a user 
-So that I can build my skills 
-I would like to be able to join random games
-```
-```
-As a collector of games 
-So that I can see my collection
-I would like to be able to have a games list to view all of my games. 
-```
+So that I can gain more content
+When I level up I would like to unlock new features on the map
 ```
