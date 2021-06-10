@@ -1,17 +1,21 @@
 import React, {useState} from "react";
 import Axios from "axios";
 
+
  
 
 function SignUp() {
-
+  
   const[usernameReg, setUsernameReg] = useState('');
   const[passwordReg, setPasswordReg] = useState('');
+  const[emailReg, setEmailReg] = useState('');
   
   const register = () => {
-    Axios.post("http://localhost:3001/users", {
+    
+      Axios.post("http://localhost:3001/users", {
       username: usernameReg, 
       password: passwordReg,
+      email: emailReg,
    }).then((response) => {
      console.log(response);
    });
@@ -22,7 +26,7 @@ function SignUp() {
   return (
     <div> 
       <h1>Sign up in here</h1>
-      <form>
+      
       <label>
         <p>Username</p>
         <input 
@@ -33,9 +37,18 @@ function SignUp() {
           />
       </label>
       <label>
+        <p>Email</p>
+        <input 
+          type="email" 
+          onChange={(e) => {
+          setEmailReg(e.target.value);
+          }}
+          />
+      </label>
+      <label>
         <p>Password</p>
         <input 
-          type="text" 
+          type="password" 
           onChange={(e) => {
           setPasswordReg(e.target.value);
           }}
@@ -45,7 +58,7 @@ function SignUp() {
         <br />
         <button type="submit" onClick={register}>Create User</button>
       </div>
-    </form>
+    
     </div>
     )
 }
