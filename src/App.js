@@ -7,6 +7,7 @@ import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp' 
 import Preferences from './components/Preferences/Index'
 import ImageUpload from './components/ImageUpload/Index' 
+import PhotosPage from './components/PhotosPage/Index'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route component={Error} />
       </Switch>
+      <PhotosPage />
     </div>
   );
 }
