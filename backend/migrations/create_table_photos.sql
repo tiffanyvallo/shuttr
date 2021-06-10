@@ -1,0 +1,1 @@
+CREATE TABLE photos (id text, caption text, hashtag text, img bytea);

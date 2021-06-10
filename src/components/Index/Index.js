@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Index() {
   return (
     <div>
-      <h1>Hello this is the index</h1>
+      <h1>Welcome to the feed</h1>
     </div>
     )
 }

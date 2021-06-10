@@ -4,7 +4,7 @@ import  Photo  from '../Photo/Index';
 
 const PhotosList = () => {
   // const [photos] = usePhotos();
-  const photos = [{id:1, hashtag:"logo", src: "/logo192.png" }, {id:2, hashtag:"Test", src: "/logo512.png" } ]
+  const photos = [{id:1, hashtag:"logo", src: "/london1.jpg" }, {id:2, hashtag:"Test", src: "/london2.jpg" } ]
   return (
     <div className="photos-list">
       {photos.map((photo) => (
