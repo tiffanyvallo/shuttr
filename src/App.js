@@ -2,7 +2,7 @@ import './App.css';
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import NavBar from './components/Navbar' 
-import index from './components/Index' 
+import Index from './components/Index' 
 import Login from './components/Login' 
 import SignUp from './components/SignUp' 
 import Preferences from './components/Preferences'
@@ -15,7 +15,7 @@ function App() {
       <NavBar />
       <h1>Cyber Playground</h1>
       <Switch>
-        <Route path="/" component={index} exact />
+        <Route path="/" component={Index} exact />
         <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
         <Route path="/Preferences" component={Preferences} />
