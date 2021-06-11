@@ -8,7 +8,7 @@ function HashtagsPage() {
   const [filteredTag, setFilteredTag] = useState(hashtag);
 
   const handleSearch = (event) => {
-    let value = e.target.value.toLowerCase();
+    let value = event.target.value.toLowerCase();
     let result = [];
     console.log(value);
     result = hashtag.filter((data) => {
