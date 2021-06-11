@@ -16,6 +16,9 @@ function SignUp() {
       username: usernameReg, 
       password: passwordReg,
       email: emailReg,
+  },
+  {
+      withCredentials: true,
    }).then((response) => {
      console.log(response);
    });
@@ -26,7 +29,6 @@ function SignUp() {
   return (
     <div> 
       <h1>Sign up in here</h1>
-      
       <label>
         <p>Username</p>
         <input 
@@ -58,7 +60,6 @@ function SignUp() {
         <br />
         <button type="submit" onClick={register}>Create User</button>
       </div>
-    
     </div>
     )
 }
