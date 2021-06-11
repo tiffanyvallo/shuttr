@@ -1,13 +1,14 @@
-import './App.css';
+import "./App.css";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import NavBar from './components/Navbar' 
-import Index from './components/Index' 
-import Login from './components/Login' 
-import SignUp from './components/SignUp' 
-import Preferences from './components/Preferences'
-import ImageUpload from './components/ImageUpload' 
-import PhotosPage from './components/photo-page'
+import NavBar from "./components/Navbar";
+import Index from "./components/Index";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Preferences from "./components/Preferences";
+import ImageUpload from "./components/ImageUpload";
+import PhotosPage from "./components/photo-page";
+import HashtagsPage from "./Pages/hashtags-page";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route component={Error} />
       </Switch>
       {/* <PhotosPage /> */}
+      <HashtagsPage />
     </div>
   );
 }
