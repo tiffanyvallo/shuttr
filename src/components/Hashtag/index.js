@@ -1,11 +1,10 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
-const Hashtag = ({ id, hashtag}) => {
+const Hashtag = ({ id, hashtag }) => {
   return (
     <div className="photo">
       <p className="photo-hashtag">Hashtag is: {hashtag}</p>
-  
     </div>
   );
 };
