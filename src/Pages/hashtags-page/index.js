@@ -8,7 +8,7 @@ function HashtagsPage() {
 const [hashtag, setHashtag] = useState([]);
 const [filteredTag, setFilteredTag] = useState(hashtag)
 
-const handleSearch = (e) =>{
+const handleSearch = (event) =>{
 let value = e.target.value.toLowerCase();
 let result = []
 console.log(value)
@@ -26,7 +26,7 @@ axios ('https://jsonplaceholder.typicode.com/albums/1/photos')
   setFilteredTag(response.data);
 })
 .catch(error => {
-  console.log('Error getting fake data: ' + error);
+  console.log('Error getting data: ' + error);
 })
 }, []);
 const styles = {
