@@ -8,6 +8,7 @@ import SignUp from './components/SignUp'
 import Preferences from './components/Preferences'
 import ImageUpload from './components/ImageUpload' 
 import PhotosPage from './components/photo-page'
+import Home from './pages/Home'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <h1>Cyber Playground</h1>
       <Switch>
         <Route path="/" component={Index} exact />
+        <Route path="/Home" component={Home} />
         <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
         <Route path="/Preferences" component={Preferences} />
