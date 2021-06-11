@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import Axios from "axios";
-import { Link } from 'react-router-dom';
 
-function Login() {
+
+function LogIn() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
 
   const log = () => {
     
@@ -14,13 +13,7 @@ function Login() {
       password: loginPassword,
   },
   { withCredentials: true
-   }).then((response) => {
-     if (response.data.message) {
-       setLoginStatus(response.data.message);
-     } else {
-       setLoginStatus(response.data[0].username)
-     }
-    });
+   }).then((res) => console.log(res)) ;
   };
   
   return (
@@ -49,10 +42,8 @@ function Login() {
       <div>
         <button type="submit" onClick={log}>LogIn</button>
       </div>
-    
-    <h1>{loginStatus}</h1>
     </div>
     )
 }
 
-export default Login
+export default LogIn

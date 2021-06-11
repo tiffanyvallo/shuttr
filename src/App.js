@@ -7,11 +7,13 @@ import Login from './components/Login'
 import SignUp from './components/SignUp' 
 import Preferences from './components/Preferences'
 import ImageUpload from './components/ImageUpload' 
+import Profile from './pages/Profile'
 import PhotosPage from './components/photo-page'
 
 function App() {
   return (
     <div className="App">
+      
       <NavBar />
       <h1>Cyber Playground</h1>
       <Switch>
@@ -20,7 +22,9 @@ function App() {
         <Route path="/SignUp" component={SignUp} />
         <Route path="/Preferences" component={Preferences} />
         <Route path="/ImageUpload" component={ImageUpload} />
+        <Route path="/Profile" component={Profile} />
         <Route component={Error} />
+        
       </Switch>
       {/* <PhotosPage /> */}
     </div>
