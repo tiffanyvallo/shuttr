@@ -11,6 +11,7 @@ const [filteredTag, setFilteredTag] = useState(hashtag)
 const handleSearch = (e) =>{
 let value = e.target.value.toLowerCase();
 let result = []
+console.log(value)
 result = hashtag.filter((data) => {
   return data.title.search(value) !== -1;
 });
@@ -28,36 +29,12 @@ axios ('https://jsonplaceholder.typicode.com/albums/1/photos')
   console.log('Error getting fake data: ' + error);
 })
 }, []);
-
-
-
-  
- <div className= "HashtagList" >
-   <div style={{ margin: '0 auto', marginTop: '10%'}}>
-     <input placeholder="Search Hashtag" type="text" onChange={(e) => handleSearch(e)} />
-   </div>
-   <div style={{padding:10}}>
-     {filteredTag.map((value,index)=>{
-       const styles = {
-        display:'inline',
-        width:'30%',
-        height:50,
-        float:'left',
-        padding:5,
-        border:'0.5px solid black',
-        marginBottom:10,
-        marginRight:10
-        }
        return(
-         <div key={value.id}>
-           <div style={styles}>
-             {value.title}
-             </div>
-             </div>
+        <div className= "HashtagList" >
+          <input placeholder="Search Hashtag" type="text" onChange={(e) => handleSearch(e)} />
+          {filteredTag.map((value,index)=>{<div key={value.id}>{value.title}</div>})}
+        </div>
        )
-     })}
-   </div>
- </div>
 }
 
 export default HashtagsPage;
