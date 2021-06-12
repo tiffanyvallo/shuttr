@@ -10,6 +10,7 @@ import Preferences from './components/Preferences'
 import ImageUpload from './components/ImageUpload' 
 import PhotosPage from './components/photo-page'
 
+
 function App() {
   return (
     <div className="App">
