@@ -1,25 +1,12 @@
 import React from "react"
 import { Link } from 'react-router-dom';
 
-function Login() {
+function Map() {
   return (
     <div>
-      <h1>Log in here</h1>
-      <form>
-      <label>
-        <p>Username</p>
-        <input type="text" />
-      </label>
-      <label>
-        <p>Password</p>
-        <input type="password" />
-      </label>
-      <div>
-        <button type="submit">LogIn</button>
-      </div>
-    </form>
+      <h1>Map will be here</h1>
     </div>
     )
 }
 
-export default Login
+export default Map
