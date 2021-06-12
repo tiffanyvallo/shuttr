@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {Marker} from 'react-map-gl';
 import { Link } from 'react-router-dom';
 
 function Map() {
@@ -17,7 +17,16 @@ function Map() {
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={nextViewport => setViewport(nextViewport)}
-    />
+    >
+      <Marker latitude={51.50930532431084}
+              longitude={-0.12829965320115588} 
+              offsetLeft={-20} 
+              offsetTop={-10}>
+
+        <div>You are here</div>
+      </Marker>
+      
+    </ReactMapGL>
     </div>
     );
 }
