@@ -10,6 +10,9 @@ function NavBar() {
     <Link to="/" className="index-button">
       <li className="brand-logo">Home</li>
     </Link>
+    <Link to="/Map" className="index-button">
+      <li className="map">Map</li>
+    </Link>
     <Link to="/login" className="login-button">            
       <li className="login">Log In</li>
     </Link>
