@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
+import {Room} from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 
 function Map() {
@@ -23,7 +24,8 @@ function Map() {
               offsetLeft={-20} 
               offsetTop={-10}>
 
-        <div>You are here</div>
+        <Room style={{fontSize:viewport.zoom * 4, color:"CornflowerBlue"}}/>
+        
       </Marker>
       
     </ReactMapGL>
