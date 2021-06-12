@@ -54,8 +54,7 @@ export default function SignUp() {
       </label>
       <label>
         <p>Email</p>
-        <input 
-          type="email" 
+        <input type="email" 
           onChange={(e) => {
           setEmailReg(e.target.value);
           }}
