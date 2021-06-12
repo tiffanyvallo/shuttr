@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import {UserContext} from '../../Contexts/UserContext';
 
 function Index() {
   const [users, setUsers] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const data = useContext(UserContext);
 
   const getAllUsers = async () => {
     const response = await fetch("http://localhost:3001/users", {
@@ -38,7 +41,12 @@ function Index() {
   useEffect(() => getAllUsers(), []);
 
   return (
+
     <div>
+              <div>
+       {data ? <p>Welcome Back {data.username}</p> : <p>Please Log In</p>}
+      
+    </div>
       <h1>Welcome to the feed</h1>
       {users.map((u) => (
         <div>We found user {u.username}</div>

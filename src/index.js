@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import UserContextProvider from './Contexts/UserContext'
 
 ReactDOM.render(
-  <BrowserRouter>
+  <React.StrictMode>
+  <UserContextProvider>
      <App />
-  </BrowserRouter>,
+  </UserContextProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
