@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import index from './components/Index/index' 
 import SignUp from './components/SignUp/index'
+import Map from './components/Map'
 import Login from './components/Login/index' 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {useContext} from 'react'
@@ -9,8 +10,9 @@ import {UserContext} from './Contexts/UserContext'
 import NavBar from './components/Navbar/index' 
 import Preferences from './components/Preferences'
 import ImageUpload from './components/ImageUpload' 
-import Profile from './pages/Profile'
+import Profile from './Pages/Profile'
 import PhotosPage from './components/photo-page'
+import HashtagsPage from "./Pages/hashtags-page";
 
 export default function App() {
   const data = useContext(UserContext);
@@ -24,6 +26,7 @@ export default function App() {
         <Route path="/" exact component={index}  />
         <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
+        <Route path="/Map" component={Map} />
         <Route path="/Preferences" component={Preferences} />
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Profile" component={Profile} />
@@ -31,6 +34,7 @@ export default function App() {
         
       </Switch>
       {/* <PhotosPage /> */}
+      <HashtagsPage />
       </Router>
     </div>
   );

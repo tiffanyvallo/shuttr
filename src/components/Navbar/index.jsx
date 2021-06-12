@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import { Link } from 'react-router-dom';
-import "./indexnew.css"
+import "./index.css"
 import Axios from 'axios'
 import { UserContext } from "../../Contexts/UserContext";
 
@@ -62,7 +62,9 @@ export default function NavBar() {
       <li className="login">Sign Up</li>    
       </Link> 
       )}
-        
+      <Link to="/Map" className="index-button">
+      <li className="map">Map</li>
+      </Link>
       <Link to="/Preferences" className="login-button">                  
       <li className="login">Preferences</li>    
       </Link>    
