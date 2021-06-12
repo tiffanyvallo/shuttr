@@ -1,5 +1,5 @@
 # Cyber Playground
-- 
+  
 
 ## User Stories - Cyber Playground
 
@@ -33,11 +33,13 @@ As a user
 So I can see everything I posted
 I would like to see everything I've posted 
 ```
+```
 As a wanderer
 So I can see where I'm heading 
 I would like to see the locations pinned on a map
 ```
-## Stretch Goals
+###  Stretch Goals
+
 ```
 As a user 
 So I can be on the leaderboard 
