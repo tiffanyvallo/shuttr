@@ -11,15 +11,15 @@ function Index() {
   const [email, setEmail] = useState("");
   const data = useContext(UserContext);
 
-  const getAllUsers = async () => {
-    const response = await fetch("http://localhost:3001/users", {
-      method: "GET",
-    });
-    const json = await response.json();
+  // const getAllUsers = async () => {
+  //   const response = await fetch("http://localhost:3001/users", {
+  //     method: "GET",
+  //   });
+  //   const json = await response.json();
 
-    // JSON is an array of user objects
-    setUsers(json);
-  };
+  //   // JSON is an array of user objects
+  //   setUsers(json);
+  // };
 
   const createUser = async () => {
     const response = await fetch("http://localhost:3001/users", {
@@ -38,7 +38,7 @@ function Index() {
     console.log(json)
   };
 
-  useEffect(() => getAllUsers(), []);
+  // useEffect(() => getAllUsers(), []);
 
   return (
 
