@@ -18,13 +18,14 @@ function Map() {
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={nextViewport => setViewport(nextViewport)}
+      mapStyle="mapbox://styles/ajmccor/ckpttmayl2xwn18pg496rt567"
     >
       <Marker latitude={51.50930532431084}
               longitude={-0.12829965320115588} 
               offsetLeft={-20} 
               offsetTop={-10}>
 
-        <Room style={{fontSize:viewport.zoom * 4, color:"CornflowerBlue"}}/>
+        <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}/>
         
       </Marker>
       
