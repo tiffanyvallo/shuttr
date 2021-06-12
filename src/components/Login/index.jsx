@@ -2,18 +2,24 @@ import React, {useState} from "react";
 import Axios from "axios";
 
 
-function LogIn() {
+export default function Login() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const log = () => {
+   const login = () => {
     
-    Axios.post("http://localhost:3001/login", {
-      username: loginUsername, 
-      password: loginPassword,
-  },
-  { withCredentials: true
-   }).then((res) => console.log(res)) ;
+    Axios({     
+       method: "POST",      
+       data: { 
+        username: loginUsername.toLowerCase(),        
+        password: loginPassword,      
+      },      withCredentials: true,      
+      url: "http://localhost:3001/login",    
+      }).then((res) => {      
+      if (res.data === "Successfully Authenticated") {
+        window.location.href = "/";      
+      }    
+    });  
   };
   
   return (
@@ -40,10 +46,9 @@ function LogIn() {
           }} />
       </label>
       <div>
-        <button type="submit" onClick={log}>LogIn</button>
+        <button type="submit" onClick={login}>LogIn</button>
       </div>
     </div>
     )
 }
 
-export default LogIn
