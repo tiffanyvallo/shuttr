@@ -69,7 +69,7 @@ export default function NavBar() {
       <Link to="/ImageUpload" className="login-button">                 
         <li className="login">Upload</li>    
         </Link>   
-         {data ? (  <Link onClick={logout}  className="index-button">
+         {data ? (  <Link to="/" onClick={logout}  className="index-button">
        <li className="brand-logo">Logout</li>      
       </Link>                
          ) : null}
