@@ -11,4 +11,4 @@ const Photo = ({ id, hashtag, src }) => {
   );
 };
 
-export default Photo;
+export default Photo; 
