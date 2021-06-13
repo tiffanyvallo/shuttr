@@ -64,10 +64,7 @@ export default function NavBar() {
       )}
       <Link to="/Map" className="index-button">
       <li className="map">Map</li>
-      </Link>
-      <Link to="/Preferences" className="login-button">                  
-      <li className="login">Preferences</li>    
-      </Link>    
+      </Link>  
       <Link to="/ImageUpload" className="login-button">                 
         <li className="login">Upload</li>    
         </Link>   

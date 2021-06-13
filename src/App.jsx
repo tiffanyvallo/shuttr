@@ -7,11 +7,9 @@ import Login from './components/Login/index'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
-import NavBar from './components/Navbar/index' 
-import Preferences from './components/Preferences'
+import NavBar from './components/Navbar/index'
 import ImageUpload from './components/ImageUpload/newindex' 
 import Profile from './pages/Profile'
-import PhotosPage from './components/photo-page'
 
 export default function App() {
   const data = useContext(UserContext);
@@ -26,13 +24,11 @@ export default function App() {
         <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
         <Route path="/Map" component={Map} />
-        <Route path="/Preferences" component={Preferences} />
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Profile" component={Profile} />
         <Route component={Error} />
         
       </Switch>
-      {/* <PhotosPage /> */}
       </Router>
     </div>
   );
