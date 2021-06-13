@@ -3,6 +3,7 @@ import {Image} from 'cloudinary-react'
 import axios from 'axios';
 import './index.css'
 import loadingGif from './Loading_icon.gif';
+import { google } from 'google-maps'
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -39,7 +40,7 @@ export default function ImageUpload() {
   
 
   const onSubmit = async () => {
-    console.log('clicked')
+    console.log(location)
     const formData = new FormData();
     formData.append('file', image);
     formData.append('upload_preset', preset);
@@ -51,8 +52,10 @@ export default function ImageUpload() {
       const image = await axios.post('http://localhost:3001/upload', {
         imageUrl,
         hashtag, 
-        caption
-      });
+        caption, 
+        location
+      })
+      console.log(image.data);
       setLoading(false);
       isLoading(false)
       setImage(image.data);
@@ -65,8 +68,8 @@ export default function ImageUpload() {
     <div className="form_wrapper">
         {isLoading()}
         <input type='file' name='image' onChange={onChange} />
+        <input id ="autocomplete" onChange={(e) => setLocation(e.target.value)} placeholder="Enter the location" type="text"/>
         <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="hashtag" />
-        <input type="text"  onChange={(e) => setLocation(e.target.value)} value={location} placeholder="location" />
         <input type="text" onChange={(e) => setCaption(e.target.value)} value={caption} placeholder="caption" />
         <button onClick={onSubmit}>
           Upload
