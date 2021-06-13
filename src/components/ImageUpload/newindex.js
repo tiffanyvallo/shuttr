@@ -3,7 +3,6 @@ import {Image} from 'cloudinary-react'
 import axios from 'axios';
 import './index.css'
 import loadingGif from './Loading_icon.gif';
-import { google } from 'google-maps'
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';

@@ -39,6 +39,19 @@
                 fields: ['place_id', 'geometry', 'name']
               }
             )
+            autocomplete.addListener('place_changed', onPlaceChanged)
+          }
+
+          function onPlaceChanged() {
+            var place = autocomplete.getPlace();
+
+            if (!place.geometry) {
+              // reset if no selection
+              document.getElementById('autocomnplete').placeholder = 'Enter a place'
+            } else {
+              // Display details
+              document.getElementById('details').innerHTML = place.name
+            }
           }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.44&key=AIzaSyBteRkpkk1mblYQ26xmEruUECQKoaNlYYk&libraries=places&callback=initAutoComplete" async defer></script>
