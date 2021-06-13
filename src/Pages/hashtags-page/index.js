@@ -2,6 +2,7 @@ import "./index.css";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {Image} from 'cloudinary-react';
 
 function HashtagsPage() {
   const [allData, setAllData] = useState([]);
@@ -50,6 +51,7 @@ function HashtagsPage() {
           return (
             <div style={styles} key={value.id}>
              {value.hashtag}
+             <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
             </div>
           );
          })}
