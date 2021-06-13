@@ -31,9 +31,9 @@ function HashtagsPage() {
       });
   }, []);
   const styles = {
-    display: "inline",
+    // display: "inline",
     width: "30%",
-    height: 50,
+    // height: 50,
     float: "left",
     padding: 5,
     border: "0.5px solid black",
