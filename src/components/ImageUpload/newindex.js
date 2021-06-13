@@ -56,6 +56,7 @@ export default function ImageUpload() {
       setLoading(false);
       isLoading(false)
       setImage(image.data);
+      setPreviewSource("")
     } catch (err) {
       console.error(err);
     }
