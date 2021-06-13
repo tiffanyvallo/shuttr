@@ -4,6 +4,10 @@ import axios from 'axios';
 import './index.css'
 import loadingGif from './Loading_icon.gif';
 import LocationSearchInput from '../locationsearchinput';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng
+} from "react-places-autocomplete";
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -11,10 +15,13 @@ export default function ImageUpload() {
   const [image, setImage] = useState('');
   const [hashtag, setHashtag] = useState("");
   const [location, setLocation] = useState("");
-  const [coordinates, setCoordinates] = useState("");
   const [caption, setCaption] = useState("");
   const [loading, setLoading] = useState(false);
   const [previewSource, setPreviewSource] = useState("")
+  const [coordinates, setCoordinates] = React.useState({
+    lat: null,
+    lng: null
+  });
 
   const onChange = e => {
     setImage(e.target.files[0]);
@@ -66,12 +73,48 @@ export default function ImageUpload() {
     }
   };
 
+  const handleSelect = async value => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    setLocation(value);
+    setCoordinates(latLng);
+  };
+
   return(
     <div className="form_wrapper">
         {isLoading()}
-        {/* {coordinates.lat} */}
         <input type='file' name='image' onChange={onChange} />
-        <LocationSearchInput onChange={(e) => setCoordinates(e.target.value)}/>
+        <PlacesAutocomplete
+        value={location}
+        onChange={setLocation}
+        onSelect={handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <p>Latitude: {coordinates.lat}</p>
+            <p>Longitude: {coordinates.lng}</p>
+
+            <input {...getInputProps({ placeholder: "Type address" })} />
+
+            <div>
+              {loading ? <div>...loading</div> : null}
+
+              {suggestions.map(suggestion => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff",
+                  cursor: "pointer"
+                };
+
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
         <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="hashtag" />
         <input type="text" onChange={(e) => setCaption(e.target.value)} value={caption} placeholder="caption" />
         <button onClick={onSubmit}>

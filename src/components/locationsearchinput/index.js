@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   getLatLng
 } from "react-places-autocomplete";
 
-export default function App() {
+const LocationSearchInput = () => {
   const [address, setAddress] = React.useState("");
   const [coordinates, setCoordinates] = React.useState({
     lat: null,
@@ -54,3 +54,5 @@ export default function App() {
     </div>
   );
 }
+
+export default LocationSearchInput
