@@ -12,7 +12,6 @@ import Preferences from './components/Preferences'
 import ImageUpload from './components/ImageUpload/newindex' 
 import Profile from './pages/Profile'
 import PhotosPage from './components/photo-page'
-import HashtagsPage from "./Pages/hashtags-page";
 
 export default function App() {
   const data = useContext(UserContext);
@@ -34,7 +33,6 @@ export default function App() {
         
       </Switch>
       {/* <PhotosPage /> */}
-      <HashtagsPage />
       </Router>
     </div>
   );
