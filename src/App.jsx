@@ -9,8 +9,8 @@ import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
 import NavBar from './components/Navbar/index' 
 import Preferences from './components/Preferences'
-import ImageUpload from './components/ImageUpload' 
-import Profile from './Pages/Profile'
+import ImageUpload from './components/ImageUpload/newindex' 
+import Profile from './pages/Profile'
 import PhotosPage from './components/photo-page'
 import HashtagsPage from "./Pages/hashtags-page";
 
