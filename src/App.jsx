@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import index from './components/Index/index' 
-import SignUp from './components/SignUp/index'
+import SignUp from './components/SignUp/'
 import Map from './components/Map'
 import Login from './components/Login/index' 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -9,7 +9,7 @@ import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
 import NavBar from './components/Navbar/index'
 import ImageUpload from './components/ImageUpload/newindex' 
-import Profile from './Pages/Profile'
+import Profile from './pages/Profile'
 
 export default function App() {
   const data = useContext(UserContext);
@@ -18,7 +18,6 @@ export default function App() {
     <div className="App">
       <Router>
       <NavBar></NavBar>
-      <h1>Cyber Playground</h1>
       <Switch>
         <Route path="/" exact component={index}  />
         <Route path="/Login" component={Login} />
