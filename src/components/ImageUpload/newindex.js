@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {Image} from 'cloudinary-react'
 import axios from 'axios';
-// import loadingGif from './spinner.gif';
+import './index.css'
+import loadingGif from './Loading_icon.gif';
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -28,6 +29,15 @@ export default function ImageUpload() {
     }
   })
 
+  function isLoading(){
+    if (loading == true) {
+      return <img src={loadingGif}/>
+    } else if (loading == false) {
+      return <p>Not Uploading</p>
+    }
+  }
+  
+
   const onSubmit = async () => {
     console.log('clicked')
     const formData = new FormData();
@@ -35,6 +45,7 @@ export default function ImageUpload() {
     formData.append('upload_preset', preset);
     try {
       setLoading(true);
+      isLoading(true)
       const res = await axios.post(url, formData);
       const imageUrl = res.data.secure_url;
       const image = await axios.post('http://localhost:3001/upload', {
@@ -43,13 +54,16 @@ export default function ImageUpload() {
         caption
       });
       setLoading(false);
+      isLoading(false)
       setImage(image.data);
     } catch (err) {
       console.error(err);
     }
   };
+
   return(
     <div className="form_wrapper">
+        {isLoading()}
         <input type='file' name='image' onChange={onChange} />
         <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="hashtag" />
         <input type="text"  onChange={(e) => setLocation(e.target.value)} value={location} placeholder="location" />
@@ -60,6 +74,7 @@ export default function ImageUpload() {
         {previewSource && (
           <img src={previewSource} alt="chosen" style={{height: '300px'}}/>
         )}
+     
         <Image className="cloud_photo" cloudName="cyber_photos" publicId="https://res.cloudinary.com/dryaxqxie/image/upload/v1623337463/jckg0zqclgbkitlzv9uv.jpg"/> 
     </div>
   )
