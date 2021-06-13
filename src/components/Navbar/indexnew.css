@@ -24,7 +24,3 @@ nav li:hover{
   background-color: #505160;
   color: #ff4949;
 }
-
-.index-button{
-  justify-self: flex-start;
-}
