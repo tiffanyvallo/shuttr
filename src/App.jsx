@@ -9,7 +9,7 @@ import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
 import NavBar from './components/Navbar/index'
 import ImageUpload from './components/ImageUpload/newindex' 
-import Profile from './pages/Profile'
+import Profile from './Pages/Profile'
 
 export default function App() {
   const data = useContext(UserContext);
