@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useRef, useEffect, useState } from 'react';
 import {Image} from 'cloudinary-react'
 import axios from 'axios';
 import './index.css'
@@ -8,6 +8,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
+import MiniMap from '../MiniMap';
+
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -40,7 +42,7 @@ export default function ImageUpload() {
 
   function isLoading(){
     if (loading == true) {
-      return <img src={loadingGif}/>
+      return <img style={{width: 50}}src={loadingGif}/>
     } else if (loading == false) {
       return <p>Not Uploading</p>
     }
@@ -123,6 +125,7 @@ export default function ImageUpload() {
         {previewSource && (
           <img src={previewSource} alt="chosen" style={{height: '300px'}}/>
         )}
+        <MiniMap />
      
         <Image className="cloud_photo" cloudName="cyber_photos" publicId="https://res.cloudinary.com/dryaxqxie/image/upload/v1623337463/jckg0zqclgbkitlzv9uv.jpg"/> 
     </div>
