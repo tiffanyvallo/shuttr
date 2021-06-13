@@ -11,9 +11,22 @@ export default function ImageUpload() {
   const [location, setLocation] = useState("");
   const [caption, setCaption] = useState("");
   const [loading, setLoading] = useState(false);
+  const [previewSource, setPreviewSource] = useState("")
+
   const onChange = e => {
     setImage(e.target.files[0]);
+    const file = e.target.files[0]
+    previewFile(file)
   };
+
+  const previewFile = (file => {
+    const reader = new FileReader();
+    // reads the file as url to create preview
+    reader.readAsDataURL(file)
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    }
+  })
 
   const onSubmit = async () => {
     console.log('clicked')
@@ -44,6 +57,9 @@ export default function ImageUpload() {
         <button onClick={onSubmit}>
           Upload
         </button>
+        {previewSource && (
+          <img src={previewSource} alt="chosen" style={{height: '300px'}}/>
+        )}
         <Image className="cloud_photo" cloudName="cyber_photos" publicId="https://res.cloudinary.com/dryaxqxie/image/upload/v1623337463/jckg0zqclgbkitlzv9uv.jpg"/> 
     </div>
   )
