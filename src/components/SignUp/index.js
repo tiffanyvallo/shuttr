@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import Axios from "axios";
 
- 
-
 function SignUp() {
 
   const[usernameReg, setUsernameReg] = useState('');

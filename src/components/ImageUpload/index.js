@@ -1,22 +1,26 @@
-import React, {Component, useState} from 'react'
-import Axios from 'axios'
+import React, { useState, useEffect } from 'react';
 import {Image} from 'cloudinary-react'
+import axios from 'axios';
 import './index.css'
- 
-function ImageUpload() {
+import loadingGif from './Loading_icon.gif';
+import LocationSearchInput from '../locationsearchinput';
+
+export default function ImageUpload() {
+  const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
+  const preset = 'cyber_photos';
+  const [image, setImage] = useState('');
   const [hashtag, setHashtag] = useState("");
+  const [location, setLocation] = useState("");
+  const [coordinates, setCoordinates] = useState("");
   const [caption, setCaption] = useState("");
-  const [selectedFile, setSelectedFile] = useState("")
-  const [fileInputState, setFileInputState] = useState("")
+  const [loading, setLoading] = useState(false);
   const [previewSource, setPreviewSource] = useState("")
 
-  // if file changes then change state on everything
-  const handleFileInputChange = (e) => {
+  const onChange = e => {
+    setImage(e.target.files[0]);
     const file = e.target.files[0]
     previewFile(file)
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
-  }
+  };
 
   const previewFile = (file => {
     const reader = new FileReader();
@@ -27,72 +31,57 @@ function ImageUpload() {
     }
   })
 
-  // handles the submit and prevents the page reloading then pushes it online
-  const handleSubmitFile = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("hashtag", hashtag);
-    formData.append("caption", caption);
-    // formData.append("file", selectedFile);
-    console.log(...formData)
-    Axios
-    .post('/uploadImage', formData)
-    .then((res) => {
-    alert("File Upload success");
-    })
-    .then(() => console.log('Form Created'))
-    .catch((err) => alert("File Upload Error"));
-    if(!previewSource) return;
-    const reader = new FileReader()
-    // uploadImage(previewSource)
+  function isLoading(){
+    if (loading == true) {
+      return <img src={loadingGif}/>
+    } else if (loading == false) {
+      return <p>Not Uploading</p>
+    }
   }
+  
 
-  const register = () => {
-    Axios.post("http://localhost:3001/upload", {
-      hashtag: hashtag, 
-      caption: caption,
-      image: selectedFile,
-   }).then((response) => {
-     console.log(response);
-   });
+  const onSubmit = async () => {
+    console.log(location)
+    const formData = new FormData();
+    formData.append('file', image);
+    formData.append('upload_preset', preset);
+    try {
+      setLoading(true);
+      isLoading(true)
+      const res = await axios.post(url, formData);
+      const imageUrl = res.data.secure_url;
+      const image = await axios.post('http://localhost:3001/upload', {
+        imageUrl,
+        hashtag, 
+        caption, 
+        location,
+        coordinates
+      })
+      console.log(image.data);
+      setLoading(false);
+      isLoading(false)
+      setImage(image.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
-   // turns the image into a string then does async request to push could change to axios
-  // const uploadImage = async (base64EncodedImage) => {
-  //   console.log(base64EncodedImage)
-  //   try {
-  //     await fetch('/uploadImage', {
-  //       method: 'POST',
-  //       body: JSON.stringify({data: base64EncodedImage}),
-  //       headers: {'Content-type': 'application/json'}
-  //     })
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
 
-  return (
+  return(
     <div className="form_wrapper">
-      {/* encType='multipart/form-data' */}
-      <form onSubmit={register} >
-      <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} />
-      <input type="text" onChange={(e) => setCaption(e.target.value)} value={caption} />
-                <input
-                    id="fileInput"
-                    type="file"
-                    name="image"
-                    onChange={handleFileInputChange}
-                    value={fileInputState}
-                />
-                <button type="submit">
-                    Submit
-                </button>
-      </form>
-      {previewSource && (
-        <img src={previewSource} alt="chosen" style={{height: '300px'}}/>
-      )}
-      <Image className="cloud_photo" cloudName="cyber_photos" publicId="https://res.cloudinary.com/dryaxqxie/image/upload/v1623337463/jckg0zqclgbkitlzv9uv.jpg"/> 
+        {isLoading()}
+        {/* {coordinates.lat} */}
+        <input type='file' name='image' onChange={onChange} />
+        <LocationSearchInput onChange={(e) => setCoordinates(e.target.value)}/>
+        <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="hashtag" />
+        <input type="text" onChange={(e) => setCaption(e.target.value)} value={caption} placeholder="caption" />
+        <button onClick={onSubmit}>
+          Upload
+        </button>
+        {previewSource && (
+          <img src={previewSource} alt="chosen" style={{height: '300px'}}/>
+        )}
+     
+        <Image className="cloud_photo" cloudName="cyber_photos" publicId="https://res.cloudinary.com/dryaxqxie/image/upload/v1623337463/jckg0zqclgbkitlzv9uv.jpg"/> 
     </div>
   )
 }
-
-export default ImageUpload

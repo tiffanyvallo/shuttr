@@ -6,7 +6,7 @@ import Index from './components/Index'
 import Login from './components/Login' 
 import SignUp from './components/SignUp' 
 import Preferences from './components/Preferences'
-import ImageUpload from './components/ImageUpload/newindex' 
+import ImageUpload from './components/ImageUpload' 
 import PhotosPage from './components/photo-page'
 import Home from './pages/Home'
 
