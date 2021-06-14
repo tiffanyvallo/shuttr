@@ -91,6 +91,7 @@ export default function SignUp() {
         <br />
         <button onClick={checkValidation}>Create User</button>
       </div>
+      </div>
   )
 }
 
