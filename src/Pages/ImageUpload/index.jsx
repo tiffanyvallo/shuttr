@@ -63,7 +63,7 @@ export default function ImageUpload() {
         location,
         coordinates, 
         description
-      })
+      }).then (window.location.href = "/")
       console.log(image.data);
       setLoading(false);
       isLoading(false)
@@ -75,6 +75,7 @@ export default function ImageUpload() {
       setPreviewSource('')
     } catch (err) {
       console.error(err);
+      
     }
   };
 
