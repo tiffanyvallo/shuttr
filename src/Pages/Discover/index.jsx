@@ -41,18 +41,33 @@ function HashtagsPage() {
       <p>&nbsp;</p>
       <p>&nbsp;</p>
        <div class="grid">
-         
-        { filteredData.map((value,index) => { 
-          return (
-            <div class="discover_card" key={value.id}>
-             {value.location}
-             <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
-            </div>
+         <ul>
+            { filteredData.map((value,index) => { 
+              return (
+               <li>
+                 <a href="" class="card" key={value.id}>
+                 <Image className="card_image" cloudName="cyber_photos" publicId={value.publicId} />
+                    <div class="ccard__overlay">
+                    <div class="card__header"></div>
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>  
+                  <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />  
+                       <div class="card__header-text">
+                        <h3>{value.location}</h3>
+                        <span class="card__status">{value.hashtag}</span>
+                       </div>
+                    <p class="card_description">{value.description}</p>
+                    </div>
+            </a>
+            </li>
+          </ul>
           );
          })}
         </div>
   </div>
    );
 }
+
+
+
 
 export default HashtagsPage;
