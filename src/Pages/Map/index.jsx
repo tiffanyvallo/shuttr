@@ -12,6 +12,7 @@ function Map() {
     longitude: 0.1278,
     zoom: 10
   });
+
   return (
     <div>
        <ReactMapGL
