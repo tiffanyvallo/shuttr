@@ -20,58 +20,38 @@ export default function NavBar() {
     });
   };
   return (
-    
-
-   // ---------------------------//
-  //  <nav>      
-  //    <ul>        
-  //      {data ? (          
-  //      <li>            
-  //        <a onClick={logout}>Logout</a>          
-  //        </li>        
-  //        ) : null}
-  //       <li>          
-  //         <Link to="/">Home</Link>        
-  //         </li>
-  //       {data ? null : (          
-  //       <li>            
-  //         <Link to="/Signup">Signup</Link>          
-  //         </li>        
-  //         )}
-        
-  //       {data ? null : (          
-  //       <li>            
-  //         <Link to="/Login">Login</Link>          
-  //         </li>        
-  //         )}    
-  //           </ul>    
-  //           </nav>
-            //-----------
     <nav> 
       
          
      <Link to="/" className="index-button">
-       <li className="brand-logo">Home</li>      
+       <li className="brand-logo">Discover</li>      
       </Link>
-      {data ? null : ( 
-      <Link to="/login" className="login-button">                  
-      <li className="login">Log In</li>    
-      </Link> )} 
       {data ? null : (
-         <Link to="/signup" className="login-button">                  
-      <li className="login">Sign Up</li>    
+         <Link to="/signup" className="index-button">                  
+      <li>Sign Up</li>    
       </Link> 
       )}
+      <Link to="/profile" className="index-button">                  
+          <li>Profile</li>    
+      </Link> 
       <Link to="/Map" className="index-button">
-      <li className="map">Map</li>
+      <li>Map</li>
       </Link>  
-      <Link to="/ImageUpload" className="login-button">                 
-        <li className="login">Upload</li>    
+
+      {/* <img class="footer_logo" src={process.env.PUBLIC_URL + "dark_logo.png"} /> */}
+
+
+      <Link to="/ImageUpload" className="index-button">                 
+        <li>Upload</li>    
         </Link>   
          {data ? (  <Link to="/" onClick={logout}  className="index-button">
        <li className="brand-logo">Logout</li>      
       </Link>                
          ) : null}
+      {data ? null : ( 
+      <Link to="/login" className="login-button">             
+      <li className="login">Log In</li>     
+      </Link> )} 
         </nav>            
     )
 }

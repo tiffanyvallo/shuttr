@@ -7,7 +7,8 @@ import Login from './Pages/Login/index'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
-import NavBar from './components/Navbar/index'
+import NavBar from './components/Navbar'
+import Footer from './components/Footer'
 import ImageUpload from './Pages/ImageUpload/index' 
 import Profile from './Pages/Profile'
 
@@ -15,10 +16,10 @@ export default function App() {
   const data = useContext(UserContext);
   console.log(data)
   return (
+    <div>
     <div className="App">
       <Router>
-      <NavBar></NavBar>
-      <h1>Cyber Playground</h1>
+      <NavBar />
       <Switch>
         <Route path="/" exact component={Index}  />
         <Route path="/Login" component={Login} />
@@ -27,9 +28,10 @@ export default function App() {
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Profile" component={Profile} />
         <Route component={Error} />
-        
       </Switch>
       </Router>
+    </div>
+    <Footer />
     </div>
   );
 }

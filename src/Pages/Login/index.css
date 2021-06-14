@@ -1,0 +1,26 @@
+.login_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5em auto;
+  padding: 5em 3em;
+  max-width: 300px;
+  border-radius: 25px;
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 31%),
+  0 10px 10px rgb(255 255 255/ 9%);
+} 
+
+.login_button{
+  float: right;
+}
+
+input {
+  margin: 0 auto;
+  display: block;
+  margin: .25em;
+}
+
+button{
+  margin-top: 2em;
+} 
