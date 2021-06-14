@@ -1,9 +1,7 @@
-import React, {  useRef, useEffect, useState } from 'react';
-import {Image} from 'cloudinary-react'
+import React, { useState } from 'react';
 import axios from 'axios';
 import './index.css'
 import loadingGif from './Loading_icon.gif';
-import LocationSearchInput from '../locationsearchinput';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
@@ -21,7 +19,7 @@ export default function ImageUpload() {
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false);
   const [previewSource, setPreviewSource] = useState("")
-  const [coordinates, setCoordinates] = React.useState({
+  const [coordinates, setCoordinates] = useState({
     lat: null,
     lng: null
   });
@@ -69,7 +67,12 @@ export default function ImageUpload() {
       console.log(image.data);
       setLoading(false);
       isLoading(false)
-      setImage(image.data);
+      setImage('');
+      setCaption('')
+      setHashtag('')
+      setLocation('')
+      setDescription('')
+      setPreviewSource('')
     } catch (err) {
       console.error(err);
     }
@@ -87,7 +90,7 @@ export default function ImageUpload() {
     <div className="form_wrapper">
         <h1>Upload</h1>
         {isLoading()}
-        <input type='file' name='image' onChange={onChange} />
+        <input type='file' name='image' onChange={onChange}/>
         <PlacesAutocomplete
         value={location}
         onChange={setLocation}
@@ -129,7 +132,7 @@ export default function ImageUpload() {
         {/* <MiniMap /> */}
          </div>
 
-         {previewSource && (
+         {(previewSource) && (
           <div class="preview-image-div">
             <h3 className="preview-text">Preview:</h3>
             <img src={previewSource} alt="chosen" className="preview-image"/>
