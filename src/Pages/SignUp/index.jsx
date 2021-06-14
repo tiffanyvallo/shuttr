@@ -1,78 +1,97 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import './index.css'
 
 export default function SignUp() {
-  
-  const[usernameReg, setUsernameReg] = useState('');
-  const[passwordReg, setPasswordReg] = useState('');
-  const[emailReg, setEmailReg] = useState('');
-  const[nameReg, setNameReg] = useState('');
-  
+
+  const [usernameReg, setUsernameReg] = useState('');
+  const [passwordReg, setPasswordReg] = useState('');
+  const [emailReg, setEmailReg] = useState('');
+  const [nameReg, setNameReg] = useState('');
+  const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
+  const [isMsg, setIsMsg] = useState('');
+
   const register = () => {
-    
-      Axios.post("http://localhost:3001/signup", {
+
+    Axios.post("http://localhost:3001/signup", {
       name: nameReg,
-      username: usernameReg, 
+      username: usernameReg,
       password: passwordReg,
       email: emailReg,
-  },
-  {
-      withCredentials: true,
-   }).then((response) => {
-     console.log(response);
-     if (response.data === "User Created") {
-       window.location.href = "/login";
-     }
-   });
+    },
+      {
+        withCredentials: true,
+      }).then((response) => {
+        console.log(response);
+        if (response.data === "User Created") {
+          window.location.href = "/login";
+        }
+      });
   };
 
-
+  const checkValidation = (e) => {
+    if (passwordReg !== passwordConfirmationReg) {
+      setIsMsg("Passwords do not match")
+      console.log(isMsg)
+    }
+    else {
+      register()
+    }
+  };
 
   return (
     <div class="signup_wrapper"> 
       <h1>Sign up in here</h1>
       <label>
         <p>Name</p>
-        <input 
-          type="text" 
+        <input
+          type="text"
           onChange={(e) => {
-          setNameReg(e.target.value);
+            setNameReg(e.target.value);
           }}
-          />
+        />
       </label>
       <label>
         <p>Username</p>
-        <input 
-          type="text" 
+        <input
+          type="text"
           onChange={(e) => {
-          setUsernameReg(e.target.value);
+            setUsernameReg(e.target.value);
           }}
-          />
+        />
       </label>
       <label>
         <p>Email</p>
-        <input type="email" 
+        <input type="email"
           onChange={(e) => {
-          setEmailReg(e.target.value);
+            setEmailReg(e.target.value);
           }}
-          />
+        />
       </label>
       <label>
         <p>Password</p>
-        <input 
-          type="password" 
+        <input
+          type="password"
           onChange={(e) => {
-          setPasswordReg(e.target.value);
+            setPasswordReg(e.target.value);
           }}
-          />
+        />
       </label>
+      <label>
+        <p>Password Confirmation</p>
+        <input
+          type="password"
+          onChange={(e) => {
+            setPasswordConfirmationReg(e.target.value);
+          }}
+        />
+      </label>
+      {isMsg}
       <div>
         <br />
-        <button  onClick={register}>Create User</button>
+        <button onClick={checkValidation}>Create User</button>
       </div>
-    </div>
-    )
+  )
 }
 
- 
+
