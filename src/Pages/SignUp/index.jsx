@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import './index.css'
 
 export default function SignUp() {
 
@@ -39,7 +40,7 @@ export default function SignUp() {
   };
 
   return (
-    <div>
+    <div class="signup_wrapper"> 
       <h1>Sign up in here</h1>
       <label>
         <p>Name</p>
@@ -90,7 +91,6 @@ export default function SignUp() {
         <br />
         <button onClick={checkValidation}>Create User</button>
       </div>
-    </div>
   )
 }
 

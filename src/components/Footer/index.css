@@ -1,36 +1,36 @@
-nav{
+footer{
   display: inline-block;
   background-color: var(--header-bg-colour);
   width: 100vw;
-  height: 9vh;
+  height: 6vh;
+  padding: 2em 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  justify-content: center;
+  margin-top : auto;
 }
 
-nav li{
+footer li{
   display: block;
   color: var(--link-text);
   padding: 2em;
   text-decoration: none;
 }
 
-nav li a {
+footer li a {
   text-decoration: none;
 }
 
-nav li:hover{
+footer li:hover{
   background-color: rgb(27, 86, 87);
   color: #a7feff;
 }
 
-.login{
-  color: var(--header-bg-colour);
-  background-color: var(--link-text);
-  padding: 1em 3em;
-  margin-right: 1em;
-  display: inline;
-  border-radius: 25px;
-  height: 20px;
+.footer_logo{
+  width: 50px;
+} 
+
+footer p{
+  color: #30c4ba;
 }

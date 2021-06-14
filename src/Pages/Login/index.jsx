@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Axios from "axios";
+import './index.css'
 
 
 export default function Login() {
@@ -23,7 +24,7 @@ export default function Login() {
   };
   
   return (
-    <div>
+    <div class="login_wrapper">
       <h1>Log in here</h1>
       
       <label>
@@ -46,7 +47,7 @@ export default function Login() {
           }} />
       </label>
       <div>
-        <button type="submit" onClick={login}>LogIn</button>
+        <button type="submit" onClick={login}>Log In</button>
       </div>
     </div>
     )
