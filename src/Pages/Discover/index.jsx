@@ -14,7 +14,7 @@ function HashtagsPage() {
     console.log(value);
     result = allData.filter((data) => {
       
-      return data.hashtag.search(value) !== -1;
+      return data.location.search(value) !== -1;
     });
     setFilteredData(result);
   };
@@ -30,27 +30,22 @@ function HashtagsPage() {
         console.log("Error getting data: " + error);
       });
   }, []);
-  const styles = {
-    // display: "inline",
-    width: "30%",
-    // height: 50,
-    float: "left",
-    padding: 5,
-    border: "0.5px solid black",
-    marginBottom: 10,
-    marginRight: 10,
-  };
+ 
   return (
-    <div className="App">
-      <div style={{ margin: "0 auto", marginTop: "10%" }}>
-        <label>Search:</label>
-        <input type="text" onChange={(event) => searchTag(event)} />
+    <div className="discover_wrapper">
+      <div class="discover_container">
+        <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+          <div class="search"></div>
       </div>
-       <div style={{ padding: 10 }}>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+       <div class="grid">
+         
         { filteredData.map((value,index) => { 
           return (
-            <div style={styles} key={value.id}>
-             {value.hashtag}
+            <div class="discover_card" key={value.id}>
+             {value.location}
              <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
             </div>
           );

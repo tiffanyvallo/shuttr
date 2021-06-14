@@ -1,15 +1,16 @@
 import './App.css';
 import React from "react";
 import Index from './Pages/Index' 
-import SignUp from './Pages/SignUp/index'
+import SignUp from './Pages/SignUp'
 import Map from './Pages/Map'
-import Login from './Pages/Login/index' 
+import Login from './Pages/Login' 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
-import NavBar from './components/Navbar/index'
-import ImageUpload from './Pages/ImageUpload/newindex' 
+import NavBar from './components/Navbar'
+import ImageUpload from './Pages/ImageUpload' 
 import Profile from './Pages/Profile'
+import Discover from './Pages/Discover'
 
 export default function App() {
   const data = useContext(UserContext);
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/Map" component={Map} />
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Profile" component={Profile} />
+        <Route path="/Discover" component={Discover} />
         <Route component={Error} />
         
       </Switch>

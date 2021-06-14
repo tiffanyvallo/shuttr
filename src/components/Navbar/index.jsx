@@ -65,6 +65,9 @@ export default function NavBar() {
       <Link to="/Map" className="index-button">
       <li className="map">Map</li>
       </Link>  
+      <Link to="/Discover" className="index-button">
+      <li className="discover">Discover</li>
+      </Link>  
       <Link to="/ImageUpload" className="login-button">                 
         <li className="login">Upload</li>    
         </Link>   
