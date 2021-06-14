@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {useContext} from 'react'
 import {UserContext} from './Contexts/UserContext'
 import NavBar from './components/Navbar/index'
-import ImageUpload from './Pages/ImageUpload/newindex' 
+import ImageUpload from './Pages/ImageUpload/index' 
 import Profile from './Pages/Profile'
 
 export default function App() {
