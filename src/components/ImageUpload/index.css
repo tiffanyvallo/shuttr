@@ -10,6 +10,14 @@
   border-radius: 25px;
 }
 
+.preview-image-div{
+  border-radius: 25px;
+  max-width: 500px;
+  margin: 1em auto;
+  padding: 3em;
+  background-color: rgb(233, 170, 60);
+}
+
 .preview-image{
   width: 200px;
   height: 150px;

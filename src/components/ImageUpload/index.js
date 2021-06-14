@@ -83,6 +83,7 @@ export default function ImageUpload() {
   };
 
   return(
+    <div>
     <div className="form_wrapper">
         <h1>Upload</h1>
         {isLoading()}
@@ -124,13 +125,16 @@ export default function ImageUpload() {
         <button onClick={onSubmit}>
           Upload
         </button>
-        {previewSource && (
-          <div>
-          <p className="preview-text">Preview:</p>
-          <img src={previewSource} alt="chosen" className="preview-image"/>
+
+        {/* <MiniMap /> */}
+         </div>
+
+         {previewSource && (
+          <div class="preview-image-div">
+            <h3 className="preview-text">Preview:</h3>
+            <img src={previewSource} alt="chosen" className="preview-image"/>
           </div>
         )}
-        {/* <MiniMap /> */}
          </div>
   )
 }
