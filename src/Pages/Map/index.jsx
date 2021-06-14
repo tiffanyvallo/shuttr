@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import ReactMapGL, {Marker} from 'react-map-gl';
+import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import {Room} from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 
@@ -28,6 +28,19 @@ function Map() {
         <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}/>
         
       </Marker>
+
+      {/* <Popup
+          latitude={51.50930532431084}
+          longitude={-0.12829965320115588}
+          closeButton={true}
+          closeOnClick={true}
+          sortByDepth={true}
+          anchor="bottom" >
+            
+          <div className="card">
+            <h4 className="place">London</h4>
+          </div>
+        </Popup> */}
       
     </ReactMapGL>
     </div>
