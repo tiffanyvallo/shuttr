@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <h1>Cyber Playground</h1>
       <Switch>
         <Route path="/" component={Index} exact />
         <Route path="/Home" component={Home} />

@@ -18,6 +18,7 @@ export default function ImageUpload() {
   const [hashtag, setHashtag] = useState("");
   const [location, setLocation] = useState("");
   const [caption, setCaption] = useState("");
+  const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false);
   const [previewSource, setPreviewSource] = useState("")
   const [coordinates, setCoordinates] = React.useState({
@@ -42,10 +43,8 @@ export default function ImageUpload() {
 
   function isLoading(){
     if (loading == true) {
-      return <img style={{width: 50}}src={loadingGif}/>
-    } else if (loading == false) {
-      return <p>Not Uploading</p>
-    }
+      return <div><h4>Uploading</h4><img style={{width: 100}}src={loadingGif}/></div>
+    } 
   }
   
 
@@ -64,7 +63,8 @@ export default function ImageUpload() {
         hashtag, 
         caption, 
         location,
-        coordinates
+        coordinates, 
+        description
       })
       console.log(image.data);
       setLoading(false);
@@ -84,6 +84,7 @@ export default function ImageUpload() {
 
   return(
     <div className="form_wrapper">
+        <h1>Upload</h1>
         {isLoading()}
         <input type='file' name='image' onChange={onChange} />
         <PlacesAutocomplete
@@ -117,17 +118,19 @@ export default function ImageUpload() {
           </div>
         )}
       </PlacesAutocomplete>
-        <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="hashtag" />
+        <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="#hashtag" />
         <input type="text" onChange={(e) => setCaption(e.target.value)} value={caption} placeholder="caption" />
+        <input type="text" onChange={(e) => setDescription(e.target.value)} value={description} placeholder="description" />
         <button onClick={onSubmit}>
           Upload
         </button>
         {previewSource && (
-          <img src={previewSource} alt="chosen" style={{height: '300px'}}/>
+          <div>
+          <p className="preview-text">Preview:</p>
+          <img src={previewSource} alt="chosen" className="preview-image"/>
+          </div>
         )}
-        <MiniMap />
-     
-        <Image className="cloud_photo" cloudName="cyber_photos" publicId="https://res.cloudinary.com/dryaxqxie/image/upload/v1623337463/jckg0zqclgbkitlzv9uv.jpg"/> 
-    </div>
+        {/* <MiniMap /> */}
+         </div>
   )
 }

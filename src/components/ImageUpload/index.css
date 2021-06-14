@@ -3,8 +3,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 500px;
+  margin: 5em auto;
+  padding: 3em;
+  background-color: rgb(233, 170, 60);
+  border-radius: 25px;
+}
+
+.preview-image{
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.preview-text{
+  margin-top: 2em;
 }
 
 input {
