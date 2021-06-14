@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import  Photo  from '../Photo';
+import  Photo  from '../../components/Photo';
 
 const PhotosList = () => {
   // const [photos] = usePhotos();

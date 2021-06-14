@@ -1,5 +1,5 @@
 import React from "react"
-import HashtagsPage from "../../Pages/hashtags-page";
+import HashtagsPage from "../hashtags-page";
 
 export default function Index() {
   return (
