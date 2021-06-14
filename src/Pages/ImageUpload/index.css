@@ -6,7 +6,8 @@
   max-width: 500px;
   margin: 5em auto;
   padding: 3em;
-  background-color: rgb(233, 170, 60);
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 30%),
+  0 10px 10px rgba(255, 255, 255, 0.2);
   border-radius: 25px;
 }
 
@@ -15,7 +16,8 @@
   max-width: 500px;
   margin: 1em auto;
   padding: 3em;
-  background-color: rgb(233, 170, 60);
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 30%),
+  0 10px 10px rgba(255, 255, 255, 0.2);
 }
 
 .preview-image{

@@ -1,0 +1,26 @@
+.signup_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5em auto;
+  padding: 5em 3em;
+  max-width: 400px;
+  border-radius: 25px;
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 30%),
+  0 10px 10px rgba(255, 255, 255, 0.2);
+} 
+
+.login_button{
+  float: right;
+}
+
+input {
+  margin: 0 auto;
+  display: block;
+  margin: .25em;
+}
+
+button{
+  margin-top: 2em;
+} 
