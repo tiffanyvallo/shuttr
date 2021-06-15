@@ -32,13 +32,12 @@ export default function NavBar() {
       <Link to="/Map" className="index-button">
       <li>Map</li>
       </Link>  
+      <Link to="/Discover" className="index-button">
+      <li className="discover">Discover</li>
+      </Link>  
       <Link to="/Inspiration" className="index-button">
       <li>Inspiration</li>
       </Link>  
-
-      {/* <img class="footer_logo" src={process.env.PUBLIC_URL + "dark_logo.png"} /> */}
-
-
       <Link to="/ImageUpload" className="index-button">                 
         <li>Upload</li>    
         </Link>   
