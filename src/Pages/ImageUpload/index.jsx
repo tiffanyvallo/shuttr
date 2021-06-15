@@ -77,14 +77,7 @@ export default function ImageUpload() {
       console.error(err);
       
     }
-  };
-  const getUser = () => {
-    axios({     
-      method: "GET",      
-           
-     url: "http://localhost:3001/user",    
-    })  
-  }   
+  }; 
 
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
@@ -95,7 +88,6 @@ export default function ImageUpload() {
 
   return(
     <div>
-       <button type="submit" onClick={getUser}>getuser</button>
     <div className="form_wrapper">
         <h1>Upload</h1>
         {isLoading()}
