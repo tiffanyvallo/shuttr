@@ -56,7 +56,7 @@ function Map() {
     >   
 
         <div>
-        { allData.map((value,index) => { 
+        { allData.map(value => {
           return (
             <div key={value.id}>
              
@@ -67,11 +67,11 @@ function Map() {
                 offsetTop={-10}>
 
                 <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}
-                onClick={()=>handleMarkerClick(value.id)}
+                onClick={()=>handleMarkerClick(value._id)}
                 />
         
               </Marker>
-              {value.id === currentPlaceId && (
+              {value._id === currentPlaceId && (
 
               <Popup
                 latitude={(value.coordinates || {lat: 0}).lat}
@@ -89,8 +89,8 @@ function Map() {
               </Popup>
               )}
             </div>
-          );
-         })}
+            );
+          })}
         </div>
       
     </ReactMapGL>
