@@ -26,11 +26,6 @@ export default function NavBar() {
      <Link to="/" className="index-button">
        <li className="brand-logo">Discover</li>      
       </Link>
-      {data ? null : (
-         <Link to="/signup" className="index-button">                  
-      <li>Sign Up</li>    
-      </Link> 
-      )}
       <Link to="/profile" className="index-button">                  
           <li>Profile</li>    
       </Link> 
