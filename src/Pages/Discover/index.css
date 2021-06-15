@@ -112,9 +112,3 @@
   opacity: 0.5;
   font-weight: bolder;
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-  grid-auto-rows: minmax(50px, auto);
-}

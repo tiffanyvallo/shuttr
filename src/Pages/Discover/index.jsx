@@ -1,12 +1,22 @@
 import "./index.css";
 
-import React, { useState, useEffect } from "react";
+import * as React from 'react';
+import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-function HashtagsPage() {
+
+export default function TitlebarGridList() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  
 
   const searchTag = (event) => {
     let value = event.target.value.toLowerCase();
@@ -30,44 +40,57 @@ function HashtagsPage() {
         console.log("Error getting data: " + error);
       });
   }, []);
- 
-  return (
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+    },
+    gridList: {
+      width: 500,
+      height: 450,
+    },
+    icon: {
+      color: 'rgba(255, 255, 255, 0.54)',
+    },
+  }));
+
+  const classes = useStyles();
+  return(
     <div className="discover_wrapper">
-      <div class="discover_container">
-        <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
-          <div class="search"></div>
-      </div>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-       <div class="grid">
-         <ul>
-            { filteredData.map((value,index) => { 
-              return (
-               <li>
-                 <a href="" class="card" key={value.id}>
-                 <Image className="card_image" cloudName="cyber_photos" publicId={value.publicId} />
-                    <div class="ccard__overlay">
-                    <div class="card__header"></div>
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>  
-                  <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />  
-                       <div class="card__header-text">
-                        <h3>{value.location}</h3>
-                        <span class="card__status">{value.hashtag}</span>
-                       </div>
-                    <p class="card_description">{value.description}</p>
-                    </div>
-            </a>
-            </li>
-          </ul>
-          );
-         })}
-        </div>
-  </div>
-   );
+       <div class="discover_container">
+         <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+           <div class="search"></div>
+       </div>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+
+    <div className={classes.root}>
+      <GridList cellHeight={180} className={classes.gridList}>
+        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
+        </GridListTile>
+        { filteredData.map((value,index) => (
+          <GridListTile key={value.id}>
+            <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+            <GridListTileBar
+            title={value.location}
+            actionIcon={
+              <IconButton aria-label={`star`} className={classes.icon}>
+              <StarBorderIcon />
+            </IconButton>
+            }
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+
+    </div>
+    </div>
+  )
 }
 
 
-
-
-export default HashtagsPage;
