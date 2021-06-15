@@ -51,10 +51,7 @@ export default function TitlebarGridList() {
       backgroundColor: theme.palette.background.card,
       
     },
-    gridList: {
-      width: 1000,
-      height: 450,
-    },
+    
     icon: {
       color: 'rgba(255, 255, 255, 0.54)',
     },
@@ -72,8 +69,8 @@ export default function TitlebarGridList() {
        <p>&nbsp;</p>
 
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
+      <GridList cellHeight={180} class="GridList">
+        <GridListTile key="Subheader" cols={3} >
         </GridListTile>
         { filteredData.map((value,index) => (
           <GridListTile key={value.id}>
