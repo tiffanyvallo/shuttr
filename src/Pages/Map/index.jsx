@@ -53,33 +53,23 @@ function Map() {
                 <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}/>
         
               </Marker>
+              <Popup
+                latitude={(value.coordinates || {lat: 0}).lat}
+                longitude={(value.coordinates || {lng: 0}).lng}
+                closeButton={true}
+                closeOnClick={true}
+                sortByDepth={true}
+                anchor="bottom" >
+                  
+                <div className="card">
+                  <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+                </div>
+              </Popup>
              {/* <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} /> */}
             </div>
           );
          })}
         </div>
-
-      <Marker latitude={51.50930532431084}
-              longitude={-0.12829965320115588}
-              offsetLeft={-20} 
-              offsetTop={-10}>
-
-        <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}/>
-        
-      </Marker>
-
-      {/* <Popup
-          latitude={51.50930532431084}
-          longitude={-0.12829965320115588}
-          closeButton={true}
-          closeOnClick={true}
-          sortByDepth={true}
-          anchor="bottom" >
-            
-          <div className="card">
-            <h4 className="place">London</h4>
-          </div>
-        </Popup> */}
       
     </ReactMapGL>
     </div>
