@@ -32,8 +32,11 @@
     "react-places-autocomplete": "^7.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
+    "react-video-cover": "^1.2.2",
+    "redux": "^4.1.0",
     "sequelize": "^6.6.2",
     "use-places-autocomplete": "^1.9.3",
+    "video-react": "^0.14.1",
     "web-vitals": "^1.0.1"
   },
   "proxy": "http://localhost:3001",

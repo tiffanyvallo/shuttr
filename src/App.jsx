@@ -10,6 +10,7 @@ import {UserContext} from './Contexts/UserContext'
 import NavBar from './components/Navbar'
 import ImageUpload from './Pages/ImageUpload' 
 import Profile from './Pages/Profile'
+import Home from './Pages/Home'
 import Discover from './Pages/Discover'
 import Footer from './components/Footer'
 import Inspiration from './Pages/Inspiration'
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Inspiration" component={Inspiration} />
         <Route path="/Profile" component={Profile} />
+        <Route path="/Home" component={Home} />
         <Route path="/Discover" component={Discover} />
         <Route component={Error} />
       </Switch>
