@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import './index.css'
+import drone from './drone_london.mp4';
 
 import {
   Player,
@@ -9,7 +10,12 @@ import {
 export default function Home() {
   return (
     <div class="home-wrapper">
-      <div class="fullscrenvideo"></div>
+      <div class="fullscrenvideo">
+      <div class="overlay"><h1 id="main-logo">Shuttr</h1></div>
+      <video className='videoTag' autoPlay loop muted>
+            <source src={drone} type='video/mp4' />
+      </video>
+      </div>
       <div class="cta-wrapper"></div>
       <div class="grid">
         <div class="grid-left"></div>

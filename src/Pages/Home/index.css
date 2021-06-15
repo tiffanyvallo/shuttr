@@ -1,18 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .home-wrapper{
   display: flex;
   flex-direction: column;
 }
 
 .fullscrenvideo{
-  background-color: red;
+  background-color: black;
   width: 100vw;
+  position:relative; 
   height: 80vh;
+}
+
+.fullscrenvideo video {
+    position:relative;
+    z-index:0;
+}
+.overlay {
+    position:absolute;  
+    z-index:1;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#main-logo{
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 .cta-wrapper{
   background-color: green;
   width: 100vw;
   height: 500px;
+  background: url('./alley.jpg');
+  background-size: 100%;
+  filter: brightness(50%);
 }
 
 .grid{
@@ -22,13 +46,18 @@
 
 .grid-left{
   height: 500px;
-  background-color: red;
+  background: url('./london2.jpg');
+  background-size: 100%;
+  filter: brightness(70%);
 }
 
 .grid-right{
   height: 500px;
-  background-color: pink;
+  background: url('./londonpub.jpg');
+  filter: brightness(70%);
+  background-size: 100%;
 }
+
 
 
 
