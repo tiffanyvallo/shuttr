@@ -1,0 +1,34 @@
+.home-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscrenvideo{
+  background-color: red;
+  width: 100vw;
+  height: 80vh;
+}
+
+.cta-wrapper{
+  background-color: green;
+  width: 100vw;
+  height: 500px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-left{
+  height: 500px;
+  background-color: red;
+}
+
+.grid-right{
+  height: 500px;
+  background-color: pink;
+}
+
+
+

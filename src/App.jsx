@@ -11,6 +11,7 @@ import NavBar from './components/Navbar'
 import Footer from './components/Footer'
 import ImageUpload from './Pages/ImageUpload/index' 
 import Profile from './Pages/Profile'
+import Home from './Pages/Home'
 import Inspiration from './Pages/Inspiration'
 
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Inspiration" component={Inspiration} />
         <Route path="/Profile" component={Profile} />
+        <Route path="/Home" component={Home} />
         <Route component={Error} />
       </Switch>
       </Router>
