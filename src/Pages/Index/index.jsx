@@ -1,10 +1,9 @@
 import React from "react"
-import HashtagsPage from "../hashtags-page";
 
 export default function Index() {
   return (
     <div>
-<HashtagsPage />
+HOMEPAGE - VIDEO BANNER AND ABOUT AND SIGN IN BUTTON HERE
 </div>
   )
 
