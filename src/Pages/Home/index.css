@@ -44,6 +44,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.grid p {
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
 .grid-left{
   height: 500px;
   background: url('./london2.jpg');
