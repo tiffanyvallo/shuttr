@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { Room } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
@@ -8,8 +7,9 @@ import {Image} from 'cloudinary-react';
 
 
 function Map() {
-
+  const [photos,setPhotos] = useState([]);
   const [allData, setAllData] = useState([]);
+  const [currentPlaceId, setCurrentPlaceId] = useState(null);
 
   useEffect(() => {
     axios("http://localhost:3001/photos")
@@ -21,6 +21,22 @@ function Map() {
         console.log("Error getting data: " + error);
       });
   }, []);
+
+  // useEffect(() => {
+  //   const getPhotos = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:3001/photos");
+  //       setPhotos(res.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getPhotos()
+  // }, []);
+
+  const handleMarkerClick = (id) => {
+    setCurrentPlaceId(id)
+  }
 
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -50,22 +66,28 @@ function Map() {
                 offsetLeft={-20} 
                 offsetTop={-10}>
 
-                <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}/>
+                <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}
+                onClick={()=>handleMarkerClick(value.id)}
+                />
         
               </Marker>
+              {value.id === currentPlaceId && (
+
               <Popup
                 latitude={(value.coordinates || {lat: 0}).lat}
                 longitude={(value.coordinates || {lng: 0}).lng}
                 closeButton={true}
-                closeOnClick={true}
+                closeOnClick={false}
                 sortByDepth={true}
-                anchor="bottom" >
+                anchor="bottom" 
+                onClose={()=>setCurrentPlaceId(null)}
+                >
                   
                 <div className="card">
                   <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
                 </div>
               </Popup>
-             {/* <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} /> */}
+              )}
             </div>
           );
          })}
