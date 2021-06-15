@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
@@ -19,7 +18,9 @@ export default function TitlebarGridList() {
   
 
   const searchTag = (event) => {
-    let value = event.target.value.toLowerCase();
+    
+    let userInput = event.target.value;
+    let value = userInput.charAt(0).toUpperCase() + userInput.slice(1);
     let result = [];
     console.log(value);
     result = allData.filter((data) => {
@@ -47,10 +48,11 @@ export default function TitlebarGridList() {
       flexWrap: 'wrap',
       justifyContent: 'space-around',
       overflow: 'hidden',
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.card,
+      
     },
     gridList: {
-      width: 500,
+      width: 1000,
       height: 450,
     },
     icon: {
