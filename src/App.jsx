@@ -1,6 +1,5 @@
 import './App.css';
 import React from "react";
-import Index from './Pages/Index' 
 import SignUp from './Pages/SignUp'
 import Map from './Pages/Map'
 import Login from './Pages/Login' 
@@ -24,14 +23,13 @@ export default function App() {
       <Router>
       <NavBar />
       <Switch>
-        <Route path="/" exact component={Index}  />
+        <Route path="/" exact component={Home}  />
         <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
         <Route path="/Map" component={Map} />
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Inspiration" component={Inspiration} />
         <Route path="/Profile" component={Profile} />
-        <Route path="/Home" component={Home} />
         <Route path="/Discover" component={Discover} />
         <Route component={Error} />
       </Switch>

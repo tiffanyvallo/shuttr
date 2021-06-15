@@ -42,50 +42,47 @@ export default function SignUp() {
   return (
     <div class="signup_wrapper"> 
       <h1>Sign up in here</h1>
-      <label>
-        <p>Name</p>
+      
         <input
+        placeholder = "Name"
           type="text"
           onChange={(e) => {
             setNameReg(e.target.value);
           }}
         />
-      </label>
-      <label>
-        <p>Username</p>
+     
+    
         <input
+        placeholder="Username"
           type="text"
           onChange={(e) => {
             setUsernameReg(e.target.value);
           }}
         />
-      </label>
-      <label>
-        <p>Email</p>
+     
         <input type="email"
+        placeholder="Email"
           onChange={(e) => {
             setEmailReg(e.target.value);
           }}
         />
-      </label>
-      <label>
-        <p>Password</p>
+     
         <input
+        placeholder="Password"
           type="password"
           onChange={(e) => {
             setPasswordReg(e.target.value);
           }}
         />
-      </label>
-      <label>
-        <p>Password Confirmation</p>
+    
         <input
+        placeholder="Password Confirmation"
           type="password"
           onChange={(e) => {
             setPasswordConfirmationReg(e.target.value);
           }}
         />
-      </label>
+     
       {isMsg}
       <div>
         <br />
