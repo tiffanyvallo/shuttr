@@ -169,12 +169,6 @@ export default function ButtonBases() {
         </ButtonBase>
       ))}
     </div>
-    {/* <div>
-    <Button color="primary" component={RouterLink} to="/">
-      With prop forwarding
-    </Button>
-    </div> */}
-
     </div>
   );
 }
