@@ -49,9 +49,14 @@ input {
   grid-template-columns: 300px 1fr 1fr 300px;
 }
 
-.minimap_wrapper{
+.map_card{
   justify-self: center;
   margin: 15em auto;
   background-color: black;
   color: white;
+}
+
+
+.minimap_wrapper{
+
   }

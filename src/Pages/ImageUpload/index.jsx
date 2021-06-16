@@ -141,9 +141,11 @@ export default function ImageUpload() {
           </div>
         )}
          </div>
-         <div class="minimap_wrapper">
+          <div class="map_card">
          <h2>Preview</h2>
+         <div class="minimap_wrapper">
            <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
+           </div>
            </div>
          </div>
   )
