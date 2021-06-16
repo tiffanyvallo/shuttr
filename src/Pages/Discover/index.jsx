@@ -46,21 +46,28 @@ export default function TitlebarGridList() {
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-around',
+      justifyContent: 'space-evenly',
+      alignItems: 'stretch',
       overflow: 'hidden',
       backgroundColor: theme.palette.background.card,
-      
+      padding: 0,
     },
     gridList: {
-      width: 1000,
+      width: '95%',
       height: 450,
+      transform: 'translateZ(0)',
+    },
+    titleBar: {
+      background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
+      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
     },
     icon: {
-      color: 'rgba(255, 255, 255, 0.54)',
+      color: '#d9b08c',
     },
   }));
 
-  const classes = useStyles();
+
   return(
     <div className="discover_wrapper">
        <div class="discover_container">
@@ -69,27 +76,34 @@ export default function TitlebarGridList() {
        </div>
        <p>&nbsp;</p>
        <p>&nbsp;</p>
-       <p>&nbsp;</p>
-
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-        </GridListTile>
+       <div class="container">
+    
         { filteredData.map((value,index) => (
-          <GridListTile key={value.id}>
-            <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
-            <GridListTileBar
-            title={value.location}
-            actionIcon={
+          <div class="card">
+            <div class="face1">
+            <div class="content" key={value.id}>
+            <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+          </div>
+          </div>
+          <div class="face2">
+            <div class="content">
+         <p>{value.hashtag}</p> 
+          <a href="/profile">More Info</a>
+          {/* actionIcon={
               <IconButton aria-label={`star`} className={classes.icon}>
+                {/* {need to add a onClick={() => savedPhoto()}} }
               <StarBorderIcon />
             </IconButton>
-            }
-            />
-          </GridListTile>
+            } */}
+            <button>Save</button>
+          </div>
+          </div>
+           
+          </div>
         ))}
-      </GridList>
+     
 
+    
     </div>
     </div>
   )
