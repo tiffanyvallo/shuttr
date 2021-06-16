@@ -12,16 +12,18 @@ export default function SignUp() {
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
   const [isMsg, setIsMsg] = useState('');
   const [newMsg, setNewMsg] = useState('');
+  const [emailMsg, setEmailMsg] = useState('');
   const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+  const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
   let newMsgTimeoutHandle = 0;
   const passwordCriteria = ["Password does not meet criteria:",
-  "\n• Must be over 8 characters long",
-  "\n• Must include numbers and letters", 
-  "\n• Must include at least 1 upper and lower case letter",
-  "\n• Must include 1 special character e.g. '!@#$%^&*'"];
+    "\n• Must be over 8 characters long",
+    "\n• Must include numbers and letters",
+    "\n• Must include at least 1 upper and lower case letter",
+    "\n• Must include 1 special character e.g. '!@#$%^&*'"];
   let newText = passwordCriteria.join('').split('\n').map(i => {
     return <p>{i}</p>
-});
+  });
 
 
   const componentWillUnmount = () => {
@@ -47,14 +49,21 @@ export default function SignUp() {
   };
 
   const checkValidation = (e) => {
-    if (!strongRegex.test(passwordReg)) {
+    if (!emailRegex.test(emailReg)) {
+      setEmailMsg("Not a valid email address")
+      clearTimeout(newMsgTimeoutHandle);
+      newMsgTimeoutHandle = setTimeout(() => {
+        setEmailMsg("")
+        newMsgTimeoutHandle = 0;
+      }, 6500)
+    }
+    else if (!strongRegex.test(passwordReg)) {
       setNewMsg(newText)
       clearTimeout(newMsgTimeoutHandle);
       newMsgTimeoutHandle = setTimeout(() => {
         setNewMsg("")
         newMsgTimeoutHandle = 0;
-      }, 8000)
-      console.log(newMsg)
+      }, 6500)
     }
     else if (passwordReg !== passwordConfirmationReg) {
       setIsMsg("Passwords do not match")
@@ -62,12 +71,9 @@ export default function SignUp() {
       newMsgTimeoutHandle = setTimeout(() => {
         setIsMsg("")
         newMsgTimeoutHandle = 0;
-      }, 3000)
-      console.log(isMsg)
+      }, 6500)
     }
     else {
-      setNewMsg("")
-      setIsMsg("")
       register()
     }
   };
@@ -100,6 +106,8 @@ export default function SignUp() {
             setEmailReg(e.target.value);
           }}
         />
+        <br />
+        {emailMsg}
       </label>
       <label>
         <p>Password</p>
