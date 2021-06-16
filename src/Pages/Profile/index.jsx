@@ -14,20 +14,8 @@ function Profile() {
 const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   
-
-  const searchTag = (event) => {
-    
-    let userInput = event.target.value;
-    let value = userInput.charAt(0).toUpperCase() + userInput.slice(1);
-    let result = [];
-    console.log(value);
-    result = allData.filter((data) => {
-      
-      return data.location.search(value) !== -1;
-    });
-    setFilteredData(result);
-  };
-
+const user = data.username
+  
   useEffect(() => {
     axios("http://localhost:3001/photos")
       .then((response) => {
@@ -39,6 +27,8 @@ const [allData, setAllData] = useState([]);
         console.log("Error getting data: " + error);
       });
   }, []);
+
+  const pics = filteredData.filter(picture => picture.author === data.username)
 
 //----------------------------------------------------------
   
@@ -54,7 +44,15 @@ const [allData, setAllData] = useState([]);
       <small>London, UK</small>
       </div>
       </div>
-      <div class="userposts"><p>To put all the posts in here</p></div>
+      <div class="userposts"><p></p></div>
+      { pics.map((value,index) => (
+          <div key={value.author}>
+            <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+            {/* if=> value.author === data.username => diplay, else, dont */}
+            {value.location}
+           
+          </div>
+        ))}
     </div>
    );
 }
