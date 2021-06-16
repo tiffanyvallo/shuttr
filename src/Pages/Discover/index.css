@@ -171,13 +171,13 @@ transform: translateY(0);
   height: 100px;
   transition: 0.5s;
   position: relative;
-  background: rgb(255, 255, 255);
+  background: #116466;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  box-shadow: 0 20px 50px #2c3531;
   transform: translateY(-100px);
 }
 .container .card:hover .face2{
@@ -198,9 +198,9 @@ margin: 15px 0 0;
 display: inline-block;
 text-decoration: none;
 font-weight: 900;
-color: #2c3531;
+color: #333;
 padding: 5px;
-border: 1px solid #2c3531;
+border: 1px solid #333;
 }
 .container .card .face .face2 .content a:hover{
   background: #333;
