@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import './index.css'
+import './index.css';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 export default function SignUp() {
 
@@ -10,6 +11,22 @@ export default function SignUp() {
   const [nameReg, setNameReg] = useState('');
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
   const [isMsg, setIsMsg] = useState('');
+  const [newMsg, setNewMsg] = useState('');
+  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+  let newMsgTimeoutHandle = 0;
+  const passwordCriteria = ["Password does not meet criteria:",
+  "\n• Must be over 8 characters long",
+  "\n• Must include numbers and letters", 
+  "\n• Must include at least 1 upper and lower case letter",
+  "\n• Must include 1 special character e.g. '!@#$%^&*'"];
+  let newText = passwordCriteria.join('').split('\n').map(i => {
+    return <p>{i}</p>
+});
+
+
+  const componentWillUnmount = () => {
+    clearTimeout(newMsgTimeoutHandle);
+  }
 
   const register = () => {
 
@@ -30,17 +47,33 @@ export default function SignUp() {
   };
 
   const checkValidation = (e) => {
-    if (passwordReg !== passwordConfirmationReg) {
+    if (!strongRegex.test(passwordReg)) {
+      setNewMsg(newText)
+      clearTimeout(newMsgTimeoutHandle);
+      newMsgTimeoutHandle = setTimeout(() => {
+        setNewMsg("")
+        newMsgTimeoutHandle = 0;
+      }, 8000)
+      console.log(newMsg)
+    }
+    else if (passwordReg !== passwordConfirmationReg) {
       setIsMsg("Passwords do not match")
+      clearTimeout(newMsgTimeoutHandle);
+      newMsgTimeoutHandle = setTimeout(() => {
+        setIsMsg("")
+        newMsgTimeoutHandle = 0;
+      }, 3000)
       console.log(isMsg)
     }
     else {
+      setNewMsg("")
+      setIsMsg("")
       register()
     }
   };
 
   return (
-    <div class="signup_wrapper"> 
+    <div class="signup_wrapper">
       <h1>Sign up in here</h1>
       <label>
         <p>Name</p>
@@ -76,6 +109,8 @@ export default function SignUp() {
             setPasswordReg(e.target.value);
           }}
         />
+        <br />
+        <PasswordStrengthBar password={passwordReg} />
       </label>
       <label>
         <p>Password Confirmation</p>
@@ -86,12 +121,15 @@ export default function SignUp() {
           }}
         />
       </label>
+      <br />
       {isMsg}
+      <br />
+      {newMsg}
       <div>
         <br />
         <button onClick={checkValidation}>Create User</button>
       </div>
-      </div>
+    </div>
   )
 }
 
