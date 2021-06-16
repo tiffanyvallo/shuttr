@@ -1,0 +1,26 @@
+.location_wrapper{
+  margin-top: 3em;
+  display: grid;
+   grid-template-columns: 100px 1fr 1fr 100px;
+  grid-template-rows: 400px 200px;
+}
+
+.location_photo{
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: red;
+}
+
+.location_map{
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  background-color: pink;
+
+}
+
+.location_info{
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+  background-color: green;
+
+}

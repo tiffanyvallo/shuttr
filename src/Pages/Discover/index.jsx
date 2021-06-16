@@ -10,6 +10,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Location from '../Location/'
 
 
 export default function TitlebarGridList() {
@@ -89,6 +90,9 @@ export default function TitlebarGridList() {
             <div class="content">
          <p>{value.hashtag}</p> 
           <a href="/profile">More Info</a>
+          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/>
+
+
           {/* actionIcon={
               <IconButton aria-label={`star`} className={classes.icon}>
                 {/* {need to add a onClick={() => savedPhoto()}} }

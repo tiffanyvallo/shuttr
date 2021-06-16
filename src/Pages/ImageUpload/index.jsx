@@ -6,7 +6,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
-import MiniMap from '../../components/MiniMap';
+// import MiniMap from '../../components/MiniMap';
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';

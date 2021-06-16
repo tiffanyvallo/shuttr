@@ -12,6 +12,7 @@ import Profile from './Pages/Profile'
 import Home from './Pages/Home'
 import Discover from './Pages/Discover'
 import Footer from './components/Footer'
+import Location from './components/Location'
 import Inspiration from './Pages/Inspiration'
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/Inspiration" component={Inspiration} />
         <Route path="/Profile" component={Profile} />
         <Route path="/Discover" component={Discover} />
+        <Route path="/Location" component={Location} />
         <Route component={Error} />
       </Switch>
       </Router>
