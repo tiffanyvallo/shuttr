@@ -20,8 +20,8 @@ export default function ImageUpload() {
   const [loading, setLoading] = useState(false);
   const [previewSource, setPreviewSource] = useState("")
   const [coordinates, setCoordinates] = useState({
-    lat: 0,
-    lng: 0
+    lat: 51.5073509,
+    lng: -0.1277583
   });
 
   const onChange = e => {
@@ -129,8 +129,7 @@ export default function ImageUpload() {
         <button onClick={onSubmit}>
           Upload
         </button>
-        
-        <MiniMap lat={coordinates.lat} lon={coordinates.lng}/>
+        <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
          </div>
 
          {(previewSource) && (
