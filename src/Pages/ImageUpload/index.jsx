@@ -136,12 +136,13 @@ export default function ImageUpload() {
         </button>
         {(previewSource) && (
           <div>
-            <h3 className="preview-text">Preview:</h3>
+            <h3 className="preview-text">Upload preview:</h3>
             <img src={previewSource} alt="chosen" className="preview-image"/>
           </div>
         )}
          </div>
-         <div>
+         <div class="minimap_wrapper">
+         <h2>Preview</h2>
            <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
            </div>
          </div>
