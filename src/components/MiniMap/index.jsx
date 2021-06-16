@@ -27,3 +27,66 @@
 //     <div ref={mapContainer} className="map-container" />
 //   )
 // }
+
+import React, { useEffect, useState } from "react";
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import { Room } from "@material-ui/icons"
+import { Link } from 'react-router-dom';
+import axios from "axios";
+import {Image} from 'cloudinary-react';
+
+const MiniMap = ({lat,lon}) => {
+    const [photos,setPhotos] = useState([]);
+    const [allData, setAllData] = useState([]);
+    const [currentPlaceId, setCurrentPlaceId] = useState(null);
+  
+    useEffect(() => {
+      axios("http://localhost:3001/photos")
+        .then((response) => {
+          console.log(response.data);
+          setAllData(response.data);
+        })
+        .catch((error) => {
+          console.log("Error getting data: " + error);
+        });
+    }, []);
+  
+    const handleMarkerClick = (id) => {
+      setCurrentPlaceId(id)
+    }
+  
+    const [viewport, setViewport] = useState({
+      width: "400",
+      height: "400",
+      latitude: 51.5074,
+      longitude: 0.1278,
+      zoom: 8
+    });
+  
+    return (
+      <div>
+        <p>hello</p>
+         <ReactMapGL
+        {...viewport}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
+        onViewportChange={nextViewport => setViewport(nextViewport)}
+        mapStyle="mapbox://styles/ajmccor/ckpttmayl2xwn18pg496rt567"
+      >   
+         
+               <Marker 
+                  latitude={lat}
+                  longitude={lon}
+                  offsetLeft={-20} 
+                  offsetTop={-10}>
+  
+                  <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}
+                  />
+          
+                </Marker>
+        
+      </ReactMapGL>
+      </div>
+      );
+  }
+  
+  export default MiniMap

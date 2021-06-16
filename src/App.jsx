@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import ImageUpload from './Pages/ImageUpload/index' 
 import Profile from './Pages/Profile'
 import Inspiration from './Pages/Inspiration'
+import MiniMap from './components/MiniMap'
 
 
 export default function App() {
