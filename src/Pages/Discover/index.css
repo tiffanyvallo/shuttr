@@ -1,4 +1,4 @@
-.discover_wrapper{
+.page{
   background-color: #2c3531;
 }
 .discover_container {
@@ -138,7 +138,7 @@
   height: 100%;
   transition: 0.5s;
   position: relative;
-  background: #333;
+  background: #2c3531;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,9 +198,9 @@ margin: 15px 0 0;
 display: inline-block;
 text-decoration: none;
 font-weight: 900;
-color: #333;
+color: #2c3531;
 padding: 5px;
-border: 1px solid #333;
+border: 1px solid #2c3531;
 }
 .container .card .face .face2 .content a:hover{
   background: #333;

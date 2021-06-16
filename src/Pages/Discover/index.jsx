@@ -71,7 +71,7 @@ export default function TitlebarGridList() {
   return(
    
        
-    <div>
+    <div class="page">
     <div class="discover_container" >
       <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
         <div class="search"></div>
