@@ -86,21 +86,26 @@ export default function ImageUpload() {
     setCoordinates(latLng);
   };
 
+  const searchOptions = {
+    componentRestrictions: { country: ['gb'] }
+  }
+
   return(
-    <div>
+    <div class="page_wrapper">
     <div className="form_wrapper">
         <h1>Upload</h1>
         {isLoading()}
         <input type='file' name='image' onChange={onChange}/>
         <PlacesAutocomplete
+        searchOptions={searchOptions}
         value={location}
         onChange={setLocation}
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <p>Latitude: {coordinates.lat}</p>
-            <p>Longitude: {coordinates.lng}</p>
+            {/* <p>Latitude: {coordinates.lat}</p>
+            <p>Longitude: {coordinates.lng}</p> */}
 
             <input {...getInputProps({ placeholder: "Type address" })} />
 
@@ -129,15 +134,16 @@ export default function ImageUpload() {
         <button onClick={onSubmit}>
           Upload
         </button>
-        <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
-         </div>
-
-         {(previewSource) && (
-          <div class="preview-image-div">
+        {(previewSource) && (
+          <div>
             <h3 className="preview-text">Preview:</h3>
             <img src={previewSource} alt="chosen" className="preview-image"/>
           </div>
         )}
+         </div>
+         <div>
+           <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
+           </div>
          </div>
   )
 }

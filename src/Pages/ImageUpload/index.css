@@ -41,3 +41,7 @@ input {
   width: 100%;
   display: block;
 }
+
+.page_wrapper{
+  display: flex;
+}
