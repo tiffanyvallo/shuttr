@@ -4,12 +4,6 @@ import * as React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 
 export default function TitlebarGridList() {
@@ -42,41 +36,22 @@ export default function TitlebarGridList() {
       });
   }, []);
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-evenly',
-      alignItems: 'stretch',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.card,
-      padding: 0,
-    },
-    gridList: {
-      width: '95%',
-      height: 450,
-      transform: 'translateZ(0)',
-    },
-    titleBar: {
-      background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
-      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-    },
-    icon: {
-      color: '#d9b08c',
-    },
-  }));
-
 
   return(
    
-       
+       <div>
     <div class="page">
+    
     <div class="discover_container" >
+      <label class="title">Search Locations:</label>
       <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
         <div class="search"></div>
     </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
        <div class="container" >
      
         { filteredData.map((value,index) => (
@@ -88,14 +63,16 @@ export default function TitlebarGridList() {
           </div>
           <div class="face2">
             <div class="content">
-         <p>{value.hashtag}</p> 
-          <a href="/profile">More Info</a>
+         <p>#{value.hashtag}</p> 
+      <p> <a href="/map">{value.location}</a> </p> 
+       <p> <a href="/profile">@{value.author}</a></p> 
             <button>Save</button>
           </div>
           </div>
            
           </div>
         ))}
+    </div>
     </div>
     </div>
   )
