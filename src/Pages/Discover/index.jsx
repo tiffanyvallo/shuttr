@@ -65,7 +65,7 @@ export default function TitlebarGridList() {
             <div class="content">
          <p>#{value.hashtag}</p> 
       <p> <a href="/map">{value.location}</a> </p> 
-       <p> <a href="/profile">@{value.author}</a></p> 
+       <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
             <button>Save</button>
           </div>
           </div>
