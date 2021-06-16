@@ -69,15 +69,16 @@ export default function TitlebarGridList() {
 
 
   return(
-    <div className="discover_wrapper">
-       <div class="discover_container">
-         <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
-           <div class="search"></div>
-       </div>
-       <p>&nbsp;</p>
-       <p>&nbsp;</p>
-       <div class="container">
-    
+   
+       
+    <div>
+    <div class="discover_container" >
+      <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+        <div class="search"></div>
+    </div>
+
+       <div class="container" >
+     
         { filteredData.map((value,index) => (
           <div class="card">
             <div class="face1">
@@ -89,21 +90,12 @@ export default function TitlebarGridList() {
             <div class="content">
          <p>{value.hashtag}</p> 
           <a href="/profile">More Info</a>
-          {/* actionIcon={
-              <IconButton aria-label={`star`} className={classes.icon}>
-                {/* {need to add a onClick={() => savedPhoto()}} }
-              <StarBorderIcon />
-            </IconButton>
-            } */}
             <button>Save</button>
           </div>
           </div>
            
           </div>
         ))}
-     
-
-    
     </div>
     </div>
   )
