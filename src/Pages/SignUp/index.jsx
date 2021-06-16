@@ -3,21 +3,32 @@ import Axios from "axios";
 import './index.css'
 
 export default function SignUp() {
-
+  const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
+  const preset = 'cyber_photos';
+  const [image, setImage] = useState('');
   const [usernameReg, setUsernameReg] = useState('');
+  const [jobReg, setJobReg] = useState('');
   const [passwordReg, setPasswordReg] = useState('');
   const [emailReg, setEmailReg] = useState('');
   const [nameReg, setNameReg] = useState('');
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
   const [isMsg, setIsMsg] = useState('');
 
-  const register = () => {
-
-    Axios.post("http://localhost:3001/signup", {
+  const register = async () => {
+    const formData = new FormData();
+    formData.append('file', image);
+    formData.append('upload_preset', preset);
+    const res = await Axios.post(url, formData);
+    const imageUrl = res.data.secure_url;
+    try{
+    await Axios.post("http://localhost:3001/signup", {
       name: nameReg,
       username: usernameReg,
       password: passwordReg,
       email: emailReg,
+      publicId: imageUrl,
+      job: jobReg,
+
     },
       {
         withCredentials: true,
@@ -27,6 +38,14 @@ export default function SignUp() {
           window.location.href = "/login";
         }
       });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const onChange = e => {
+    setImage(e.target.files[0]);
+    const file = e.target.files[0]
   };
 
   const checkValidation = (e) => {
@@ -42,7 +61,13 @@ export default function SignUp() {
   return (
     <div class="signup_wrapper"> 
       <h1>Sign up in here</h1>
-      
+      <input
+        placeholder="Username"
+          type="text"
+          onChange={(e) => {
+            setUsernameReg(e.target.value);
+          }}
+        />
         <input
         placeholder = "Name"
           type="text"
@@ -53,10 +78,10 @@ export default function SignUp() {
      
     
         <input
-        placeholder="Username"
+        placeholder="Job Title"
           type="text"
           onChange={(e) => {
-            setUsernameReg(e.target.value);
+            setJobReg(e.target.value);
           }}
         />
      
@@ -82,6 +107,8 @@ export default function SignUp() {
             setPasswordConfirmationReg(e.target.value);
           }}
         />
+
+        <input type='file' name='image' onChange={onChange}/>
      
       {isMsg}
       <div>
@@ -91,5 +118,3 @@ export default function SignUp() {
       </div>
   )
 }
-
-

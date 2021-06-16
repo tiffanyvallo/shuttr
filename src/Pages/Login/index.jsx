@@ -21,7 +21,7 @@ export default function Login() {
       url: "http://localhost:3001/login",    
       }).then((res) => {      
       if (res.data === "Successfully Authenticated") {
-        window.location.href = "/";      
+        window.location.href = "/discover";      
       }    
     });  
   };

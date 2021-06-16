@@ -63,7 +63,7 @@ export default function ImageUpload() {
         location,
         coordinates, 
         description
-      }, config).then (window.location.href = "/")
+      }, config).then (window.location.href = "/discover")
       console.log(image.data);
       setLoading(false);
       isLoading(false)
