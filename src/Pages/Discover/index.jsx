@@ -4,12 +4,6 @@ import * as React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 
 export default function TitlebarGridList() {
@@ -42,54 +36,43 @@ export default function TitlebarGridList() {
       });
   }, []);
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.card,
-      
-    },
-    gridList: {
-      width: 1000,
-      height: 450,
-    },
-    icon: {
-      color: 'rgba(255, 255, 255, 0.54)',
-    },
-  }));
 
-  const classes = useStyles();
   return(
-    <div className="discover_wrapper">
-       <div class="discover_container">
-         <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
-           <div class="search"></div>
-       </div>
-       <p>&nbsp;</p>
-       <p>&nbsp;</p>
-       <p>&nbsp;</p>
-
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-        </GridListTile>
+   
+       <div>
+    <div class="page">
+    
+    <div class="discover_container" >
+      <label class="title">Search Locations:</label>
+      <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+        <div class="search"></div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+       <div class="container" >
+     
         { filteredData.map((value,index) => (
-          <GridListTile key={value.id}>
-            <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
-            <GridListTileBar
-            title={value.location}
-            actionIcon={
-              <IconButton aria-label={`star`} className={classes.icon}>
-              <StarBorderIcon />
-            </IconButton>
-            }
-            />
-          </GridListTile>
+          <div class="card">
+            <div class="face1">
+            <div class="content" key={value.id}>
+            <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+          </div>
+          </div>
+          <div class="face2">
+            <div class="content">
+         <p>#{value.hashtag}</p> 
+      <p> <a href="/map">{value.location}</a> </p> 
+       <p> <a href="/profile">@{value.author}</a></p> 
+            <button>Save</button>
+          </div>
+          </div>
+           
+          </div>
         ))}
-      </GridList>
-
+    </div>
     </div>
     </div>
   )
