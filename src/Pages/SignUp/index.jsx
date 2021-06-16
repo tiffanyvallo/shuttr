@@ -133,8 +133,7 @@ export default function SignUp() {
 
         <br />
         {emailMsg}
-      </label>
-      <label>
+      
         <p>Password</p>
 
         <input
@@ -147,8 +146,7 @@ export default function SignUp() {
 
         <br />
         <PasswordStrengthBar password={passwordReg} />
-      </label>
-      <label>
+      
         <p>Password Confirmation</p>
 
         <input
@@ -159,7 +157,7 @@ export default function SignUp() {
           }}
         />
 
-      </label>
+      
       <br />
 
 
