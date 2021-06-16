@@ -8,63 +8,65 @@ const images = [
   {
     url: "https://res.cloudinary.com/dryaxqxie/image/upload/v1623688191/y9z8fmdalbouam54h427.jpg",
     title: 'Architecture',
-    width: '30%',
+    width: '33.4%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687028/a10bfadoyvgduczxatit.jpg',
     title: 'Colourful',
-    width: '30%',
+    width: '33.3%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623335228/sample.jpg',
-    title: 'Park',
-    width: '30%',
+    title: 'Greenery',
+    width: '33.3%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623688175/jqpiawqates2qijb3sbe.jpg',
-    title: 'Monument',
-    width: '30%',
+    title: 'Vibes',
+    value: 'vibes',
+    width: '33.4%',
   },
   {
     url: "https://res.cloudinary.com/dryaxqxie/image/upload/v1623338814/qcmksfniv6ml6uyx8kes.jpg",
     title: 'Sightseeing',
-    width: '30%',
+    width: '33.3%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687932/ve0wggzncpawe2slxbt0.jpg',
-    title: 'Station',
-    width: '30%',
+    title: 'Street Art',
+    width: '33.3%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623688578/gxrvmyljsw1zwkcc9weq.jpg',
-    title: 'Iconic Pubs',
-    width: '30%',
+    title: 'Rooftop',
+    width: '33.4%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687960/nvx7q1na2ikwjupg5kf2.jpg',
-    title: 'Alley',
-    width: '30%',
+    title: 'Sunsets',
+    width: '33.3%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623688057/qz949gvy0zszruoycypr.jpg',
-    title: 'Stairs',
-    width: '30%',
+    title: 'Lights',
+    width: '33.3%',
   },
 
 ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    
     flexWrap: 'wrap',
     minWidth: 300,
-    width: '100%',
+    width: '100vw',
+    height: '100vh',
   },
   image: {
     position: 'relative',
-    height: 200,
+    height: 255,
     [theme.breakpoints.down('xs')]: {
-      width: '100% !important', // Overrides inline-style
+      width: '255px !important', // Overrides inline-style
       height: 100,
     },
     '&:hover, &$focusVisible': {
@@ -128,7 +130,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonBases() {
   const classes = useStyles();
-
   return (
     <div class="hashtagswrapper">
     <div className={classes.root}>
@@ -141,6 +142,10 @@ export default function ButtonBases() {
           style={{
             width: image.width,
           }}
+          onClick= {(e) => {
+            e.preventDefault();
+            window.location.href='http://localhost:3000/'+ image.title;
+            }}
         >
           <span
             className={classes.imageSrc}
@@ -157,12 +162,19 @@ export default function ButtonBases() {
               className={classes.imageTitle}
             >
               {image.title}
+              
               <span className={classes.imageMarked} />
             </Typography>
           </span>
         </ButtonBase>
       ))}
     </div>
+    {/* <div>
+    <Button color="primary" component={RouterLink} to="/">
+      With prop forwarding
+    </Button>
+    </div> */}
+
     </div>
   );
 }
