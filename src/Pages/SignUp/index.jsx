@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import './index.css'
+import './index.css';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 export default function SignUp() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -13,6 +14,24 @@ export default function SignUp() {
   const [nameReg, setNameReg] = useState('');
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
   const [isMsg, setIsMsg] = useState('');
+  const [newMsg, setNewMsg] = useState('');
+  const [emailMsg, setEmailMsg] = useState('');
+  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+  const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+  let newMsgTimeoutHandle = 0;
+  const passwordCriteria = ["Password does not meet criteria:",
+    "\n• Must be over 8 characters long",
+    "\n• Must include numbers and letters",
+    "\n• Must include at least 1 upper and lower case letter",
+    "\n• Must include 1 special character e.g. '!@#$%^&*'"];
+  let newText = passwordCriteria.join('').split('\n').map(i => {
+    return <p>{i}</p>
+  });
+
+
+  const componentWillUnmount = () => {
+    clearTimeout(newMsgTimeoutHandle);
+  }
 
   const register = async () => {
     const formData = new FormData();
@@ -49,9 +68,29 @@ export default function SignUp() {
   };
 
   const checkValidation = (e) => {
-    if (passwordReg !== passwordConfirmationReg) {
+    if (!emailRegex.test(emailReg)) {
+      setEmailMsg("Not a valid email address")
+      clearTimeout(newMsgTimeoutHandle);
+      newMsgTimeoutHandle = setTimeout(() => {
+        setEmailMsg("")
+        newMsgTimeoutHandle = 0;
+      }, 6500)
+    }
+    else if (!strongRegex.test(passwordReg)) {
+      setNewMsg(newText)
+      clearTimeout(newMsgTimeoutHandle);
+      newMsgTimeoutHandle = setTimeout(() => {
+        setNewMsg("")
+        newMsgTimeoutHandle = 0;
+      }, 6500)
+    }
+    else if (passwordReg !== passwordConfirmationReg) {
       setIsMsg("Passwords do not match")
-      console.log(isMsg)
+      clearTimeout(newMsgTimeoutHandle);
+      newMsgTimeoutHandle = setTimeout(() => {
+        setIsMsg("")
+        newMsgTimeoutHandle = 0;
+      }, 6500)
     }
     else {
       register()
@@ -59,7 +98,7 @@ export default function SignUp() {
   };
 
   return (
-    <div class="signup_wrapper"> 
+    <div class="signup_wrapper">
       <h1>Sign up in here</h1>
       <input
         placeholder="Username"
@@ -91,7 +130,13 @@ export default function SignUp() {
             setEmailReg(e.target.value);
           }}
         />
-     
+
+        <br />
+        {emailMsg}
+      </label>
+      <label>
+        <p>Password</p>
+
         <input
         placeholder="Password"
           type="password"
@@ -99,7 +144,13 @@ export default function SignUp() {
             setPasswordReg(e.target.value);
           }}
         />
-    
+
+        <br />
+        <PasswordStrengthBar password={passwordReg} />
+      </label>
+      <label>
+        <p>Password Confirmation</p>
+
         <input
         placeholder="Password Confirmation"
           type="password"
@@ -108,13 +159,20 @@ export default function SignUp() {
           }}
         />
 
+      </label>
+      <br />
+
+
         <input type='file' name='image' onChange={onChange}/>
      
+
       {isMsg}
+      <br />
+      {newMsg}
       <div>
         <br />
         <button onClick={checkValidation}>Create User</button>
       </div>
-      </div>
+    </div>
   )
 }
