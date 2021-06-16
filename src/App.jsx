@@ -29,6 +29,7 @@ export default function App() {
         <Route path="/Map" component={Map} />
         <Route path="/ImageUpload" component={ImageUpload} />
         <Route path="/Inspiration" component={Inspiration} />
+        <Route path="/Profile/:userId" component={Profile} />
         <Route path="/Profile" component={Profile} />
         <Route path="/Discover" component={Discover} />
         <Route component={Error} />
