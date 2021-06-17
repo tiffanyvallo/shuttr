@@ -60,17 +60,18 @@ export default function SignUp() {
   const [emailReg, setEmailReg] = useState('');
   const [nameReg, setNameReg] = useState('');
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
+  const [userMsg, setUserMsg] = useState('');
   const [isMsg, setIsMsg] = useState('');
   const [newMsg, setNewMsg] = useState('');
   const [emailMsg, setEmailMsg] = useState('');
-  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})");
   const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
   let newMsgTimeoutHandle = 0;
   const passwordCriteria = ["Password does not meet criteria:",
-    "\n• Must be over 8 characters long",
+    "\n• Must be over 4 characters long",
     "\n• Must include numbers and letters",
-    "\n• Must include at least 1 upper and lower case letter",
-    "\n• Must include 1 special character e.g. '!@#$%^&*'"];
+    "\n• Must include at least 1 upper and lower case letter"]
+
   let newText = passwordCriteria.join('').split('\n').map(i => {
     return <p>{i}</p>
   });
@@ -86,31 +87,31 @@ export default function SignUp() {
     formData.append('upload_preset', preset);
     const res = await Axios.post(url, formData);
     const imageUrl = res.data.secure_url;
-    try{
-    await Axios.post("http://localhost:3001/signup", {
-      name: nameReg,
-      username: usernameReg,
-      password: passwordReg,
-      email: emailReg,
-      publicId: imageUrl,
-      job: jobReg,
+    try {
+      await Axios.post("http://localhost:3001/signup", {
+        name: nameReg,
+        username: usernameReg,
+        password: passwordReg,
+        email: emailReg,
+        publicId: imageUrl,
+        job: jobReg,
 
-    },
-      {
-        withCredentials: true,
-      }).then((response) => {
-        console.log(response);
-        if (response.data === "User Created") {
-          window.location.href = "/login";
-        } else if (response.data !== "User Created") {
-          setIsMsg("User already exists")
-          clearTimeout(newMsgTimeoutHandle);
-          newMsgTimeoutHandle = setTimeout(() => {
-            setIsMsg("")
-            newMsgTimeoutHandle = 0;
-          }, 6500)
-        }
-      });
+      },
+        {
+          withCredentials: true,
+        }).then((response) => {
+          console.log(response);
+          if (response.data === "User Created") {
+            window.location.href = "/login";
+          } else if (response.data !== "User Created") {
+            setUserMsg("User already exists, please sign in or create new account")
+            clearTimeout(newMsgTimeoutHandle);
+            newMsgTimeoutHandle = setTimeout(() => {
+              setUserMsg("")
+              newMsgTimeoutHandle = 0;
+            }, 6500)
+          }
+        });
     } catch (err) {
       console.error(err);
     }
@@ -152,7 +153,6 @@ export default function SignUp() {
   };
   const classes = useStyles();
   return (
-
     <Container  style={{backgroundColor: '#2c3531', color: '#ffffff'}}component="main" maxWidth="xs">
     <CssBaseline />
     <div className={classes.paper}>
@@ -287,7 +287,5 @@ export default function SignUp() {
       <Copyright />
     </Box>
   </Container>
-
-
   )
 }

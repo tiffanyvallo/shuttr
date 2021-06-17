@@ -13,6 +13,7 @@ import Home from './Pages/Home'
 import Discover from './Pages/Discover'
 import Footer from './components/Footer'
 import Inspiration from './Pages/Inspiration'
+import MiniMap from './components/MiniMap'
 import Architecture from './Pages/Architecture'
 import Colourful from './Pages/Colourful'
 import Greenery from './Pages/Greenery'
@@ -22,6 +23,7 @@ import StreetArt from './Pages/StreetArt'
 import Rooftop from './Pages/Rooftop'
 import Sunset from './Pages/Sunset'
 import Lights from './Pages/Lights'
+import Location from './components/Location';
 
 export default function App() {
   const data = useContext(UserContext);
@@ -50,6 +52,7 @@ export default function App() {
         <Route path="/Rooftop" component={Rooftop} />
         <Route path="/Sunset" component={Sunset} />
         <Route path="/Lights" component={Lights} />
+        <Route path="/Location" component={Location} />
         <Route component={Error} />
       </Switch>
       </Router>

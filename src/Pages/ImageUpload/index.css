@@ -1,10 +1,13 @@
 .form_wrapper {
+  background-color: white;
+  grid-column: 2/3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 500px;
-  margin: 5em auto;
+  min-width: 500px;
+  min-height: 500px;
+  margin: 5em 5em;
   padding: 3em;
   box-shadow: 0 14px 28px hsl(185deg 90% 18% / 30%),
   0 10px 10px rgba(255, 255, 255, 0.2);
@@ -40,4 +43,17 @@ input {
   margin-top: 2em;
   width: 100%;
   display: block;
+  object-fit: cover;
+}
+
+.page_wrapper{
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr 300px;
+}
+
+.map_card{
+  justify-self: center;
+  margin: 15em auto;
+  background-color: black;
+  color: white;
 }

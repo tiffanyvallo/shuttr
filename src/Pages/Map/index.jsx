@@ -4,6 +4,7 @@ import { Room } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
+import './index.css'
 
 
 function Map() {
@@ -22,18 +23,6 @@ function Map() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   const getPhotos = async () => {
-  //     try {
-  //       const res = await axios.get("http://localhost:3001/photos");
-  //       setPhotos(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getPhotos()
-  // }, []);
-
   const handleMarkerClick = (id) => {
     setCurrentPlaceId(id)
   }
@@ -41,9 +30,9 @@ function Map() {
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
-    latitude: 51.5074,
-    longitude: 0.1278,
-    zoom: 10
+    latitude: 51.5073509,
+    longitude: -0.1277583,
+    zoom: 13
   });
 
   return (
@@ -52,8 +41,8 @@ function Map() {
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={nextViewport => setViewport(nextViewport)}
-      mapStyle="mapbox://styles/ajmccor/ckpttmayl2xwn18pg496rt567"
-    >   
+      mapStyle="mapbox://styles/ajmccor/ckq0xqybt3fsf18rltfgs0y5t"
+    >
 
         <div>
         { allData.map(value => {
@@ -63,13 +52,13 @@ function Map() {
              <Marker 
                 latitude={(value.coordinates || {lat: 0}).lat}
                 longitude={(value.coordinates || {lng: 0}).lng}
-                offsetLeft={-20} 
+                offsetLeft={-20}
                 offsetTop={-10}>
 
-                <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}
+                <Room style={{fontSize:viewport.zoom * 4, color:"#45A293"}}
                 onClick={()=>handleMarkerClick(value._id)}
                 />
-        
+
               </Marker>
               {value._id === currentPlaceId && (
 
