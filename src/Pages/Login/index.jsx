@@ -30,7 +30,6 @@ export default function Login() {
     <div class="login_wrapper">
       <h1>Log in here</h1>
       
-
         <input 
         type="text" 
         placeholder="Username"
@@ -54,7 +53,7 @@ export default function Login() {
       <br />
         Don't have an account? <Link to="/signup" className="btn btn-primary">   
         <br />               
-      <button>Sign Up</button>   
+      <button>Sign Up</button>
       </Link> 
       </div>
     </div>

@@ -55,12 +55,25 @@
   color: black;
 }
 
-/* .grid-left{
-  height: 500px;
-  background: url('./london2.jpg');
-  background-size: 100%;
-  filter: brightness(70%);
-} */
+.login{
+  color: var(--header-bg-colour);
+  background-color: #d9b08c;
+  padding: 1em 3em;
+  margin-right: 1em;
+  display: inline;
+  border-radius: 25px;
+  height: 20px;
+}
+
+.signup{
+  color: var(--header-bg-colour);
+  background-color: #d9b08c;
+  padding: 1em 3em;
+  margin-right: 1em;
+  display: inline;
+  border-radius: 25px;
+  height: 20px;
+}
 
 .grid-right{
   height: 500px;
