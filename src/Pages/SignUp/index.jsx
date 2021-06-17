@@ -137,11 +137,8 @@ export default function SignUp() {
             setEmailReg(e.target.value);
           }}
         />
-
         <br />
         {emailMsg}
-      
-        <p>Password</p>
 
         <input
         placeholder="Password"
@@ -153,8 +150,6 @@ export default function SignUp() {
 
         <br />
         <PasswordStrengthBar password={passwordReg} />
-      
-        <p>Password Confirmation</p>
 
         <input
         placeholder="Password Confirmation"
