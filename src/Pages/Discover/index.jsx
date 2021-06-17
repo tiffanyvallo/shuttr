@@ -73,8 +73,7 @@ export default function TitlebarGridList() {
          <p>#{value.hashtag}</p> 
           <p> <a href="/map">{value.location}</a> </p> 
           <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
-          {/* <a href="http://maps.google.com/maps?&z={10}&q={value.coordinates.lat}+{value.coordinates.lon}">Link To Maps</a> */}
-
+          <a href={`http://maps.google.com/maps?&z={10}&q=${value.coordinates.lat}+${value.coordinates.lng}`}>Link To Maps</a>
           {/* <button type="button">View More</button> */}
          {/* <Popup Popup trigger={<button> View More</button>} position="right center">
           <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>

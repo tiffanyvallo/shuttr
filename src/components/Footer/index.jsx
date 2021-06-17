@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer> 
       
-       <img class="footer_logo" src={process.env.PUBLIC_URL + "shuttrlogo.png"} />
+       <img class="footer_logo" src={"./shuttrlogo.png"} />
          <p class="copyright">&copy; shuttr 2021</p>
         </footer>            
     )
