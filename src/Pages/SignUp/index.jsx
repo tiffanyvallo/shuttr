@@ -16,14 +16,14 @@ export default function SignUp() {
   const [isMsg, setIsMsg] = useState('');
   const [newMsg, setNewMsg] = useState('');
   const [emailMsg, setEmailMsg] = useState('');
-  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})");
   const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
   let newMsgTimeoutHandle = 0;
   const passwordCriteria = ["Password does not meet criteria:",
-    "\n• Must be over 8 characters long",
+    "\n• Must be over 4 characters long",
     "\n• Must include numbers and letters",
-    "\n• Must include at least 1 upper and lower case letter",
-    "\n• Must include 1 special character e.g. '!@#$%^&*'"];
+    "\n• Must include at least 1 upper and lower case letter"]
+    
   let newText = passwordCriteria.join('').split('\n').map(i => {
     return <p>{i}</p>
   });

@@ -23,8 +23,8 @@ export default function NavBar() {
     <nav> 
       
          
-     <Link to="/" className="index-button">
-       <li className="brand-logo">Home</li>      
+     <Link to="/">
+       <span ></span>      
       </Link>
       {data ?  ( 
       <Link to="/profile" className="index-button">                  

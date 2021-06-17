@@ -4,12 +4,18 @@ import * as React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
+import Location from "../../components/Location";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 
 export default function TitlebarGridList() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const searchTag = (event) => {
     
@@ -23,6 +29,7 @@ export default function TitlebarGridList() {
     });
     setFilteredData(result);
   };
+
 
   useEffect(() => {
     axios("http://localhost:3001/photos")
@@ -64,9 +71,16 @@ export default function TitlebarGridList() {
           <div class="face2">
             <div class="content">
          <p>#{value.hashtag}</p> 
-      <p> <a href="/map">{value.location}</a> </p> 
-       <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
-            <button>Save</button>
+          <p> <a href="/map">{value.location}</a> </p> 
+          <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
+
+
+
+          {/* <button type="button">View More</button> */}
+         <Popup Popup trigger={<button> Trigger</button>} position="right center">
+          <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
+          </Popup>
+
           </div>
           </div>
            
