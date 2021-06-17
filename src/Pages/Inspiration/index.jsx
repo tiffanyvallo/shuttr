@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 300,
     width: '100vw',
     height: '100vh',
+    
   },
   image: {
     position: 'relative',
@@ -78,7 +79,9 @@ const useStyles = makeStyles((theme) => ({
         opacity: 0,
       },
       '& $imageTitle': {
-        border: '4px solid currentColor',
+        border: '4px solid #ffcb9a',
+        color: '#ffcb9a',
+        backgroundColor: '#2c35317a',
       },
     },
   },
@@ -92,8 +95,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: theme.palette.common.white,
+    color: '#d1e8e2',
   },
+  
+
   imageSrc: {
     position: 'absolute',
     left: 0,
@@ -120,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
   imageMarked: {
     height: 3,
     width: 18,
-    backgroundColor: theme.palette.common.white,
+    
     position: 'absolute',
     bottom: -2,
     left: 'calc(50% - 9px)',
