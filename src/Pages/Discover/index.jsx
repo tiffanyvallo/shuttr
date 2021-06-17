@@ -48,9 +48,8 @@ export default function TitlebarGridList() {
    
        <div>
     <div class="page">
-    
+    <label class="title">Search Locations:</label>
     <div class="discover_container" >
-      <label class="title">Search Locations:</label>
       <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
         <div class="search"></div>
     </div>
