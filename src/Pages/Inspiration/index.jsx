@@ -6,22 +6,22 @@ import './index.css'
 
 const images = [
   {
-    url: "https://res.cloudinary.com/dryaxqxie/image/upload/v1623688191/y9z8fmdalbouam54h427.jpg",
+    url: "https://res.cloudinary.com/dryaxqxie/image/upload/v1623939967/erilqk0qiguividbjvq5.jpg",
     title: 'Architecture',
     width: '33.4%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687028/a10bfadoyvgduczxatit.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939946/brvw91jzygfjpuky8rsk.jpg',
     title: 'Colourful',
     width: '33.3%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623335228/sample.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939957/hcie3peztxbtsatgxgy8.jpg',
     title: 'Greenery',
     width: '33.3%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623688175/jqpiawqates2qijb3sbe.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687028/a10bfadoyvgduczxatit.jpg',
     title: 'Vibes',
     value: 'vibes',
     width: '33.4%',
@@ -32,22 +32,22 @@ const images = [
     width: '33.3%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687932/ve0wggzncpawe2slxbt0.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939955/jtopwat1d4jttdthmxuv.jpg',
     title: 'StreetArt',
     width: '33.3%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623688578/gxrvmyljsw1zwkcc9weq.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939960/znb8jjsgqqiyn9xgyhg7.jpg',
     title: 'Rooftop',
     width: '33.4%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687960/nvx7q1na2ikwjupg5kf2.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939961/mxmibcyxrbs2ckgxye1k.jpg',
     title: 'Sunset',
     width: '33.3%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623688057/qz949gvy0zszruoycypr.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939967/m3ecnwe1gsrbjoqsf4ip.jpg',
     title: 'Lights',
     width: '33.3%',
   },

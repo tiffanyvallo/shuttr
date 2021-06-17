@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./index.css"
 import Axios from 'axios'
 import { UserContext } from "../../Contexts/UserContext";
+import Logo from './shuttrlogo.png'
 
 // import 'materialize-css';
 // import { Button, Card, Row, Col } from 'react-materialize';
@@ -24,7 +25,7 @@ export default function NavBar() {
       
          
       {data ?  ( 
-      <img class="navbar_logo" src={process.env.PUBLIC_URL + "shuttrlogo.png"} />    
+      <img class="navbar_logo" src={Logo} />    
       ) : null}
       
       {data ?  ( 
@@ -58,7 +59,7 @@ export default function NavBar() {
       ) : null}
 
       {data ? (  <Link to="/" onClick={logout}  className="index-button">
-       <li className="brand-logo">Logout</li>      
+       <li className="brand-logo login-button">Logout</li>      
       </Link>                
       ) : null}
       

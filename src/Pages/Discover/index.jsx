@@ -7,7 +7,7 @@ import { Image } from 'cloudinary-react';
 import Location from "../../components/Location";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
+import './index.css'
 
 export default function TitlebarGridList() {
   const [allData, setAllData] = useState([]);
@@ -49,10 +49,8 @@ export default function TitlebarGridList() {
   }, []);
 
   return (
-
     <div>
       <div class="page">
-
         <div class="discover_container" >
           <label class="title">Search Locations:</label>
           <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
@@ -66,9 +64,7 @@ export default function TitlebarGridList() {
           <br />
           {<b>{input}</b>}
         </div>
-
         <div class="container" >
-
           {filteredData.map((value, index) => (
             <div class="card">
               <div class="face1">
@@ -81,17 +77,26 @@ export default function TitlebarGridList() {
                   <p>#{value.hashtag}</p>
                   <p>Taken at: {value.location}</p>
                  <a href={'/profile/' + value.author}> @{value.author}</a>
-          {/* <a href="http://maps.google.com/maps?&z={10}&q={value.coordinates.lat}+{value.coordinates.lon}">Link To Maps</a> */}
+                  <Popup
+    trigger={<button className="button">View More</button>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="modal-content">
+          {' '}
 
-          {/* <button type="button">View More</button> */}
-         {/* <Popup Popup trigger={<button> View More</button>} position="right center">
-
-          <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
-          </Popup> */}
-
+            <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
+          
+      </div>
+    )}
+  </Popup>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
