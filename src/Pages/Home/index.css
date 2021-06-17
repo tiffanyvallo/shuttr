@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+.shuttrlogo{
+  width: 50%;
+  opacity: 90%;
+}
+
 .fullscrenvideo{
   background-color: black;
   width: 100vw;

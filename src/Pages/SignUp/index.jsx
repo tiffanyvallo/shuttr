@@ -16,14 +16,14 @@ export default function SignUp() {
   const [isMsg, setIsMsg] = useState('');
   const [newMsg, setNewMsg] = useState('');
   const [emailMsg, setEmailMsg] = useState('');
-  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})");
   const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
   let newMsgTimeoutHandle = 0;
   const passwordCriteria = ["Password does not meet criteria:",
-    "\n• Must be over 8 characters long",
+    "\n• Must be over 4 characters long",
     "\n• Must include numbers and letters",
-    "\n• Must include at least 1 upper and lower case letter",
-    "\n• Must include 1 special character e.g. '!@#$%^&*'"];
+    "\n• Must include at least 1 upper and lower case letter"]
+    
   let newText = passwordCriteria.join('').split('\n').map(i => {
     return <p>{i}</p>
   });
@@ -55,6 +55,13 @@ export default function SignUp() {
         console.log(response);
         if (response.data === "User Created") {
           window.location.href = "/login";
+        } else if (response.data !== "User Created") {
+          setIsMsg("User already exists")
+          clearTimeout(newMsgTimeoutHandle);
+          newMsgTimeoutHandle = setTimeout(() => {
+            setIsMsg("")
+            newMsgTimeoutHandle = 0;
+          }, 6500)
         }
       });
     } catch (err) {
@@ -123,7 +130,6 @@ export default function SignUp() {
             setJobReg(e.target.value);
           }}
         />
-        <label>
      
         <input type="email"
         placeholder="Email"
@@ -133,8 +139,7 @@ export default function SignUp() {
         />
         <br />
         {emailMsg}
-      </label>
-      
+
         <input
         placeholder="Password"
           type="password"
@@ -145,8 +150,6 @@ export default function SignUp() {
 
         <br />
         <PasswordStrengthBar password={passwordReg} />
-      
-      <label>
 
         <input
         placeholder="Password Confirmation"
@@ -156,7 +159,7 @@ export default function SignUp() {
           }}
         />
 
-      </label>
+      
       <br />
 
 

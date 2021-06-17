@@ -4,18 +4,18 @@ import * as React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Location from "../../components/Location";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 
 export default function TitlebarGridList() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const searchTag = (event) => {
     
@@ -30,6 +30,7 @@ export default function TitlebarGridList() {
     setFilteredData(result);
   };
 
+
   useEffect(() => {
     axios("http://localhost:3001/photos")
       .then((response) => {
@@ -42,54 +43,49 @@ export default function TitlebarGridList() {
       });
   }, []);
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.card,
-      
-    },
-    gridList: {
-      width: 1000,
-      height: 450,
-    },
-    icon: {
-      color: 'rgba(255, 255, 255, 0.54)',
-    },
-  }));
 
-  const classes = useStyles();
   return(
-    <div className="discover_wrapper">
-       <div class="discover_container">
-         <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
-           <div class="search"></div>
-       </div>
-       <p>&nbsp;</p>
-       <p>&nbsp;</p>
-       <p>&nbsp;</p>
-
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-        </GridListTile>
+   
+       <div>
+    <div class="page">
+    
+    <div class="discover_container" >
+      <label class="title">Search Locations:</label>
+      <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+        <div class="search"></div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+       <div class="container" >
+     
         { filteredData.map((value,index) => (
-          <GridListTile key={value.id}>
-            <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
-            <GridListTileBar
-            title={value.location}
-            actionIcon={
-              <IconButton aria-label={`star`} className={classes.icon}>
-              <StarBorderIcon />
-            </IconButton>
-            }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+          <div class="card">
+            <div class="face1">
+            <div class="content" key={value.id}>
+            <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+          </div>
+          </div>
+          <div class="face2">
+            <div class="content">
+         <p>#{value.hashtag}</p> 
+          <p> <a href="/map">{value.location}</a> </p> 
+          <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
+          {/* <a href="http://maps.google.com/maps?&z={10}&q={value.coordinates.lat}+{value.coordinates.lon}">Link To Maps</a> */}
 
+          {/* <button type="button">View More</button> */}
+         {/* <Popup Popup trigger={<button> View More</button>} position="right center">
+          <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
+          </Popup> */}
+
+          </div>
+          </div>
+           
+          </div>
+        ))}
+    </div>
     </div>
     </div>
   )
