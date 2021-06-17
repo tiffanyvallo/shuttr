@@ -23,9 +23,9 @@ export default function NavBar() {
     <nav> 
       
          
-     <Link to="/">
-       <span ></span>      
-      </Link>
+     
+      <img class="navbar_logo" src={process.env.PUBLIC_URL + "shuttrlogo.png"} />    
+      
       {data ?  ( 
       <Link to="/profile" className="index-button">                  
           <li>Profile</li>    
