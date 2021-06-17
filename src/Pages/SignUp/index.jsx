@@ -123,6 +123,7 @@ export default function SignUp() {
             setJobReg(e.target.value);
           }}
         />
+        <label>
      
         <input type="email"
         placeholder="Email"
@@ -130,13 +131,10 @@ export default function SignUp() {
             setEmailReg(e.target.value);
           }}
         />
-
         <br />
         {emailMsg}
       </label>
-      <label>
-        <p>Password</p>
-
+      
         <input
         placeholder="Password"
           type="password"
@@ -147,9 +145,8 @@ export default function SignUp() {
 
         <br />
         <PasswordStrengthBar password={passwordReg} />
-      </label>
+      
       <label>
-        <p>Password Confirmation</p>
 
         <input
         placeholder="Password Confirmation"
