@@ -79,9 +79,9 @@ export default function Login() {
       },      withCredentials: true,      
       url: "http://localhost:3001/login",    
       }).then((res) => {      
-      // if (res.data === "Successfully Authenticated") {
+       if (res.data === "Successfully Authenticated") {
         window.location.href = "/discover";      
-      // }    
+       }    
     });  
   };
   const classes = useStyles();
@@ -131,21 +131,21 @@ export default function Login() {
             label="Remember me"
           />
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
-            // className={classes.submit}
+            className={classes.submit}
             onClick={login}
-            href = "/discover"
+            // href = "/discover"
           >
             Login
           </Button>
           <Grid container>
             <Grid item xs>
-              {/* <Link href="/inspiration" variant="body2">
+              <Link href="/inspiration" variant="body2">
                 Forgot password?
-              </Link> */}
+              </Link>
             </Grid>
             <Grid item>
               <Link to="/signup" variant="body2">
@@ -160,39 +160,5 @@ export default function Login() {
       </div>
     </Grid>
   </Grid>
-
-//-------------------------------------------------------------------
-    // <div class="login_wrapper">
-    //   <h1>Log in here</h1>
-      
-
-    //     <input 
-    //     type="text" 
-    //     placeholder="Username"
-    //     onChange={(e) => {
-    //       setLoginUsername(e.target.value);
-    //       }}
-    //     />
-     
-      
-    //     <input 
-    //     type="password"
-    //     placeholder="Password"
-    //     onChange={(e) => {
-    //       setLoginPassword(e.target.value);
-    //       }} />
-      
-    //   <div>
-    //     <button type="submit" onClick={login}>Log In</button>
-    //   </div>
-    //   <div >
-    //   <br />
-    //     Don't have an account? <Link to="/signup" className="btn btn-primary">   
-    //     <br />               
-    //   <button>Sign Up</button>   
-    //   </Link> 
-    //   </div>
-    // </div>
     )
 }
-

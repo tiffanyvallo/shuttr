@@ -2,6 +2,52 @@ import React, { useState } from "react";
 import Axios from "axios";
 import './index.css';
 import PasswordStrengthBar from 'react-password-strength-bar';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 export default function SignUp() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -103,81 +149,173 @@ export default function SignUp() {
       register()
     }
   };
-
+  const classes = useStyles();
   return (
-    <div class="signup_wrapper">
-      <h1>Sign up in here</h1>
-      <input
-        placeholder="Username"
-          type="text"
-          onChange={(e) => {
-            setUsernameReg(e.target.value);
-          }}
-        />
-        <input
-        placeholder = "Name"
-          type="text"
-          onChange={(e) => {
-            setNameReg(e.target.value);
-          }}
-        />
-     
-    
-        <input
-        placeholder="Job Title"
-          type="text"
-          onChange={(e) => {
-            setJobReg(e.target.value);
-          }}
-        />
-     
-        <input type="email"
-        placeholder="Email"
-          onChange={(e) => {
-            setEmailReg(e.target.value);
-          }}
-        />
 
-        <br />
-        {emailMsg}
-      
-        <p>Password</p>
-
-        <input
-        placeholder="Password"
+    <Container component="main" maxWidth="xs">
+    <CssBaseline />
+    <div className={classes.paper}>
+      <Avatar className={classes.avatar}>
+        <LockOutlinedIcon />
+      </Avatar>
+      {emailMsg} {newMsg} {isMsg}
+      <Typography component="h1" variant="h5">
+        Sign Up
+      </Typography>
+      <form className={classes.form} noValidate>
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Username"
+          name="email"
+          autoComplete="email"
+          autoFocus
+          onChange={(e) => {
+          setUsernameReg(e.target.value);
+          }}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Name"
+          name="email"
+          autoComplete="email"
+          autoFocus
+          onChange={(e) => {
+          setNameReg(e.target.value);
+          }}
+        />
+        <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        id="email"
+        label="Job Title"
+        name="email"
+        autoComplete="email"
+        autoFocus
+        onChange={(e) => {
+        setJobReg(e.target.value);
+        }}
+        />
+        <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        id="email"
+        label="Email Address"
+        name="email"
+        autoComplete="email"
+        autoFocus
+        onChange={(e) => {
+        setEmailReg(e.target.value);
+        }}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
           type="password"
+          id="password"
+          autoComplete="current-password"
           onChange={(e) => {
-            setPasswordReg(e.target.value);
+          setPasswordReg(e.target.value);
           }}
         />
-
-        <br />
-        <PasswordStrengthBar password={passwordReg} />
-      
-        <p>Password Confirmation</p>
-
-        <input
-        placeholder="Password Confirmation"
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password Confirmation"
           type="password"
+          id="password"
+          autoComplete="current-password"
           onChange={(e) => {
-            setPasswordConfirmationReg(e.target.value);
+          setPasswordConfirmationReg(e.target.value);
           }}
         />
-
-      
-      <br />
-
-
         <input type='file' name='image' onChange={onChange}/>
+        <FormControlLabel
+          control={<Checkbox value="remember" color="primary" />}
+          label="Remember me"
+        />
+        <Button
+          type="button"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+          onClick={checkValidation}
+          // href = "/login"
+        >
+          Create User
+        </Button>
+        <Grid container>
+          <Grid item xs>
+            <Link href="#" variant="body2">
+              Forgot password?
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#" variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
+        </Grid>
+      </form>
+    </div>
+    <Box mt={8}>
+      <Copyright />
+    </Box>
+  </Container>
+
+   
+    //     {emailMsg}
+      
+    //     <p>Password</p>
+
+  
+    //     <PasswordStrengthBar password={passwordReg} />
+      
+    //     <p>Password Confirmation</p>
+
+    //     
+
+      
+    //   <br />
+
+
+    //     <input type='file' name='image' onChange={onChange}/>
      
 
-      {isMsg}
-      <br />
-      {newMsg}
-      <div>
-        <br />
-        <button onClick={checkValidation}>Create User</button>
-      </div>
-    </div>
+    //   {isMsg}
+    //   <br />
+    //   {newMsg}
+    //   <div>
+    //     <br />
+    //     <button onClick={checkValidation}>Create User</button>
+    //   </div>
+    // </div>
+
+
+
+
+
+
+
+
   )
 }
