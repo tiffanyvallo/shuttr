@@ -17,7 +17,7 @@
 
 .userwrapper{
   margin: 2em 2em 2em 0;
-  background-color: var(--button-colour);
+  background-color: var(--link-text);
   max-width: 200px;
   padding: 1.5em 3em;
   border-radius: 25px;
