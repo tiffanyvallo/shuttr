@@ -22,18 +22,6 @@ function Map() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   const getPhotos = async () => {
-  //     try {
-  //       const res = await axios.get("http://localhost:3001/photos");
-  //       setPhotos(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getPhotos()
-  // }, []);
-
   const handleMarkerClick = (id) => {
     setCurrentPlaceId(id)
   }
@@ -41,9 +29,9 @@ function Map() {
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
-    latitude: 51.5074,
-    longitude: 0.1278,
-    zoom: 10
+    latitude: 51.5073509,
+    longitude: -0.1277583,
+    zoom: 13
   });
 
   return (
