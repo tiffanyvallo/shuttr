@@ -43,6 +43,7 @@ input {
   margin-top: 2em;
   width: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .page_wrapper{
@@ -56,8 +57,3 @@ input {
   background-color: black;
   color: white;
 }
-
-
-.minimap_wrapper{
-
-  }

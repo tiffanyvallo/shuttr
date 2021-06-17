@@ -13,7 +13,7 @@ function MiniMap({lat, lng}) {
 
   const [viewport, setViewport] = useState({
     width: "30vw",
-    height: "30vh",
+    height: "30vw",
     latitude: lat,
     longitude: lng,
     zoom: 13

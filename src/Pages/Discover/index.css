@@ -1,12 +1,12 @@
 .page{
   background-color: #2c3531;
+  margin-top: 2em;
 }
 
 .title{
   font-size: 1.6rem;
   font-weight: 900;
   color: #d9b08c;
-  margin-bottom: 1rem;
 }
 .discover_container {
   position: absolute;
@@ -23,8 +23,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background:  #ffcb9a;
   border-radius: 50%;
   transition: all 1s;
@@ -71,7 +71,7 @@
   bottom: 0;
   left: 0;
   width: 20px;
-  height: 30px;
+  height: 40px;
   outline: none;
   border: none;
   background: #ffcb9a;
@@ -216,7 +216,44 @@ margin: auto;
   .container .card .face .face2 .content a:hover{
     background: #2c3531;
     color: #fff;
-  
+  }
+
+/* 
+  .popup_styles {
+    margin: auto;
+    background: rgb(255, 255, 255);
+    width: 500px;
+    padding: 5px;
+  } */
+
+  .modal {
+    font-size: 12px;
+    padding: 10rem;
+    background-color: #2c3531;
+  }
+  /* .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  } */
+  .modal > .modal-content {
+    padding: 10px 5px;
+  }
+
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    /* background: #ffffff; */
+    border-radius: 18px;
+    border: 1px solid #cfcece;
   }
 
   .search_results {

@@ -1,13 +1,20 @@
 import './index.css'
 import {Image} from 'cloudinary-react';
+import ModalMap from '../../components/ModalMap';
 
-export default function Location({name, hashtag, location, coordinates, caption, description, publicId}) {
+export default function Location({name, hashtag, location, coordinates, lat, lng, caption, description, publicId}) {
  return (
    <div>
+     <h1 class="location-text">{location}</h1>
      <div class="location_wrapper">
-      <div class="location_photo">Image<Image class="cloud_photo" cloudName="cyber_photos" publicId={publicId} /></div>
-      <div class="location_map">Map</div>
-      <div class="location_info"><p>{hashtag}</p></div>
+      <div class="location_photo"><Image class="cloud_photo" cloudName="cyber_photos" publicId={publicId} /></div>
+      <div class="location_map">    
+           <ModalMap lat={coordinates.lat} lng={coordinates.lng} /></div>
+      <div class="location_info">
+        <p class="location_description">Description:</p>
+        <p>{description}</p>
+        <p>#{hashtag}</p><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/maps?&z={10}&q=${coordinates.lat}+${coordinates.lng}`}>Link To Maps</a>
+      </div>
       </div>
    </div>
  )

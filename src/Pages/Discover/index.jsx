@@ -7,7 +7,7 @@ import { Image } from 'cloudinary-react';
 import Location from "../../components/Location";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
+import './index.css'
 
 export default function TitlebarGridList() {
   const [allData, setAllData] = useState([]);
@@ -48,8 +48,53 @@ export default function TitlebarGridList() {
       });
   }, []);
 
-  return (
+  return(
+   
+       <div>
+    <div class="page">
+    <label class="title">Search Locations:</label>
+    <div class="discover_container" >
+      <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+        <div class="search"></div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+       <div class="container" >
+     
+        { filteredData.map((value,index) => (
+          <div class="card">
+            <div class="face1">
+            <div class="content" key={value.id}>
+            <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+          </div>
+          </div>
+          <div class="face2">
+            <div class="content">
+         <p>#{value.hashtag}</p> 
+          <p> <a href="/map">{value.location}</a> </p> 
+          <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
+          {/* <button type="button">View More</button> */}
+          <Popup
+    trigger={<button className="button">View More</button>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="modal-content">
+          {' '}
 
+            <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
+          
+      </div>
+    )}
+  </Popup>
     <div>
       <div class="page">
 

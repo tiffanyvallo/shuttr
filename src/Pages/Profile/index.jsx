@@ -118,10 +118,10 @@ function Profile() {
             <p class="location-title">London, UK</p>
         </div>
       </div>
-      <h2 class="your-posts-title">Your Posts:</h2>
         <div className="userposts">
+        <h2 class="your-posts-title">Your Posts:</h2>
           { pics.map((value,index) => (
-            <div key={index}>
+            <div class="single-post" key={index}>
               <Image className="profile-feed" cloudName="cyber_photos" publicId={value.publicId} />
               {/* if=> value.author === data.username => diplay, else, dont */}
                 <p class="photo-title">Taken in: {value.location}</p>
