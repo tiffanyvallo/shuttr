@@ -13,6 +13,7 @@ export default function SignUp() {
   const [emailReg, setEmailReg] = useState('');
   const [nameReg, setNameReg] = useState('');
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
+  const [userMsg, setUserMsg] = useState('');
   const [isMsg, setIsMsg] = useState('');
   const [newMsg, setNewMsg] = useState('');
   const [emailMsg, setEmailMsg] = useState('');
@@ -56,10 +57,10 @@ export default function SignUp() {
         if (response.data === "User Created") {
           window.location.href = "/login";
         } else if (response.data !== "User Created") {
-          setIsMsg("User already exists")
+          setUserMsg("User already exists, please sign in or create new account")
           clearTimeout(newMsgTimeoutHandle);
           newMsgTimeoutHandle = setTimeout(() => {
-            setIsMsg("")
+            setUserMsg("")
             newMsgTimeoutHandle = 0;
           }, 6500)
         }
@@ -137,8 +138,6 @@ export default function SignUp() {
             setEmailReg(e.target.value);
           }}
         />
-        <br />
-        {emailMsg}
 
         <input
         placeholder="Password"
@@ -164,13 +163,14 @@ export default function SignUp() {
 
 
         <input type='file' name='image' onChange={onChange}/>
-     
-
-      {isMsg}
+      <div id="signup_messages">
       <br />
+      {userMsg}
+      {isMsg}
+      {emailMsg}
       {newMsg}
+      </div>
       <div>
-        <br />
         <button onClick={checkValidation}>Create User</button>
       </div>
     </div>
