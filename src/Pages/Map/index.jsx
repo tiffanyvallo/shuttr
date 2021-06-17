@@ -54,7 +54,7 @@ function Map() {
                 offsetLeft={-20} 
                 offsetTop={-10}>
 
-                <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}
+                <Room style={{fontSize:viewport.zoom * 4, color:"#45A293"}}
                 onClick={()=>handleMarkerClick(value._id)}
                 />
         
