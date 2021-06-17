@@ -10,7 +10,7 @@
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   width: 300px;
-  height:200px;
+  height: 300px;
   overflow:hidden;
 }
 
@@ -27,8 +27,13 @@
   background-color: white;
   border-radius: 15px;
   margin-bottom: 2em;
+  padding: 2em;
 }
 
 .location-text{
   color: white;
+}
+
+.location_description{
+  font-weight: 900;
 }

@@ -16,7 +16,7 @@ function ModalMap({lat, lng}) {
     height: "300px",
     latitude: lat,
     longitude: lng,
-    zoom: 13
+    zoom: 14
   });
 
   return (
