@@ -8,7 +8,6 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import MiniMap from '../../components/MiniMap';
 
-
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
   const preset = 'cyber_photos';
@@ -23,7 +22,7 @@ export default function ImageUpload() {
     lat: 51.5073509,
     lng: -0.1277583
   });
-
+  
   const onChange = e => {
     setImage(e.target.files[0]);
     const file = e.target.files[0]
@@ -54,6 +53,7 @@ export default function ImageUpload() {
     try {
       setLoading(true);
       isLoading(true)
+      const config = {withCredentials: true}
       const res = await axios.post(url, formData);
       const imageUrl = res.data.secure_url;
       const image = await axios.post('http://localhost:3001/upload', {
@@ -63,7 +63,7 @@ export default function ImageUpload() {
         location,
         coordinates, 
         description
-      }).then (window.location.href = "/")
+      }, config).then (window.location.href = "/discover")
       console.log(image.data);
       setLoading(false);
       isLoading(false)
@@ -77,7 +77,7 @@ export default function ImageUpload() {
       console.error(err);
       
     }
-  };
+  }; 
 
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);

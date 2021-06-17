@@ -1172,10 +1172,11 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.7":
-  version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.5.tgz#665450911c6031af38f81db530f387ec04cd9a98"
-  integrity sha512-121rumjddw9c3NCQ55KGkyE1h/nzWhU/owjhw0l4mQrkzz4x9SGS1X8gFLraHwX7td3Yo4QTL+qj0NcIzN87BA==
+
+"@babel/runtime@^7.4.5":
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
+  integrity sha512-/PCB2uJ7oM44tz8YhC4Z/6PeOKXp4K588f+5M3clr1M4zbqztlo0XEfJ2LEzj/FgwfgGcIdl8n7YYjTCI0BYwg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1547,7 +1548,6 @@
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
 
-
 "@material-ui/icons@^4.11.2":
   version "4.11.2"
   resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
@@ -1650,6 +1650,11 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
+"@prisma/engines@2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4":
+  version "2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4.tgz#7e542d510f0c03f41b73edbb17254f5a0b272a4d"
+  integrity sha512-29/xO9kqeQka+wN5Ev10l5L4XQXNVXdPToJs1M29VZ2imQsNsL4rtz26m3qGM54IoGWwwfTVdvuVRxKnDl2rig==
+
 "@reach/auto-id@0.15.0":
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.15.0.tgz#f46afebfc140b2099b95c7aec1f049d167d3833d"
@@ -1721,11 +1726,6 @@
   dependencies:
     tiny-warning "^1.0.3"
     tslib "^2.1.0"
-
-"@prisma/engines@2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4":
-  version "2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4"
-  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4.tgz#7e542d510f0c03f41b73edbb17254f5a0b272a4d"
-  integrity sha512-29/xO9kqeQka+wN5Ev10l5L4XQXNVXdPToJs1M29VZ2imQsNsL4rtz26m3qGM54IoGWwwfTVdvuVRxKnDl2rig==
 
 "@rollup/plugin-node-resolve@^7.1.1":
   version "7.1.3"
@@ -3727,6 +3727,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 clean-css@^4.2.3:
   version "4.2.3"
@@ -7687,6 +7692,11 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
 lodash.truncate@^4.4.2:
   version "4.4.2"
   resolved "https://registry.npmjs.org/lodash.truncate/-/lodash.truncate-4.4.2.tgz"
@@ -10043,7 +10053,7 @@ react-dev-utils@^11.0.3:
 
 react-dom@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
     loose-envify "^1.1.0"
@@ -10070,25 +10080,6 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-mapbox-gl@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/react-mapbox-gl/-/react-mapbox-gl-5.1.1.tgz#49e1ddf441c3ff9406d10ccd577ac5448d51584c"
-  integrity sha512-8vGldFQf7pW8T5ZV2OOhwXoaBvfigB2F7dnhzaZ/bD5/KJzP9zprMbn0xMX95W3eqbKzGGHnwyD5DyTTwR6wGw==
-  dependencies:
-    "@turf/bbox" "4.7.3"
-    "@turf/helpers" "4.7.3"
-    "@types/supercluster" "^5.0.1"
-    deep-equal "1.0.1"
-    supercluster "^7.0.0"
-
-react-places-autocomplete@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/react-places-autocomplete/-/react-places-autocomplete-7.3.0.tgz#81a2345ae4a6fc35d7a712ccd4850d497553ba1b"
-  integrity sha512-86wcHC69JATvWBnIS/yCsBHLtwzOGcnx3Ye94u74yTrz1jLRC/txkVDkf6rvC+Jq3zNe/tAg/W53x0EaH1ZPPw==
-  dependencies:
-    lodash.debounce "^4.0.8"
-    prop-types "^15.5.8"
-
 react-map-gl@^6.1.16:
   version "6.1.16"
   resolved "https://registry.yarnpkg.com/react-map-gl/-/react-map-gl-6.1.16.tgz#47e1a200b4dea7f981f2be36f96933f202e6bd7e"
@@ -10102,6 +10093,32 @@ react-map-gl@^6.1.16:
     prop-types "^15.7.2"
     resize-observer-polyfill "^1.5.1"
     viewport-mercator-project "^7.0.3"
+
+react-mapbox-gl@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-mapbox-gl/-/react-mapbox-gl-5.1.1.tgz#49e1ddf441c3ff9406d10ccd577ac5448d51584c"
+  integrity sha512-8vGldFQf7pW8T5ZV2OOhwXoaBvfigB2F7dnhzaZ/bD5/KJzP9zprMbn0xMX95W3eqbKzGGHnwyD5DyTTwR6wGw==
+  dependencies:
+    "@turf/bbox" "4.7.3"
+    "@turf/helpers" "4.7.3"
+    "@types/supercluster" "^5.0.1"
+    deep-equal "1.0.1"
+    supercluster "^7.0.0"
+
+react-password-strength-bar@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/react-password-strength-bar/-/react-password-strength-bar-0.3.3.tgz#c6b7278f4ff550f2cd03174526ac5f7a0bc92365"
+  integrity sha512-VYi1LpVORBUgP/8ymnDhMKpRwcymyg0MAzoeGFyyrUo3m8rxzAYDfQyzfflWGKDw5o3XT6WlxWtt+0m8uncJEw==
+  dependencies:
+    zxcvbn "4.4.2"
+
+react-places-autocomplete@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/react-places-autocomplete/-/react-places-autocomplete-7.3.0.tgz#81a2345ae4a6fc35d7a712ccd4850d497553ba1b"
+  integrity sha512-86wcHC69JATvWBnIS/yCsBHLtwzOGcnx3Ye94u74yTrz1jLRC/txkVDkf6rvC+Jq3zNe/tAg/W53x0EaH1ZPPw==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    prop-types "^15.5.8"
 
 react-refresh@^0.8.3:
   version "0.8.3"
@@ -10213,9 +10230,14 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-video-cover@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-video-cover/-/react-video-cover-1.2.2.tgz#bf36d0171ed592f8c5c489bbdebfca4e7a05cfaa"
+  integrity sha512-llxs/UL14mEzGsQWEWPjBVfVTpLMS1gu6B1PfK0O621QL+rbRHxGHWnnVv3owb+oz/XOvcEy2ZhU8OStm+wFVQ==
+
 react@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
@@ -10309,6 +10331,13 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+redux@^4.0.1, redux@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.1.0.tgz#eb049679f2f523c379f1aff345c8612f294c88d4"
+  integrity sha512-uI2dQN43zqLWCt6B/BMGRMY6db7TTY4qeHHfGeKb3EOhmOKjU3KdWvNLJyqaHRksv/ErdNH7cFZWg9jXtewy4g==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
 
 regenerate-unicode-properties@^8.2.0:
   version "8.2.0"
@@ -12159,6 +12188,17 @@ vendors@^1.0.0:
   resolved "https://registry.npmjs.org/vendors/-/vendors-1.0.4.tgz"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
+video-react@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/video-react/-/video-react-0.14.1.tgz#49ac7b19f1d039c0b3ebec82f81224bc2fa8bdf1"
+  integrity sha512-R5ClJo58iJcQLS+bGNmuAMc/fx9/xcJ6oLrAlbuu7MGI49Jh7b7o79aUdQMZvzuynT1NvhVmD4N/fTOEmWNDlg==
+  dependencies:
+    "@babel/runtime" "^7.4.5"
+    classnames "^2.2.6"
+    lodash.throttle "^4.1.1"
+    prop-types "^15.7.2"
+    redux "^4.0.1"
+
 viewport-mercator-project@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/viewport-mercator-project/-/viewport-mercator-project-7.0.3.tgz#6c7cf15cbfd490003d99d68ff5cbb2443237c79a"
@@ -12733,3 +12773,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zxcvbn@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/zxcvbn/-/zxcvbn-4.4.2.tgz#28ec17cf09743edcab056ddd8b1b06262cc73c30"
+  integrity sha1-KOwXzwl0PtyrBW3dixsGJizHPDA=
