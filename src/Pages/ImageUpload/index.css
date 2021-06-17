@@ -23,6 +23,11 @@
   0 10px 10px rgba(255, 255, 255, 0.2);
 }
 
+.preview {
+  float: left;
+  margin-top: -60rem;
+  margin-left: 10rem;
+}
 .preview-image{
   width: 200px;
   height: 150px;
@@ -57,3 +62,4 @@ input {
   background-color: black;
   color: white;
 }
+

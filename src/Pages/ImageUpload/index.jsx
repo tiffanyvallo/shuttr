@@ -131,85 +131,42 @@ export default function ImageUpload() {
       margin: theme.spacing(3, 0, 2),
     },
   }));
-  
-  // export default function SignInSide() {
-  //   const classes = useStyles();
-  
-  //   return (
-  //     <Grid container component="main" className={classes.root}>
-  //       <CssBaseline />
-  //       <Grid item xs={false} sm={4} md={7} className={classes.image} />
-  //       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-  //         <div className={classes.paper}>
-  //           <Typography component="h1" variant="h5">
-  //             Upload
-  //           </Typography>
-  //           <form className={classes.form} noValidate>
-  //             <TextField
-  //               variant="outlined"
-  //               margin="normal"
-  //               required
-  //               fullWidth
-  //               id="email"
-  //               label="Email Address"
-  //               name="email"
-  //               autoComplete="email"
-  //               autoFocus
-  //             />
-  //             <TextField
-  //               variant="outlined"
-  //               margin="normal"
-  //               required
-  //               fullWidth
-  //               name="password"
-  //               label="Password"
-  //               type="password"
-  //               id="password"
-  //               autoComplete="current-password"
-  //             />
-  //             <FormControlLabel
-  //               control={<Checkbox value="remember" color="primary" />}
-  //               label="Remember me"
-  //             />
-  //             <Button
-  //               type="submit"
-  //               fullWidth
-  //               variant="contained"
-  //               color="primary"
-  //               className={classes.submit}
-  //             >
-  //               Sign In
-  //             </Button>
-  //             <Grid container>
-  //               <Grid item xs>
-  //                 <Link href="#" variant="body2">
-  //                   Forgot password?
-  //                 </Link>
-  //               </Grid>
-  //               <Grid item>
-  //                 <Link href="#" variant="body2">
-  //                   {"Don't have an account? Sign Up"}
-  //                 </Link>
-  //               </Grid>
-  //             </Grid>
-  //             <Box mt={5}>
-  //               <Copyright />
-  //             </Box>
-  //           </form>
-  //         </div>
-  //       </Grid>
-  //     </Grid>
-  //   );
-  // }
+
+
+  const classes = useStyles();
   return(
-    <div class="page_wrapper">
-    <div className="form_wrapper">
-        <h1>Upload</h1>
+
+    <Grid  container component="main" className={classes.root}>
+       
+   <CssBaseline />
+    <Grid item xs={false} sm={4} md={7} className={classes.image} />
+    
+      <Grid style={{backgroundColor: '#2c3531', color: '#ffffff'}} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        
+      <div  className={classes.paper}>
+        
+        <Typography component="h1" variant="h5">
+          Upload
+        </Typography>
+        <form  className={classes.form} noValidate>
         {isLoading()}
-        <input type='file' name='image' onChange={onChange}/>
-        <PlacesAutocomplete
+        <input
+        accept="image/*"
+        className={classes.input}
+        id="contained-button-file"
+        multiple
+        type="file"
+        onChange={onChange}
+
+      />
+      <label htmlFor="contained-button-file">
+        <Button variant="contained" color="primary" component="span">
+          Upload A Photo
+        </Button>
+      </label>
+      <PlacesAutocomplete
         searchOptions={searchOptions}
-        value={location}
+        
         onChange={setLocation}
         onSelect={handleSelect}
       >
@@ -217,9 +174,19 @@ export default function ImageUpload() {
           <div>
             {/* <p>Latitude: {coordinates.lat}</p>
             <p>Longitude: {coordinates.lng}</p> */}
-
-            <input {...getInputProps({ placeholder: "Type address" })} />
-
+          <TextField 
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            autoFocus
+            value={location}
+            id="location"
+            label="Type Address"
+            name="location"
+            autoComplete="location"
+            {...getInputProps({ placeholder: "Type address" })} 
+          />
             <div>
               {loading ? <div>...loading</div> : null}
 
@@ -238,26 +205,92 @@ export default function ImageUpload() {
             </div>
           </div>
         )}
-      </PlacesAutocomplete>
-        <input type="text"  onChange={(e) => setHashtag(e.target.value)} value={hashtag} placeholder="#hashtag" />
-        <input type="text" onChange={(e) => setCaption(e.target.value)} value={caption} placeholder="caption" />
-        <input type="text" onChange={(e) => setDescription(e.target.value)} value={description} placeholder="description" />
-        <button onClick={onSubmit}>
+       </PlacesAutocomplete>
+
+            <TextField 
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="#hashtag"
+            label="#hashtag" 
+            name="#hashtag"
+            autoComplete="#hashtag"
+            value={hashtag}
+            autoFocus
+            // style={{backgroundColor: 'grey', border: 'white'}}
+            onChange={(e) => setHashtag(e.target.value)}
+        
+            />
+
+            <TextField 
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="caption"
+            label="caption" 
+            name="caption"
+            autoComplete="caption"
+            value={caption} 
+            autoFocus
+            // style={{backgroundColor: 'grey', border: 'white'}}
+            onChange={(e) => setCaption(e.target.value)}
+        
+            />
+
+            <TextField 
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="description"
+            label="description" 
+            name="description"
+            autoComplete="description"
+            value={description}
+            autoFocus
+            // style={{backgroundColor: 'grey', border: 'white'}}
+            onChange={(e) => setDescription(e.target.value)}
+        
+            />
+            
+            <button onClick={onSubmit}>
           Upload
         </button>
-        {(previewSource) && (
-          <div>
-            <h3 className="preview-text">Upload preview:</h3>
-            <img src={previewSource} alt="chosen" className="preview-image"/>
-          </div>
-        )}
-         </div>
-          <div class="map_card">
-         <h2>Preview</h2>
-         <div class="minimap_wrapper">
-           <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
-           </div>
-           </div>
-         </div>
+
+          <Button
+            type="button"
+            fullWidth
+            variant="contained"
+            
+            className={classes.submit}
+            onClick={onSubmit}
+            style={{backgroundColor: '#51fbee', color: '#000000'}}
+          >
+            Upload
+          </Button>
+
+        </form>
+      </div>
+    
+    </Grid>
+    <div class="preview">
+            {(previewSource) && (
+              <div>
+                <h3 className="preview-text">Upload preview:</h3>
+                <img src={previewSource} alt="chosen" className="preview-image"/>
+              </div>
+            )}
+            
+              <div class="map_card">
+             <h2>Preview</h2>
+             <div class="minimap_wrapper">
+               <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
+               </div>
+               </div>
+               </div>
+  </Grid>
+           
   )
 }
