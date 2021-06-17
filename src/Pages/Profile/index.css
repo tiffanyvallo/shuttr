@@ -8,6 +8,7 @@
 }
 
 .profile_photo{
+  margin-top: 1.2em;
   height: 90px;
   width: 90px;
   border-radius: 50%;
@@ -15,10 +16,10 @@
 }
 
 .userwrapper{
-  margin: 2em;
+  margin: 2em 2em 2em 0;
   background-color: var(--button-colour);
   max-width: 200px;
-  padding: 3em;
+  padding: 1.5em 3em;
   border-radius: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -26,7 +27,7 @@
 
 .your-posts-title{
   color: white;
-  font-size: 2em;
+  font-size: 1.7em;
   text-align: left;
 }
 
@@ -50,8 +51,10 @@
 }
 
 .location-title{
+  font-style: italic;
   text-align: left;
   font-size: 0.8em;
+  font-weight: 200;
 }
 
 .userposts{
