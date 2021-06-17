@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import './index.css'
-import drone from './drone_london.mp4';
-
-import {
-  Player,
-} from 'video-react';
+import drone from './drone_nologo.mp4';
 
 export default function Home() {
   return (
