@@ -37,11 +37,11 @@
 .photo-title{
   color: white;
   font-weight: 700;
-  font-family: cursive;
 }
 
 .profile-title{
   margin-bottom: 0;
+  font-size: 0.9rem;
   text-align: left;
 }
 
@@ -60,4 +60,8 @@
   justify-content: center;
   align-items: center;
   grid-column: 3 / 4;
+}
+
+.profile-feed{
+  max-width: 700px;
 }
