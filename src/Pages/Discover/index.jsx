@@ -77,9 +77,9 @@ export default function TitlebarGridList() {
 
 
           {/* <button type="button">View More</button> */}
-      <Popup trigger={<button> Trigger</button>} position="right center">
-    <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
-  </Popup>
+         <Popup Popup trigger={<button> Trigger</button>} position="right center">
+          <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
+          </Popup>
 
           </div>
           </div>

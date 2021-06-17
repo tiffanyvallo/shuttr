@@ -1,3 +1,12 @@
+.profile_layout{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  grid-template-columns: 100px 1fr 1fr 100px;
+}
+
 .profile_photo{
   height: 90px;
   width: 90px;
@@ -7,20 +16,42 @@
 
 .userwrapper{
   margin: 2em;
-  background-color: red;
-  max-width: 300px;
+  background-color: var(--button-colour);
+  max-width: 200px;
   padding: 3em;
   border-radius: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-/* .profilephoto_wrapper{
+.your-posts-title{
+  color: white;
+  font-size: 2em;
+  text-align: left;
+}
 
-} */
+.profile-bio {
+  margin-left: 1em;
+}
+
+.photo-title{
+  color: white;
+  font-weight: 700;
+  font-family: cursive;
+}
 
 .profile-title{
   margin-bottom: 0;
+  text-align: left;
+}
+
+.handle-title{
+  text-align: left;
+}
+
+.location-title{
+  text-align: left;
+  font-size: 0.8em;
 }
 
 .userposts{
@@ -28,7 +59,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 800px;
-  background-color: rgb(216, 191, 152);
+  grid-column: 3 / 4;
 }

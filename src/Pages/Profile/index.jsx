@@ -103,7 +103,7 @@ function Profile() {
   //----------------------------------------------------------
   
   return (
-    <div>
+    <div class="profile_layout">
       {!!data &&
     <div>
       {console.log("this is rendered")}
@@ -112,21 +112,23 @@ function Profile() {
         <div className="profilephoto_wrapper">
           <Image className="profile_photo" cloudName="cyber_photos" publicId={data.publicId} />
         </div>
-        <div>
-          <h3>{data.username}</h3>
-           <p className="profile-title">{data.job}</p>
-            <small>London, UK</small>
+        <div class="profile-bio">
+          <h3 class="handle-title">@{data.username}</h3>
+           <p className="profile-title">Bio:<br/>{data.job}</p>
+            <p class="location-title">London, UK</p>
         </div>
       </div>
-        <div className="userposts"><p></p></div>
+      <h2 class="your-posts-title">Your Posts:</h2>
+        <div className="userposts">
           { pics.map((value,index) => (
             <div key={index}>
               <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
               {/* if=> value.author === data.username => diplay, else, dont */}
-                {value.location}
+                <p class="photo-title">Taken in: {value.location}</p>
             
             </div>
         ))}
+        </div>
         </div>
       }
       </div>
