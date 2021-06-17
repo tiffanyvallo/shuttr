@@ -57,7 +57,7 @@ export default function NavBar() {
       ) : null}
 
       {data ? (  <Link to="/" onClick={logout}  className="index-button">
-       <li className="brand-logo">Logout</li>      
+       <li className="brand-logo login-button">Logout</li>      
       </Link>                
       ) : null}
       

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 80vw;
-  grid-template-columns: 100px 1fr 1fr 100px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .profile_photo{
@@ -16,19 +16,23 @@
 }
 
 .userwrapper{
-  margin: 2em 2em 2em 0;
-  background-color: var(--link-text);
+  margin: 2em 2em 2em 2em;
+  background-color: rgb(46, 46, 46);
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 31%),
+  0 10px 10px rgb(255 255 255/ 9%);
   max-width: 200px;
   padding: 1.5em 3em;
   border-radius: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  color: rgba(102, 252, 255, 0.8);
 }
 
 .your-posts-title{
   color: white;
   font-size: 1.7em;
   text-align: left;
+  margin-left: 1rem;
 }
 
 .profile-bio {
@@ -44,6 +48,7 @@
   margin-bottom: 0;
   font-size: 0.9rem;
   text-align: left;
+  
 }
 
 .handle-title{
@@ -58,13 +63,21 @@
 }
 
 .userposts{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   grid-column: 3 / 4;
+  padding: 2rem;
+  border-radius: 15px;
 }
 
 .profile-feed{
   max-width: 700px;
+}
+
+.single-post{
+  padding: 2rem;
+  background-color: rgb(46, 46, 46);
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 31%),
+  0 10px 10px rgb(255 255 255/ 9%);
+  border-radius: 15px;
+  margin-bottom: 3rem;
 }
