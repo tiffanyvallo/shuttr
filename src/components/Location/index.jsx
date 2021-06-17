@@ -12,7 +12,7 @@ export default function Location({name, hashtag, location, coordinates, lat, lng
            <ModalMap lat={coordinates.lat} lng={coordinates.lng} /></div>
       <div class="location_info">
         <p class="location_description">Description:</p>
-        <p>{description}</p>
+        <p class="location_description-text">{description}</p>
         <p>Tags: #{hashtag}</p><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/maps?&z={10}&q=${coordinates.lat}+${coordinates.lng}`}>Link To Maps</a>
       </div>
       </div>
