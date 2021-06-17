@@ -8,7 +8,6 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import MiniMap from '../../components/MiniMap';
 
-
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
   const preset = 'cyber_photos';
@@ -20,10 +19,10 @@ export default function ImageUpload() {
   const [loading, setLoading] = useState(false);
   const [previewSource, setPreviewSource] = useState("")
   const [coordinates, setCoordinates] = useState({
-    lat: 0,
-    lng: 0
+    lat: 51.5073509,
+    lng: -0.1277583
   });
-
+  
   const onChange = e => {
     setImage(e.target.files[0]);
     const file = e.target.files[0]
@@ -54,6 +53,7 @@ export default function ImageUpload() {
     try {
       setLoading(true);
       isLoading(true)
+      const config = {withCredentials: true}
       const res = await axios.post(url, formData);
       const imageUrl = res.data.secure_url;
       const image = await axios.post('http://localhost:3001/upload', {
@@ -63,7 +63,7 @@ export default function ImageUpload() {
         location,
         coordinates, 
         description
-      }).then (window.location.href = "/")
+      }, config).then (window.location.href = "/discover")
       console.log(image.data);
       setLoading(false);
       isLoading(false)
@@ -77,7 +77,7 @@ export default function ImageUpload() {
       console.error(err);
       
     }
-  };
+  }; 
 
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
@@ -86,21 +86,26 @@ export default function ImageUpload() {
     setCoordinates(latLng);
   };
 
+  const searchOptions = {
+    componentRestrictions: { country: ['gb'] }
+  }
+
   return(
-    <div>
+    <div class="page_wrapper">
     <div className="form_wrapper">
         <h1>Upload</h1>
         {isLoading()}
         <input type='file' name='image' onChange={onChange}/>
         <PlacesAutocomplete
+        searchOptions={searchOptions}
         value={location}
         onChange={setLocation}
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <p>Latitude: {coordinates.lat}</p>
-            <p>Longitude: {coordinates.lng}</p>
+            {/* <p>Latitude: {coordinates.lat}</p>
+            <p>Longitude: {coordinates.lng}</p> */}
 
             <input {...getInputProps({ placeholder: "Type address" })} />
 
@@ -129,16 +134,19 @@ export default function ImageUpload() {
         <button onClick={onSubmit}>
           Upload
         </button>
-        
-        <MiniMap lat={coordinates.lat} lon={coordinates.lng}/>
-         </div>
-
-         {(previewSource) && (
-          <div class="preview-image-div">
-            <h3 className="preview-text">Preview:</h3>
+        {(previewSource) && (
+          <div>
+            <h3 className="preview-text">Upload preview:</h3>
             <img src={previewSource} alt="chosen" className="preview-image"/>
           </div>
         )}
+         </div>
+          <div class="map_card">
+         <h2>Preview</h2>
+         <div class="minimap_wrapper">
+           <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
+           </div>
+           </div>
          </div>
   )
 }

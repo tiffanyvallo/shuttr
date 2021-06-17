@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./index.css"
 import Axios from 'axios'
 import { UserContext } from "../../Contexts/UserContext";
+import Logo from './shuttrlogo.png'
 
 // import 'materialize-css';
 // import { Button, Card, Row, Col } from 'react-materialize';
@@ -23,34 +24,45 @@ export default function NavBar() {
     <nav> 
       
          
-     <Link to="/" className="index-button">
-       <li className="brand-logo">Discover</li>      
-      </Link>
-      {data ? null : (
-         <Link to="/signup" className="index-button">                  
-      <li>Sign Up</li>    
-      </Link> 
-      )}
+      {data ?  ( 
+      <img class="navbar_logo" src={Logo} />    
+      ) : null}
+      
+      {data ?  ( 
       <Link to="/profile" className="index-button">                  
           <li>Profile</li>    
       </Link> 
+      ) : null}
+
+      {data ?  ( 
       <Link to="/Map" className="index-button">
       <li>Map</li>
       </Link>  
+       ) : null}
+
+       {data ?  ( 
+      <Link to="/Discover" className="index-button">
+      <li className="discover">Discover</li>
+      </Link> 
+      ) : null} 
+
+      {data ?  ( 
       <Link to="/Inspiration" className="index-button">
       <li>Inspiration</li>
       </Link>  
+      ) : null}
 
-      {/* <img class="footer_logo" src={process.env.PUBLIC_URL + "dark_logo.png"} /> */}
-
-
+      {data ?  ( 
       <Link to="/ImageUpload" className="index-button">                 
         <li>Upload</li>    
-        </Link>   
-         {data ? (  <Link to="/" onClick={logout}  className="index-button">
-       <li className="brand-logo">Logout</li>      
+        </Link> 
+      ) : null}
+
+      {data ? (  <Link to="/" onClick={logout}  className="index-button">
+       <li className="brand-logo login-button">Logout</li>      
       </Link>                
-         ) : null}
+      ) : null}
+      
       {data ? null : ( 
       <Link to="/login" className="login-button">             
       <li className="login">Log In</li>     

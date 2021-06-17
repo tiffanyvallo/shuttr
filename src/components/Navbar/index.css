@@ -1,18 +1,21 @@
 nav{
   display: inline-block;
-  background-color: var(--header-bg-colour);
+  background: rgb(44,53,49);
+  background: linear-gradient(0deg, rgba(44,53,49,1) 9%, rgba(17,100,102,1) 69%);
   width: 100vw;
-  height: 9vh;
+  /* position: fixed;
+  top: 0; */
+  height: 13vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   overflow: hidden;
 }
 
 nav li{
   display: block;
   color: var(--link-text);
-  padding: 2em;
+  padding: 1.2em;
   text-decoration: none;
 }
 
@@ -21,16 +24,21 @@ nav li a {
 }
 
 nav li:hover{
-  background-color: rgb(27, 86, 87);
-  color: #a7feff;
+  border:  2.5px solid #ffcb9a;
+  background-color: #2c35317a;
+  color: #ffcb9a;
+
 }
 
 .login{
   color: var(--header-bg-colour);
-  background-color: var(--link-text);
+  background-color: #d9b08c;
   padding: 1em 3em;
   margin-right: 1em;
   display: inline;
   border-radius: 25px;
   height: 20px;
 }
+.navbar_logo{
+  width: 120px;
+} 

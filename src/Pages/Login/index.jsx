@@ -1,12 +1,15 @@
 import React, {useState} from "react";
 import Axios from "axios";
 import './index.css'
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-
+  const signup = () =>{
+    window.location.href = "/"; 
+  }
    const login = () => {
     
     Axios({     
@@ -18,7 +21,7 @@ export default function Login() {
       url: "http://localhost:3001/login",    
       }).then((res) => {      
       if (res.data === "Successfully Authenticated") {
-        window.location.href = "/";      
+        window.location.href = "/discover";      
       }    
     });  
   };
@@ -27,8 +30,7 @@ export default function Login() {
     <div class="login_wrapper">
       <h1>Log in here</h1>
       
-      <label>
-        <p>Username</p>
+
         <input 
         type="text" 
         placeholder="Username"
@@ -36,18 +38,24 @@ export default function Login() {
           setLoginUsername(e.target.value);
           }}
         />
-      </label>
-      <label>
-        <p>Password</p>
+     
+      
         <input 
         type="password"
         placeholder="Password"
         onChange={(e) => {
           setLoginPassword(e.target.value);
           }} />
-      </label>
+      
       <div>
         <button type="submit" onClick={login}>Log In</button>
+      </div>
+      <div >
+      <br />
+        Don't have an account? <Link to="/signup" className="btn btn-primary">   
+        <br />               
+      <button>Sign Up</button>   
+      </Link> 
       </div>
     </div>
     )
