@@ -13,7 +13,7 @@ export default function Location({name, hashtag, location, coordinates, lat, lng
       <div class="location_info">
         <p class="location_description">Description:</p>
         <p>{description}</p>
-        <p>#{hashtag}</p><a href={`http://maps.google.com/maps?&z={10}&q=${coordinates.lat}+${coordinates.lng}`}>Link To Maps</a>
+        <p>#{hashtag}</p><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/maps?&z={10}&q=${coordinates.lat}+${coordinates.lng}`}>Link To Maps</a>
       </div>
       </div>
    </div>
