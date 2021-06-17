@@ -83,7 +83,7 @@ export default function TitlebarGridList() {
         <button className="close" onClick={close}>
           &times;
         </button>
-        <div className="content">
+        <div className="modal-content">
           {' '}
 
             <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates} caption={value.caption} description={value.description} publicId={value.publicId}/></div>

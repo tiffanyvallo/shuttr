@@ -216,7 +216,6 @@ margin: auto;
   .container .card .face .face2 .content a:hover{
     background: #2c3531;
     color: #fff;
-  
   }
 /* 
   .popup_styles {
@@ -228,25 +227,21 @@ margin: auto;
 
   .modal {
     font-size: 12px;
+    padding: 0;
     background-color: #2c3531;
   }
-  .modal > .header {
+  /* .modal > .header {
     width: 100%;
     border-bottom: 1px solid gray;
     font-size: 18px;
     text-align: center;
     padding: 5px;
-  }
-  .modal > .content {
+  } */
+  .modal > .modal-content {
     width: 100%;
     padding: 10px 5px;
   }
-  .modal > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    margin: auto;
-    text-align: center;
-  }
+
   .modal > .close {
     cursor: pointer;
     position: absolute;
@@ -256,7 +251,7 @@ margin: auto;
     right: -10px;
     top: -10px;
     font-size: 24px;
-    background: #ffffff;
+    /* background: #ffffff; */
     border-radius: 18px;
     border: 1px solid #cfcece;
   }
