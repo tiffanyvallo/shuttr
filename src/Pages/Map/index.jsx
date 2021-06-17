@@ -71,10 +71,6 @@ function Map() {
                 anchor="bottom" 
                 onClose={()=>setCurrentPlaceId(null)}
                 >
-                
-                <Room style={{fontSize:viewport.zoom * 4, color:"#45A293"}}
-                onClick={()=>handleMarkerClick(value._id)}
-                />
                   
                 <div className="card">
                   <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
