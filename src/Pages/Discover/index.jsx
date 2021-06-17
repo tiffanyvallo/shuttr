@@ -21,7 +21,11 @@ export default function TitlebarGridList() {
   const searchTag = (event) => {
     
     let userInput = event.target.value;
-    setInput(userInput)
+    if(!userInput){
+      setInput("")
+    } else {
+    setInput("Showing search results for: " + userInput)
+    }
     let value = userInput.charAt(0).toUpperCase() + userInput.slice(1);
     let result = [];
     console.log(value);
@@ -31,7 +35,6 @@ export default function TitlebarGridList() {
     });
     setFilteredData(result);
   };
-
 
   useEffect(() => {
     axios("http://localhost:3001/photos")
@@ -44,6 +47,8 @@ export default function TitlebarGridList() {
         console.log("Error getting data: " + error);
       });
   }, []);
+
+
 
 
   return(
@@ -62,7 +67,7 @@ export default function TitlebarGridList() {
 <br/>
 <div class="search_results" > 
 <br/>
-      Showing search results for: {<b>{input}</b>}
+      {<b>{input}</b>}
 </div>
 
        <div class="container" >
