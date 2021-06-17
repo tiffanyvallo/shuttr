@@ -70,7 +70,7 @@ const MiniMap = ({lat,lon}) => {
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
         onViewportChange={nextViewport => setViewport(nextViewport)}
-        mapStyle="mapbox://styles/ajmccor/ckpttmayl2xwn18pg496rt567"
+        mapStyle="mapbox://styles/ajmccor/ckq0xqybt3fsf18rltfgs0y5t"
       >   
          
                <Marker 

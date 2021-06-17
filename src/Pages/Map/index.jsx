@@ -40,8 +40,8 @@ function Map() {
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={nextViewport => setViewport(nextViewport)}
-      mapStyle="mapbox://styles/ajmccor/ckpttmayl2xwn18pg496rt567"
-    >   
+      mapStyle="mapbox://styles/ajmccor/ckq0xqybt3fsf18rltfgs0y5t"
+    >
 
         <div>
         { allData.map(value => {
@@ -51,13 +51,13 @@ function Map() {
              <Marker 
                 latitude={(value.coordinates || {lat: 0}).lat}
                 longitude={(value.coordinates || {lng: 0}).lng}
-                offsetLeft={-20} 
+                offsetLeft={-20}
                 offsetTop={-10}>
 
                 <Room style={{fontSize:viewport.zoom * 4, color:"#45A293"}}
                 onClick={()=>handleMarkerClick(value._id)}
                 />
-        
+
               </Marker>
               {value._id === currentPlaceId && (
 
