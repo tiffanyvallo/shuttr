@@ -13,6 +13,7 @@ export default function SignUp() {
   const [emailReg, setEmailReg] = useState('');
   const [nameReg, setNameReg] = useState('');
   const [passwordConfirmationReg, setPasswordConfirmationReg] = useState('');
+  const [userMsg, setUserMsg] = useState('');
   const [isMsg, setIsMsg] = useState('');
   const [newMsg, setNewMsg] = useState('');
   const [emailMsg, setEmailMsg] = useState('');
@@ -23,7 +24,7 @@ export default function SignUp() {
     "\n• Must be over 4 characters long",
     "\n• Must include numbers and letters",
     "\n• Must include at least 1 upper and lower case letter"]
-    
+
   let newText = passwordCriteria.join('').split('\n').map(i => {
     return <p>{i}</p>
   });
@@ -39,31 +40,31 @@ export default function SignUp() {
     formData.append('upload_preset', preset);
     const res = await Axios.post(url, formData);
     const imageUrl = res.data.secure_url;
-    try{
-    await Axios.post("http://localhost:3001/signup", {
-      name: nameReg,
-      username: usernameReg,
-      password: passwordReg,
-      email: emailReg,
-      publicId: imageUrl,
-      job: jobReg,
+    try {
+      await Axios.post("http://localhost:3001/signup", {
+        name: nameReg,
+        username: usernameReg,
+        password: passwordReg,
+        email: emailReg,
+        publicId: imageUrl,
+        job: jobReg,
 
-    },
-      {
-        withCredentials: true,
-      }).then((response) => {
-        console.log(response);
-        if (response.data === "User Created") {
-          window.location.href = "/login";
-        } else if (response.data !== "User Created") {
-          setIsMsg("User already exists")
-          clearTimeout(newMsgTimeoutHandle);
-          newMsgTimeoutHandle = setTimeout(() => {
-            setIsMsg("")
-            newMsgTimeoutHandle = 0;
-          }, 6500)
-        }
-      });
+      },
+        {
+          withCredentials: true,
+        }).then((response) => {
+          console.log(response);
+          if (response.data === "User Created") {
+            window.location.href = "/login";
+          } else if (response.data !== "User Created") {
+            setUserMsg("User already exists, please sign in or create new account")
+            clearTimeout(newMsgTimeoutHandle);
+            newMsgTimeoutHandle = setTimeout(() => {
+              setUserMsg("")
+              newMsgTimeoutHandle = 0;
+            }, 6500)
+          }
+        });
     } catch (err) {
       console.error(err);
     }
@@ -109,68 +110,67 @@ export default function SignUp() {
       <h1>Sign up in here</h1>
       <input
         placeholder="Username"
-          type="text"
-          onChange={(e) => {
-            setUsernameReg(e.target.value);
-          }}
-        />
-        <input
-        placeholder = "Name"
-          type="text"
-          onChange={(e) => {
-            setNameReg(e.target.value);
-          }}
-        />
-     
-    
-        <input
+        type="text"
+        onChange={(e) => {
+          setUsernameReg(e.target.value);
+        }}
+      />
+      <input
+        placeholder="Name"
+        type="text"
+        onChange={(e) => {
+          setNameReg(e.target.value);
+        }}
+      />
+
+
+      <input
         placeholder="Job Title"
-          type="text"
-          onChange={(e) => {
-            setJobReg(e.target.value);
-          }}
-        />
-     
-        <input type="email"
+        type="text"
+        onChange={(e) => {
+          setJobReg(e.target.value);
+        }}
+      />
+
+      <input type="email"
         placeholder="Email"
-          onChange={(e) => {
-            setEmailReg(e.target.value);
-          }}
-        />
-        <br />
-        {emailMsg}
+        onChange={(e) => {
+          setEmailReg(e.target.value);
+        }}
+      />
 
-        <input
+      <input
         placeholder="Password"
-          type="password"
-          onChange={(e) => {
-            setPasswordReg(e.target.value);
-          }}
-        />
+        type="password"
+        onChange={(e) => {
+          setPasswordReg(e.target.value);
+        }}
+      />
 
-        <br />
-        <PasswordStrengthBar password={passwordReg} />
+      <br />
+      <PasswordStrengthBar password={passwordReg} />
 
-        <input
+      <input
         placeholder="Password Confirmation"
-          type="password"
-          onChange={(e) => {
-            setPasswordConfirmationReg(e.target.value);
-          }}
-        />
+        type="password"
+        onChange={(e) => {
+          setPasswordConfirmationReg(e.target.value);
+        }}
+      />
 
-      
+
       <br />
 
 
-        <input type='file' name='image' onChange={onChange}/>
-     
-
-      {isMsg}
-      <br />
-      {newMsg}
-      <div>
+      <input type='file' name='image' onChange={onChange} />
+      <div id="signup_messages">
         <br />
+        {userMsg}
+        {isMsg}
+        {emailMsg}
+        {newMsg}
+      </div>
+      <div>
         <button onClick={checkValidation}>Create User</button>
       </div>
     </div>

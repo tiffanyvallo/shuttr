@@ -12,6 +12,11 @@
   0 10px 10px rgba(255, 255, 255, 0.2);
 } 
 
+#signup_messages{
+  color: red;
+  font-size: 12px;
+}
+
 .login_button{
   float: right;
 }
