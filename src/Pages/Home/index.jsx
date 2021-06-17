@@ -8,9 +8,9 @@ export default function Home() {
     <div class="home-wrapper">
       <div class="fullscrenvideo">
       <div class="overlay"><img class="shuttrlogo" src="./shuttrlogo.png"></img></div>
-      {/* <video className='videoTag' autoPlay loop muted>
+      <video className='videoTag' autoPlay loop muted>
             <source src={drone} type='video/mp4' />
-      </video> */}
+      </video>
       </div>
       <div class="cta-wrapper"></div>
       <div class="grid">
