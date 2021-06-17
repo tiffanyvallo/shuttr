@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import './index.css'
-import drone from './video_banner.mp4';
+import drone from './banner_dark.mp4';
 import logo from './shuttrlogo.png'
 
 export default function Home() {
