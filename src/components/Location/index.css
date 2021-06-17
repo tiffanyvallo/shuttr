@@ -2,30 +2,33 @@
   max-width: 700px;
   margin-top: 3em;
   display: grid;
-   grid-template-columns: 150px 1fr 1fr 25px;
-  grid-template-rows: 300px 100px;
+  grid-template-columns: 25px 1fr 1fr 25px;
+  grid-template-rows: 300px;
 }
 
 .location_photo{
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  min-width: 300px;
-  height: auto;
-  width: auto;
-  object-fit: cover;
+  width: 300px;
+  height:200px;
+  overflow:hidden;
 }
 
 .location_map{
   grid-column: 3 / 4;
   grid-row: 1 / 2;
-
 }
 
 .location_info{
   text-align: center;
   grid-column: 2 / 4;
   grid-row: 2 / 3;
-  background-color: #494b4a;
-  border-radius: 25px;
+  margin-top: 2em;
+  background-color: white;
+  border-radius: 15px;
   margin-bottom: 2em;
+}
+
+.location-text{
+  color: white;
 }

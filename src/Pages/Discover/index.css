@@ -217,6 +217,7 @@ margin: auto;
     background: #2c3531;
     color: #fff;
   }
+
 /* 
   .popup_styles {
     margin: auto;
@@ -227,7 +228,7 @@ margin: auto;
 
   .modal {
     font-size: 12px;
-    padding: 0;
+    padding: 10rem;
     background-color: #2c3531;
   }
   /* .modal > .header {
@@ -238,7 +239,6 @@ margin: auto;
     padding: 5px;
   } */
   .modal > .modal-content {
-    width: 100%;
     padding: 10px 5px;
   }
 
