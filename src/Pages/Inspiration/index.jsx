@@ -28,12 +28,12 @@ const images = [
   },
   {
     url: "https://res.cloudinary.com/dryaxqxie/image/upload/v1623338814/qcmksfniv6ml6uyx8kes.jpg",
-    title: 'Sightseeing',
+    title: 'Tourist',
     width: '33.3%',
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687932/ve0wggzncpawe2slxbt0.jpg',
-    title: 'Street Art',
+    title: 'StreetArt',
     width: '33.3%',
   },
   {
@@ -43,7 +43,7 @@ const images = [
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623687960/nvx7q1na2ikwjupg5kf2.jpg',
-    title: 'Sunsets',
+    title: 'Sunset',
     width: '33.3%',
   },
   {
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     position: 'relative',
-    height: 255,
+    height: '33.4%',
     [theme.breakpoints.down('xs')]: {
       width: '255px !important', // Overrides inline-style
       height: 100,
