@@ -10,7 +10,7 @@ body {
 
 /* ----------------- base styles --------------- */
 :root {
-  --main-bg-color: #fef9f9;
+  --main-bg-color:  #2c3531;
   --header-bg-colour: #2c3531;
   --post-bg-color: white;
   --post-text: black;
