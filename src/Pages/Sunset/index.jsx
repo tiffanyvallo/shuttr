@@ -5,11 +5,8 @@ import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
 import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
 
-export default function TitlebarGridList() {
+export default function Sunset() {
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -46,22 +43,28 @@ export default function TitlebarGridList() {
 
   const classes = useStyles();
   return(
+   <div class="page">
+    <div class="container" >
+     
+    { pics.map((value,index) => (
+      <div class="card">
+        <div class="face1">
+        <div class="content" key={value.id}>
+        <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+      </div>
+      </div>
+      <div class="face2">
+        <div class="content">
+  <p> <a href="/map">{value.location}</a> </p> 
    
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-        </GridListTile>
-        { pics.map((value,index) => (
-          <GridListTile key={value.id}>
-            <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
-            <GridListTileBar
-            title={value.location}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+      </div>
+      </div>
+       
+      </div>
+    ))}
+</div>
 
-    </div>
+</div>
     
   )
 }
