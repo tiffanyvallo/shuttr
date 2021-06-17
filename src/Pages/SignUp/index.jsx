@@ -55,6 +55,13 @@ export default function SignUp() {
         console.log(response);
         if (response.data === "User Created") {
           window.location.href = "/login";
+        } else if (response.data !== "User Created") {
+          setIsMsg("User already exists")
+          clearTimeout(newMsgTimeoutHandle);
+          newMsgTimeoutHandle = setTimeout(() => {
+            setIsMsg("")
+            newMsgTimeoutHandle = 0;
+          }, 6500)
         }
       });
     } catch (err) {
@@ -130,11 +137,8 @@ export default function SignUp() {
             setEmailReg(e.target.value);
           }}
         />
-
         <br />
         {emailMsg}
-      
-        <p>Password</p>
 
         <input
         placeholder="Password"
@@ -146,8 +150,6 @@ export default function SignUp() {
 
         <br />
         <PasswordStrengthBar password={passwordReg} />
-      
-        <p>Password Confirmation</p>
 
         <input
         placeholder="Password Confirmation"
