@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Input from '@material-ui/core/Input';
 
 function Copyright() {
   return (
@@ -152,7 +153,7 @@ export default function SignUp() {
   const classes = useStyles();
   return (
 
-    <Container component="main" maxWidth="xs">
+    <Container  style={{backgroundColor: '#2c3531', color: '#ffffff'}}component="main" maxWidth="xs">
     <CssBaseline />
     <div className={classes.paper}>
       <Avatar className={classes.avatar}>
@@ -247,11 +248,21 @@ export default function SignUp() {
           setPasswordConfirmationReg(e.target.value);
           }}
         />
-        <input type='file' name='image' onChange={onChange}/>
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
+        
+        <Button
+          variant="contained"
+          component="label"
+          style={{backgroundColor: '#51fbee', color: '#000000' }}
+        >
+        Profile Picture
+        <input
+        type="file"
+        hidden
+        onChange={onChange}
+        style={{display: 'none'}}
         />
+          </Button>
+        
         <Button
           type="button"
           fullWidth
@@ -260,19 +271,14 @@ export default function SignUp() {
           className={classes.submit}
           onClick={checkValidation}
           // href = "/login"
+          style={{backgroundColor: '#51fbee', color: '#000000'}}
         >
           Create User
         </Button>
         <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid>
+          
           <Grid item>
-            <Link href="#" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
+            
           </Grid>
         </Grid>
       </form>
@@ -281,40 +287,6 @@ export default function SignUp() {
       <Copyright />
     </Box>
   </Container>
-
-   
-    //     {emailMsg}
-      
-    //     <p>Password</p>
-
-  
-    //     <PasswordStrengthBar password={passwordReg} />
-      
-    //     <p>Password Confirmation</p>
-
-    //     
-
-      
-    //   <br />
-
-
-    //     <input type='file' name='image' onChange={onChange}/>
-     
-
-    //   {isMsg}
-    //   <br />
-    //   {newMsg}
-    //   <div>
-    //     <br />
-    //     <button onClick={checkValidation}>Create User</button>
-    //   </div>
-    // </div>
-
-
-
-
-
-
 
 
   )

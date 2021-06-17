@@ -18,7 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" style={{color: '#51fbee'}} align="center">
       {'Copyright © '}
       {/* <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -31,11 +31,16 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  
   root: {
     height: '100vh',
+    backgroundColor: '#fffffff',
+  },
+  text: {
+    colorBlack: "#000000"
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://source.unsplash.com/featured/?london,shoreditch)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -47,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    color: '#ffffff',
   },
   avatar: {
     margin: theme.spacing(1),
@@ -55,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1), 
+    color: '#ffffff',
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -86,19 +93,19 @@ export default function Login() {
   };
   const classes = useStyles();
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid  container component="main" className={classes.root}>
     <CssBaseline />
     <Grid item xs={false} sm={4} md={7} className={classes.image} />
-    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-      <div className={classes.paper}>
+    <Grid style={{backgroundColor: '#2c3531', color: '#ffffff'}} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <div  className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
+        <form  className={classes.form} noValidate>
+          <TextField 
             variant="outlined"
             margin="normal"
             required
@@ -108,8 +115,10 @@ export default function Login() {
             name="email"
             autoComplete="email"
             autoFocus
+            // style={{backgroundColor: 'grey', border: 'white'}}
             onChange={(e) => {
              setLoginUsername(e.target.value);
+             
             }}
           />
           <TextField
@@ -126,29 +135,22 @@ export default function Login() {
             setLoginPassword(e.target.value);
             }}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+          
           <Button
             type="button"
             fullWidth
             variant="contained"
-            color="primary"
+            
             className={classes.submit}
             onClick={login}
-            // href = "/discover"
+            style={{backgroundColor: '#51fbee', color: '#000000'}}
           >
             Login
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="/inspiration" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
+            
             <Grid item>
-              <Link to="/signup" variant="body2">
+              <Link to="/signup" style={{color: "#ffffff"}} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
