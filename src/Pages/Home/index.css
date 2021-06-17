@@ -22,7 +22,7 @@
     z-index:0;
 }
 .overlay {
-    position:absolute;  
+    position:absolute; 
     z-index:1;
     top: 50%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%;
@@ -36,10 +36,10 @@
 }
 
 .cta-wrapper{
-  background-color: green;
+  background: rgb(44,53,49);
+  background: linear-gradient(180deg, rgba(44,53,49,1) 10%, rgba(17,100,102,1) 70%);
   width: 100vw;
   height: 500px;
-  background: url('./alley.jpg');
   background-size: 100%;
   filter: brightness(50%);
 }
@@ -55,18 +55,22 @@
   color: black;
 }
 
-.grid-left{
+/* .grid-left{
   height: 500px;
   background: url('./london2.jpg');
   background-size: 100%;
   filter: brightness(70%);
-}
+} */
 
 .grid-right{
   height: 500px;
+  width: 100vw;
   background: url('./londonpub.jpg');
   filter: brightness(70%);
   background-size: 100%;
+  zoom: 100%;
+  background-position-x:50%;
+  background-position-y:40%;
 }
 
 
