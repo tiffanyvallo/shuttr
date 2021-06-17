@@ -229,8 +229,9 @@ margin: auto;
   .modal {
     font-size: 12px;
     padding: 10rem;
-    background-color: #2c3531;
-  }
+    background: rgb(87,101,95);
+    background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
+    }
   /* .modal > .header {
     width: 100%;
     border-bottom: 1px solid gray;
