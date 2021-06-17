@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./index.css"
 import Axios from 'axios'
 import { UserContext } from "../../Contexts/UserContext";
+import footerlogo from './shuttrlogo.png'
 
 export default function Footer() {
   const data = useContext(UserContext);
@@ -19,7 +20,7 @@ export default function Footer() {
   return (
     <footer> 
       
-       <img class="footer_logo" src={"./shuttrlogo.png"} />
+       <img class="footer_logo" src={footerlogo} />
          <p class="copyright">&copy; shuttr 2021</p>
         </footer>            
     )
