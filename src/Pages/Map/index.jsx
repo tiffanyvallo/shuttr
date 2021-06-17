@@ -4,6 +4,7 @@ import { Room } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
+import './index.css'
 
 
 function Map() {
@@ -70,6 +71,10 @@ function Map() {
                 anchor="bottom" 
                 onClose={()=>setCurrentPlaceId(null)}
                 >
+                
+                <Room style={{fontSize:viewport.zoom * 4, color:"#45A293"}}
+                onClick={()=>handleMarkerClick(value._id)}
+                />
                   
                 <div className="card">
                   <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
