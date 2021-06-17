@@ -48,36 +48,36 @@ export default function TitlebarGridList() {
       });
   }, []);
 
-  return(
-   
-       <div>
-    <div class="page">
-    <label class="title">Search Locations:</label>
-    <div class="discover_container" >
-      <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
-        <div class="search"></div>
-    </div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-       <div class="container" >
-     
-        { filteredData.map((value,index) => (
-          <div class="card">
-            <div class="face1">
-            <div class="content" key={value.id}>
-            <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
-          </div>
-          </div>
-          <div class="face2">
-            <div class="content">
-         <p>#{value.hashtag}</p> 
-          <p> <a href="/map">{value.location}</a> </p> 
-          <p> <a href={'/profile/'+ value.author} >@{value.author}</a></p> 
-          {/* <button type="button">View More</button> */}
-          <Popup
+  return (
+    <div>
+      <div class="page">
+        <div class="discover_container" >
+          <label class="title">Search Locations:</label>
+          <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
+          <div class="search"></div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="search_results" >
+          <br />
+          {<b>{input}</b>}
+        </div>
+        <div class="container" >
+          {filteredData.map((value, index) => (
+            <div class="card">
+              <div class="face1">
+                <div class="content" key={value.id}>
+                  <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+                </div>
+              </div>
+              <div class="face2">
+                <div class="content">
+                  <p>#{value.hashtag}</p>
+                  <p> <a href="/map">{value.location}</a> </p>
+                  <p> <a href={'/profile/' + value.author} >@{value.author}</a></p>
+                  <Popup
     trigger={<button className="button">View More</button>}
     modal
     nested
@@ -95,48 +95,8 @@ export default function TitlebarGridList() {
       </div>
     )}
   </Popup>
-    <div>
-      <div class="page">
-
-        <div class="discover_container" >
-          <label class="title">Search Locations:</label>
-          <input type="text" placeholder="Search Locations" onChange={(event) => searchTag(event)} />
-          <div class="search"></div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="search_results" >
-          <br />
-          {<b>{input}</b>}
-        </div>
-
-        <div class="container" >
-
-          {filteredData.map((value, index) => (
-            <div class="card">
-              <div class="face1">
-                <div class="content" key={value.id}>
-                  <Image class="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
                 </div>
               </div>
-              <div class="face2">
-                <div class="content">
-                  <p>#{value.hashtag}</p>
-                  <p> <a href="/map">{value.location}</a> </p>
-                  <p> <a href={'/profile/' + value.author} >@{value.author}</a></p>
-          {/* <a href="http://maps.google.com/maps?&z={10}&q={value.coordinates.lat}+{value.coordinates.lon}">Link To Maps</a> */}
-
-          {/* <button type="button">View More</button> */}
-         {/* <Popup Popup trigger={<button> View More</button>} position="right center">
-
-          <div>          <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates.lat} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
-          </Popup> */}
-
-                </div>
-              </div>
-
             </div>
           ))}
         </div>
