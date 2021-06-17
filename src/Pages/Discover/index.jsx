@@ -13,6 +13,7 @@ export default function TitlebarGridList() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [show, setShow] = useState(false);
+  const [input, setInput] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -20,6 +21,7 @@ export default function TitlebarGridList() {
   const searchTag = (event) => {
     
     let userInput = event.target.value;
+    setInput(userInput)
     let value = userInput.charAt(0).toUpperCase() + userInput.slice(1);
     let result = [];
     console.log(value);
@@ -58,7 +60,11 @@ export default function TitlebarGridList() {
 <br/>
 <br/>
 <br/>
+<div class="search_results" > 
 <br/>
+      Showing search results for: {<b>{input}</b>}
+</div>
+
        <div class="container" >
      
         { filteredData.map((value,index) => (
