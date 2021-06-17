@@ -22,18 +22,6 @@ function Map() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   const getPhotos = async () => {
-  //     try {
-  //       const res = await axios.get("http://localhost:3001/photos");
-  //       setPhotos(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getPhotos()
-  // }, []);
-
   const handleMarkerClick = (id) => {
     setCurrentPlaceId(id)
   }
