@@ -79,8 +79,8 @@ export default function TitlebarGridList() {
               <div class="face2">
                 <div class="content">
                   <p>#{value.hashtag}</p>
-                  <p> <a href="/map">{value.location}</a> </p>
-                  <p> <a href={'/profile/' + value.author} >@{value.author}</a></p>
+                  <p>Taken at: {value.location}</p>
+                 <a href={'/profile/' + value.author}> @{value.author}</a>
           {/* <a href="http://maps.google.com/maps?&z={10}&q={value.coordinates.lat}+{value.coordinates.lon}">Link To Maps</a> */}
 
           {/* <button type="button">View More</button> */}
