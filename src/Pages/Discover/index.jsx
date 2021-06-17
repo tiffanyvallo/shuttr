@@ -75,8 +75,8 @@ export default function TitlebarGridList() {
               <div class="face2">
                 <div class="content">
                   <p>#{value.hashtag}</p>
-                  <p> <a href="/map">{value.location}</a> </p>
-                  <p> <a href={'/profile/' + value.author} >@{value.author}</a></p>
+                  <p>Taken at: {value.location}</p>
+                 <a href={'/profile/' + value.author}> @{value.author}</a>
                   <Popup
     trigger={<button className="button">View More</button>}
     modal

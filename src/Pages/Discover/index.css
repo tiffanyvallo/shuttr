@@ -167,6 +167,7 @@ opacity: 0.9;
   max-height: 430px;
   min-width: 490px;
   min-height: 430px;
+  object-fit: cover;
 }
 .container .card:hover .face1 .content .cloud_photo{
   max-width: 490px;
@@ -209,13 +210,16 @@ margin: auto;
   margin: 15px 0 0;
   display: inline-block;
   text-decoration: none;
-  color: #d9b08c;
+  color: var(--link-text);
  
   
   }
-  .container .card .face .face2 .content a:hover{
-    background: #2c3531;
-    color: #fff;
+
+  .container .card .face2 .content a:hover{
+    border:  2.5px solid #ffcb9a;
+    background-color: #2c35317a;
+    color: #ffcb9a;
+    padding: 0.2rem;
   }
 
 /* 
@@ -260,3 +264,5 @@ margin: auto;
   .search_results {
     color: #d9b08c
   }
+
+  
