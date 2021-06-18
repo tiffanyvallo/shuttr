@@ -7,10 +7,10 @@ import React,{useContext} from 'react'
 export default function Location({name, hashtag, location, coordinates, lat, lng, caption, description, publicId}) {
  return (
    <div>
-     <h1 class="location-text">{location}</h1>
-     <div class="location_wrapper">
-      <div class="location_photo"><Image className="location-img" cloudName="cyber_photos" publicId={publicId} /></div>
-      <div class="location_map">    
+     <h1 class="location-newtext">{location}</h1>
+     <div class="location_newwrapper">
+      <div class="location_newphoto"><Image className="location-img" cloudName="cyber_photos" publicId={publicId} /></div>
+      <div class="location_newmap">    
            <ModalMap lat={coordinates.lat} lng={coordinates.lng} /></div>
       <div class="location_info">
         <p class="location_description">Description:</p>

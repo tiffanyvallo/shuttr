@@ -233,7 +233,7 @@ margin: auto;
 
   .modal {
     font-size: 12px;
-    padding: 5rem;
+    padding: 5rem 10rem;
     background: rgb(87,101,95);
     background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
     }

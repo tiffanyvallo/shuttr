@@ -168,7 +168,7 @@ export default function ImageUpload() {
         <Typography className="upload" component="h1" variant="h4" style={{color: '#fff'}}>
           ADD IMAGE
         </Typography>
-        <form  className={classes.form} noValidate>
+        <form className={classes.form} noValidate>
         <Button 
         variant="contained" 
         component="label">
