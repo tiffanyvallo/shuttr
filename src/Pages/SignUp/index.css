@@ -30,3 +30,7 @@ input {
 button{
   margin-top: 2em;
 } 
+
+.body{
+  backgroundColor: #2c3531;
+}

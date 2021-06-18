@@ -1,3 +1,4 @@
+/* 
 .map_photo{
   width: 100px;
   height: 100px;
@@ -12,3 +13,38 @@
   flex-direction: column;
   background-color: red;
 }
+ */
+/* .card { 
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+.card img {
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  } */
+/*   .mapboxgl-popup {
+      
+  } */
+
+  .mapboxgl-popup-close-button {
+    display: true;
+  }
+  
+  .mapboxgl-popup-content {
+    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+    padding: 0;
+    width: 180px;
+
+  }
+  
+  .mapboxgl-popup-content-wrapper {
+    padding: 1%;
+  }
+

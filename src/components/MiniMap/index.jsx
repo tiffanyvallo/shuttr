@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
 
-
 function MiniMap({lat, lng}) {
   const [photos,setPhotos] = useState([]);
   const [allData, setAllData] = useState([]);
@@ -26,7 +25,7 @@ function MiniMap({lat, lng}) {
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={nextViewport => setViewport(nextViewport)}
-      mapStyle="mapbox://styles/ajmccor/ckpttmayl2xwn18pg496rt567"
+      mapStyle="mapbox://styles/ajmccor/ckq0xqybt3fsf18rltfgs0y5t"
     >   
 
         <Marker 
@@ -35,7 +34,8 @@ function MiniMap({lat, lng}) {
                 offsetLeft={-20} 
                 offsetTop={-10}>
 
-                <Room style={{fontSize:viewport.zoom * 4, color:"orangeRed"}}/>
+                <Room style={{fontSize:viewport.zoom * 4, color:"#45A293"}}/>
+
         
               </Marker>
       
