@@ -1,9 +1,5 @@
 /* 
-.map_photo{
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
+
 
 
 .card { 
@@ -38,13 +34,29 @@
   }
   
   .mapboxgl-popup-content {
+    display: flex;
     font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
     padding: 0;
     width: 180px;
-
   }
+
+  .mapboxgl-popup-content a {
+    color: white;
+  }
+
+
   
   .mapboxgl-popup-content-wrapper {
     padding: 1%;
   }
 
+  .map_photo{
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .mapboxgl-popup .mapboxgl-popup-content {
+    background-color: grey;
+  }
