@@ -45,18 +45,33 @@
   object-fit: cover;
 }
 
-.PlacesAutocomplete{
+/* .PlacesAutocomplete{
   background-color: pink;
-}
+} */
 
 .preview-text{
   background-color: black;
   color: white;
 } 
 
+.map_card-text{
+  background-color: black;
+  color: white;
+}
+
 .map_card{
-  justify-self: center;
   align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 20vw;
+  background-color: black;
+  background: rgb(87,101,95);
+  background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
+}
+
+.map_text{
   background-color: black;
   color: white;
 }

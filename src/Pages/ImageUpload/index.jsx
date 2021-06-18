@@ -59,6 +59,12 @@ export default function ImageUpload() {
     } 
   }
 
+  function Minimap(){
+    if (coordinates.lng != '-0.1277583') {
+      return <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
+    }
+  }
+
   const onSubmit = async () => {
     console.log(location)
     const formData = new FormData();
@@ -288,9 +294,11 @@ export default function ImageUpload() {
 
                </div>
                <div class="map_card">
+                 <div class="map_text">
              <h2>Preview</h2>
+             </div>
              <div class="minimap_wrapper">
-               <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
+              {Minimap()}
                </div>
                </div>
   

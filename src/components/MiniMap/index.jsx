@@ -20,6 +20,7 @@ function MiniMap({lat, lng}) {
   });
 
   return (
+    
     <div>
        <ReactMapGL
       {...viewport}
