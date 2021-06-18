@@ -234,6 +234,7 @@ export default function SignUp() {
           setPasswordReg(e.target.value);
           }}
         />
+         <PasswordStrengthBar password={passwordReg} />
         <TextField
           variant="outlined"
           margin="normal"
