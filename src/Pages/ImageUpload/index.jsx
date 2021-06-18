@@ -55,7 +55,7 @@ export default function ImageUpload() {
 
   function isLoading(){
     if (loading == true) {
-      return <div><h4>Uploading</h4><img style={{width: 100}}src={loadingGif}/></div>
+      return <div><img style={{width: 100}}src={loadingGif}/></div>
     } 
   }
 
@@ -106,6 +106,11 @@ export default function ImageUpload() {
 
 
   const useStyles = makeStyles((theme) => ({
+    typography: {
+      fontFamily: [
+        'Roboto'
+      ].join(','),
+    },
     root: {
       height: '100vh',
     },
@@ -141,13 +146,20 @@ export default function ImageUpload() {
   return(
 
 <div class="form_wrapper">
-       
+<div class="preview">
+              <div className="preview-text">
+                <h2>Upload preview</h2>
+               </div>
+               {(previewSource) && (
+            <img src={previewSource} alt="chosen" className="preview-image"/>
+        )}
+            </div>
    <CssBaseline />
-    <Grid item xs={false} sm={4} md={7} className={classes.image}/>
+    <Grid className={classes.image}/>
            
       <div id="signup-wrapper" className={classes.paper}>
         
-        <Typography component="h1" variant="h5">
+        <Typography className="upload" component="h1" variant="h4" style={{color: '#fff'}}>
           Upload
         </Typography>
         <form  className={classes.form} noValidate>
@@ -157,7 +169,7 @@ export default function ImageUpload() {
         color="#51fbee" 
         component="span">
         <input
-        accept="image/*"
+        accept="image/*" 
         className={classes.input}
         id="contained-button-file"
         multiple
@@ -169,9 +181,10 @@ export default function ImageUpload() {
       <label htmlFor="contained-button-file">
 
       </label> */}
+      <div class="places">
       <PlacesAutocomplete
         searchOptions={searchOptions}
-        
+        value={location}
         onChange={setLocation}
         onSelect={handleSelect}
       >
@@ -179,20 +192,9 @@ export default function ImageUpload() {
           <div>
             {/* <p>Latitude: {coordinates.lat}</p>
             <p>Longitude: {coordinates.lng}</p> */}
-          <TextField 
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            autoFocus
-            value={location}
-            id="location"
-            label="Type Address"
-            name="location"
-            autoComplete="location"
-            style={{backgroundColor: '#fff', color: '#000000' }}
-            {...getInputProps({ placeholder: "Type address" })} 
-          />
+
+            <input {...getInputProps({ placeholder: "Type address" })} />
+
             <div>
               {loading ? <div>...loading</div> : null}
 
@@ -211,11 +213,12 @@ export default function ImageUpload() {
             </div>
           </div>
         )}
-       </PlacesAutocomplete>
+      </PlacesAutocomplete>
+      </div>
 
             <TextField 
             style={{backgroundColor: '#fff', color: '#000000' }}
-            variant="outlined"
+            variant="filled"
             margin="normal"
             required
             fullWidth
@@ -231,7 +234,7 @@ export default function ImageUpload() {
             />
 
             <TextField 
-            variant="outlined"
+            variant="filled"
             margin="normal"
             required
             fullWidth
@@ -248,7 +251,7 @@ export default function ImageUpload() {
             />
 
             <TextField 
-            variant="outlined"
+            variant="filled"
             margin="normal"
             required
             fullWidth
@@ -281,14 +284,7 @@ export default function ImageUpload() {
           </Button>
 
         </form>
-         <div class="preview">
-            {(previewSource) && (
-              <div>
-                <h3 className="preview-text">Upload preview:</h3>
-                <img src={previewSource} alt="chosen" className="preview-image"/>
-              </div>
-            )}
-            </div>
+   
             
 
                </div>
