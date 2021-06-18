@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div class="home-wrapper">
       <div class="fullscrenvideo">
-      {/* <div class="overlay"><img class="shuttrlogo" src={logo}></img></div> */}
+      <div class="overlay"><img class="shuttrlogo" src={logo}></img></div>
       <video className='videoTag' autoPlay loop muted>
             <source src={drone} type='video/mp4' />
       </video>
