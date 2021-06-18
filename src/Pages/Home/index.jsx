@@ -41,7 +41,7 @@ export default function Home() {
       </div>
       <div class="grid">
         <div class="grid-left">
-          <p>Hey this is the CTA FORM LOOK HOW COOL OUR SITE IS</p>
+
         </div>
         <div class="grid-right">
         <p>Put a tiny image here for nice cool styles</p>

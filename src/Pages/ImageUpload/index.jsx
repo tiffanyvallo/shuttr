@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './index.css'
-import loadingGif from './Loading_icon.gif';
+import loadingGif from './loading.gif';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
