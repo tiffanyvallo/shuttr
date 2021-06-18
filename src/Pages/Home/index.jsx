@@ -4,6 +4,8 @@ import './index.css'
 import drone from './banner_dark.mp4';
 import logo from './shuttrlogo.png'
 import shuttrIphone from './shuttr_iphone.png'
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
 export default function Home() {
   return (
@@ -16,7 +18,25 @@ export default function Home() {
       </div>
       <div class="cta-wrapper">
       <img class="shuttriphone" src={shuttrIphone}></img>
-
+      <div class="text_home">
+        <h2>  Find the best spots,</h2>
+        <p>  
+        See what you're missing out on in your city and discover more. 
+        </p>  
+      <p class="no-account" style={{color: 'white'}}>Don't have an account?</p>  
+           
+           <Button
+               type="button"
+               width='50%'
+               variant="contained"
+               color="primary"
+               href="/signup"
+               type="submit"
+               style={{backgroundColor: '#51fbee', color: '#000000'}}
+               >
+               Sign up
+           </Button>
+      </div>
 
       </div>
       <div class="grid">

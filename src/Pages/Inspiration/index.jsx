@@ -33,11 +33,11 @@ const images = [
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939955/jtopwat1d4jttdthmxuv.jpg',
-    title: 'StreetArt',
+    title: 'Street Art',
     width: '33.3%',
   },
   {
-    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939960/znb8jjsgqqiyn9xgyhg7.jpg',
+    url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623992203/rkouyrzg0r6g4cffdyo3.jpg',
     title: 'Rooftop',
     width: '33.4%',
   },

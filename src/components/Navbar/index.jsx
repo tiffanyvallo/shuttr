@@ -25,7 +25,9 @@ export default function NavBar() {
       
          
       {data ?  ( 
-      <img class="navbar_logo" src={Logo} />    
+      <Link to="/">   
+        <img class="navbar_logo" src={Logo} />   
+      </Link>  
       ) : null}
       
       {data ?  ( 

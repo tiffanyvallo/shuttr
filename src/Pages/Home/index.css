@@ -46,6 +46,11 @@
   align-items: center;
 }
 
+.text_home{
+  color: white;
+  width: 300px;
+}
+
 .shuttriphone{
   height: 375px;
 }
@@ -70,11 +75,15 @@
 
 .grid-right{
   height: 500px;
-  background: url('./londonpub.jpg');
+  background-color: white;
   filter: brightness(70%);
   background-size: 100%;
+  filter: brightness(100%);
 }
 
+.no-account{
+  margin-bottom: 4rem;
+}
 
 
 
