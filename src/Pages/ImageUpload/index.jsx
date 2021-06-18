@@ -166,7 +166,7 @@ export default function ImageUpload() {
       <div id="signup-wrapper" className={classes.paper}>
         
         <Typography className="upload" component="h1" variant="h4" style={{color: '#fff'}}>
-          Upload
+          ADD IMAGE
         </Typography>
         <form  className={classes.form} noValidate>
         <Button 
