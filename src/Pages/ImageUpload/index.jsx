@@ -55,7 +55,7 @@ export default function ImageUpload() {
 
   function isLoading(){
     if (loading == true) {
-      return <div><img style={{width: 100}}src={loadingGif}/></div>
+      return <div><img class="loadinggif" src={loadingGif}/></div>
     } 
   }
 
@@ -163,7 +163,6 @@ export default function ImageUpload() {
           Upload
         </Typography>
         <form  className={classes.form} noValidate>
-        {isLoading()}
         <Button 
         variant="contained" 
         color="#51fbee" 
@@ -282,7 +281,7 @@ export default function ImageUpload() {
           >
             Upload
           </Button>
-
+          {isLoading()}
         </form>
    
             
