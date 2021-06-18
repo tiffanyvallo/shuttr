@@ -36,12 +36,18 @@
 }
 
 .cta-wrapper{
-  background-color: green;
+  background-color: rgb(36, 37, 38);
   width: 100vw;
-  height: 500px;
-  background: url('./alley.jpg');
+  height: 600px;
   background-size: 100%;
-  filter: brightness(50%);
+  filter: brightness(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shuttriphone{
+  height: 375px;
 }
 
 .grid{
