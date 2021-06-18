@@ -1,0 +1,14 @@
+.map_photo{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+
+.card { 
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}

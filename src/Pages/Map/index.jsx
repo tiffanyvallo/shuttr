@@ -72,7 +72,8 @@ function Map() {
                 >
                   
                 <div className="card">
-                  <Image className="cloud_photo" cloudName="cyber_photos" publicId={value.publicId} />
+                  <Image className="map_photo" cloudName="cyber_photos" publicId={value.publicId} />
+                  <a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/maps?&z={10}&q=${(value.coordinates || {lat: 0}).lat}+${(value.coordinates || {lng: 0}).lng}`}>Link To Maps</a>
                 </div>
               </Popup>
               )}
