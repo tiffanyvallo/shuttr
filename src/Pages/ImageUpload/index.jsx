@@ -171,14 +171,15 @@ export default function ImageUpload() {
         <form  className={classes.form} noValidate>
         <Button 
         variant="contained" 
-        color="#51fbee" 
-        component="span">
+        component="label">
+          Upload
         <input
         accept="image/*" 
         className={classes.input}
         id="contained-button-file"
         multiple
         type="file"
+        style={{display: 'none'}}
         onChange={onChange}
       />
             </Button>
