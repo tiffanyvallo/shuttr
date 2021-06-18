@@ -106,7 +106,7 @@ export default function Login() {
         </Typography>
         <form  className={classes.form} noValidate>
           <TextField 
-            variant="outlined"
+            variant="filled"
             margin="normal"
             required
             fullWidth
@@ -120,9 +120,10 @@ export default function Login() {
              setLoginUsername(e.target.value);
              
             }}
+            style={{backgroundColor: '#b9bbb6', color: '#000000'}}
           />
           <TextField
-            variant="outlined"
+            variant="filled"
             margin="normal"
             required
             fullWidth
@@ -134,6 +135,7 @@ export default function Login() {
             onChange={(e) => {
             setLoginPassword(e.target.value);
             }}
+            style={{backgroundColor: '#b9bbb6', color: '#000000'}}
           />
           
           <Button

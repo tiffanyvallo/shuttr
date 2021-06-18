@@ -165,7 +165,7 @@ export default function SignUp() {
       </Typography>
       <form className={classes.form} noValidate>
         <TextField
-          variant="outlined"
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -177,9 +177,10 @@ export default function SignUp() {
           onChange={(e) => {
           setUsernameReg(e.target.value);
           }}
+          style={{backgroundColor: '#b9bbb6', color: '#000000'}}
         />
         <TextField
-          variant="outlined"
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -191,9 +192,10 @@ export default function SignUp() {
           onChange={(e) => {
           setNameReg(e.target.value);
           }}
+          style={{backgroundColor: '#b9bbb6', color: '#000000'}}
         />
         <TextField
-        variant="outlined"
+        variant="filled"
         margin="normal"
         required
         fullWidth
@@ -205,9 +207,10 @@ export default function SignUp() {
         onChange={(e) => {
         setJobReg(e.target.value);
         }}
+        style={{backgroundColor: '#b9bbb6', color: '#000000'}}
         />
         <TextField
-        variant="outlined"
+        variant="filled"
         margin="normal"
         required
         fullWidth
@@ -219,9 +222,10 @@ export default function SignUp() {
         onChange={(e) => {
         setEmailReg(e.target.value);
         }}
+        style={{backgroundColor: '#b9bbb6', color: '#000000'}}
         />
         <TextField
-          variant="outlined"
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -233,10 +237,11 @@ export default function SignUp() {
           onChange={(e) => {
           setPasswordReg(e.target.value);
           }}
+          style={{backgroundColor: '#b9bbb6', color: '#000000'}}
         />
         <PasswordStrengthBar password={passwordReg} />
         <TextField
-          variant="outlined"
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -248,6 +253,7 @@ export default function SignUp() {
           onChange={(e) => {
           setPasswordConfirmationReg(e.target.value);
           }}
+          style={{backgroundColor: '#b9bbb6', color: '#000000'}}
         />
         
         <Button
