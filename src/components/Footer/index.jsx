@@ -19,7 +19,6 @@ export default function Footer() {
   };
   return (
     <footer> 
-      
        <img class="footer_logo" src={footerlogo} />
          <p class="copyright">&copy; shuttr 2021</p>
         </footer>            

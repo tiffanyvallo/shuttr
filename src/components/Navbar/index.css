@@ -17,6 +17,7 @@ nav li{
   color: var(--link-text);
   padding: 1.2em;
   text-decoration: none;
+  border: 2px dashed transparent;
 }
 
 nav li a {

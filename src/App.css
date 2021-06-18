@@ -38,3 +38,26 @@
     transform: rotate(360deg);
   }
 }
+
+.card { 
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button{
+  color: var(--header-bg-colour);
+  background-color: #d9b08c;
+  padding: 1em;
+  border: none;
+  font-weight: 700;
+  display: inline;
+  border-radius: 25px;
+}
+
+.button:hover{
+  background-color: #dac0a9;
+  cursor: pointer;
+}

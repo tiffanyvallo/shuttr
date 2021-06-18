@@ -16,6 +16,7 @@
   width: 100%;
   height: 100px;
 }
+
 .discover_container .search {
   position: absolute;
   margin: auto;
@@ -232,7 +233,7 @@ margin: auto;
 
   .modal {
     font-size: 12px;
-    padding: 10rem;
+    padding: 5rem;
     background: rgb(87,101,95);
     background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
     }

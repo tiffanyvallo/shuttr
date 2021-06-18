@@ -5,7 +5,8 @@ import {Image} from 'cloudinary-react';
 import {UserContext} from '../../Contexts/UserContext';
 import {useContext} from 'react';
 import {useParams} from "react-router-dom";
-
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 
 function Profile() {
@@ -103,11 +104,12 @@ function Profile() {
   //----------------------------------------------------------
   
   return (
-    <div class="profile_layout">
+    <div>
       {!!data &&
     <div>
       {console.log("this is rendered")}
       {console.log(data)}
+      <div class="profile_layout">
       <div className="userwrapper">
         <div className="profilephoto_wrapper">
           <Image className="profile_photo" cloudName="cyber_photos" publicId={data.publicId} />
@@ -119,15 +121,20 @@ function Profile() {
         </div>
       </div>
         <div className="userposts">
-        <h2 class="your-posts-title">Your Posts:</h2>
+        <Typography className="your-posts-title" component="h1" variant="h4" style={{fontWeight: '100', color: '#fff', marginBottom: '2rem'}}>
+          Your Posts
+        </Typography>
           { pics.map((value,index) => (
             <div class="single-post" key={index}>
               <Image className="profile-feed" cloudName="cyber_photos" publicId={value.publicId} />
               {/* if=> value.author === data.username => diplay, else, dont */}
                 <p class="photo-title">Taken in: {value.location}</p>
+                <p class="location_description">Description:</p>
+        <p class="location_description-text">{value.description}</p>
+        <p>Tags: <span class="tagsprofile"> <Link to={`/${value.hashtag}`} className="index-button">#{value.hashtag}</Link></span></p><a target="_blank" rel="noopener noreferrer" href={`http://maps.google.com/maps?&z={10}&q=${value.coordinates.lat}+${value.coordinates.lng}`}>Link To Maps</a>
             
             </div>
-        ))}
+        ))}</div>
         </div>
         </div>
       }

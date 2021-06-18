@@ -1,3 +1,19 @@
+/* 
+.map_photo{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+
+.card { 
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+ */
 /* .card { 
     width: 200px;
     height: 200px;
@@ -13,9 +29,9 @@
   height: auto;
   object-fit: cover;
   } */
-  .mapboxgl-popup {
+/*   .mapboxgl-popup {
       
-  }
+  } */
 
   .mapboxgl-popup-close-button {
     display: true;
@@ -31,3 +47,4 @@
   .mapboxgl-popup-content-wrapper {
     padding: 1%;
   }
+

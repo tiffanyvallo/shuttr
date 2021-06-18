@@ -1,59 +1,104 @@
 .form_wrapper {
-  background-color: white;
-  grid-column: 2/3;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  min-width: 500px;
-  min-height: 500px;
-  margin: 5em 5em;
+  min-width: 600px;
+  min-height: 600px;
   padding: 3em;
-  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 30%),
-  0 10px 10px rgba(255, 255, 255, 0.2);
+  margin-right: 2rem;
   border-radius: 25px;
+}
+
+#signup-wrapper{
+  background: rgb(87,101,95);
+  background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
+  padding-bottom: 3rem;
+  padding-top: 2rem;
+  max-width: 600px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 }
 
 .preview-image-div{
   border-radius: 25px;
   max-width: 500px;
   margin: 1em auto;
-  padding: 3em;
   box-shadow: 0 14px 28px hsl(185deg 90% 18% / 30%),
   0 10px 10px rgba(255, 255, 255, 0.2);
+  background-color: white;
 }
 
+.preview {
+  /* display: none; */
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 448px;
+  height: 448px;
+  background-color: black;
+  background: rgb(87,101,95);
+  background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
+}
 .preview-image{
-  width: 200px;
-  height: 150px;
-  overflow: hidden;
-}
-
-.preview-text{
-  margin-top: 2em;
-}
-
-input {
-  margin: 0 auto;
-  display: block;
-  margin: .25em;
-}
-
-.cloud_photo{
-  margin-top: 2em;
   width: 100%;
-  display: block;
+  max-height: 384px;
   object-fit: cover;
 }
 
-.page_wrapper{
-  display: grid;
-  grid-template-columns: 300px 1fr 1fr 300px;
-}
+/* .PlacesAutocomplete{
+  background-color: pink;
+} */
 
-.map_card{
-  justify-self: center;
-  margin: 15em auto;
+.preview-text{
+  background-color: black;
+  color: white;
+} 
+
+.map_card-text{
   background-color: black;
   color: white;
 }
+
+.map_card{
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 20vw;
+  background-color: black;
+  background: rgb(87,101,95);
+  background: linear-gradient(180deg, rgba(87,101,95,1) 14%, rgba(44,53,49,1) 100%);
+}
+
+.map_text{
+  background-color: black;
+  color: white;
+}
+
+#signup-wrapper{
+  margin-top: 3em;
+}
+
+.places input{
+  font-family: 'Roboto';
+  color: grey;
+  padding-left: 1rem;
+  height: 56px;
+  width: 101%;
+  margin-left: -2px;
+  margin-top: 1em;
+  border: 0.5px grey solid;
+}
+
+.upload{
+  margin-bottom: 0.5em;
+}
+
+.loadinggif{
+  width: 50px;
+  margin-top: 1rem;
+}
+
+
+

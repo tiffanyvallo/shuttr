@@ -5,6 +5,9 @@ import { useState,useEffect } from 'react';
 import axios from "axios";
 import {Image} from 'cloudinary-react';
 import { makeStyles } from '@material-ui/core/styles';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import Location from "../../components/Location";
 
 export default function Colourful() {
   const [filteredData, setFilteredData] = useState([]);
@@ -55,8 +58,25 @@ export default function Colourful() {
       </div>
       <div class="face2">
         <div class="content">
-  <p> <a href="/map">{value.location}</a> </p> 
-   
+  <p>{value.location}</p> 
+  <Popup
+    trigger={<button className="button">View More</button>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="modal-content">
+          {' '}
+
+            <Location name={value.name} hashtag={value.hashtag} location={value.location} coordinates={value.coordinates} caption={value.caption} description={value.description} publicId={value.publicId}/></div>
+          
+      </div>
+    )}
+  </Popup>
       </div>
       </div>
        

@@ -36,12 +36,23 @@
 }
 
 .cta-wrapper{
-  background-color: green;
+  background-color: rgb(36, 37, 38);
   width: 100vw;
-  height: 500px;
-  background: url('./alley.jpg');
+  height: 600px;
   background-size: 100%;
-  filter: brightness(50%);
+  filter: brightness(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_home{
+  color: white;
+  width: 300px;
+}
+
+.shuttriphone{
+  height: 375px;
 }
 
 .grid{
@@ -56,19 +67,32 @@
 }
 
 .grid-left{
-  height: 500px;
-  background: url('./london2.jpg');
-  background-size: 100%;
-  filter: brightness(70%);
+  height: 620px;
+  filter: brightness(80%);
+}
+
+.home-img-left{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .grid-right{
-  height: 500px;
-  background: url('./londonpub.jpg');
-  filter: brightness(70%);
+  color: white;
+  height: 620px;
+  background-color: rgb(36, 37, 38);
   background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: brightness(80%);
+  flex-direction: column;
+  border: white solid 1px;
 }
 
+.no-account{
+  margin-bottom: 4rem;
+}
 
 
 
