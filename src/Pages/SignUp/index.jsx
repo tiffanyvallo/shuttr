@@ -104,10 +104,10 @@ export default function SignUp() {
           if (response.data === "User Created") {
             window.location.href = "/login";
           } else if (response.data !== "User Created") {
-            setUserMsg("User already exists, please sign in or create new account")
+            setIsMsg("User already exists, please sign in or create new account")
             clearTimeout(newMsgTimeoutHandle);
             newMsgTimeoutHandle = setTimeout(() => {
-              setUserMsg("")
+              setIsMsg("")
               newMsgTimeoutHandle = 0;
             }, 6500)
           }
@@ -159,7 +159,7 @@ export default function SignUp() {
       <Avatar className={classes.avatar}>
         <LockOutlinedIcon />
       </Avatar>
-      {emailMsg} {newMsg} {isMsg}
+      {emailMsg} {newMsg} {isMsg} {userMsg}
       <Typography component="h1" variant="h5">
         Sign Up
       </Typography>
