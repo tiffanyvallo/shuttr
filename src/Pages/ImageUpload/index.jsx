@@ -17,9 +17,11 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { spacing } from '@material-ui/system';
 
 export default function ImageUpload() {
   const url = 'https://api.cloudinary.com/v1_1/dryaxqxie/image/upload';
@@ -56,7 +58,6 @@ export default function ImageUpload() {
       return <div><h4>Uploading</h4><img style={{width: 100}}src={loadingGif}/></div>
     } 
   }
-  
 
   const onSubmit = async () => {
     console.log(location)
@@ -113,6 +114,9 @@ export default function ImageUpload() {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     },
+    container: {
+      marginRight: '300px',
+    },
     paper: {
       margin: theme.spacing(8, 4),
       display: 'flex',
@@ -124,7 +128,7 @@ export default function ImageUpload() {
       backgroundColor: theme.palette.secondary.main,
     },
     form: {
-      width: '100%', // Fix IE 11 issue.
+      width: '70%', // Fix IE 11 issue.
       marginTop: theme.spacing(1),
     },
     submit: {
@@ -136,20 +140,22 @@ export default function ImageUpload() {
   const classes = useStyles();
   return(
 
-    <Grid  container component="main" className={classes.root}>
+<div class="form_wrapper">
        
    <CssBaseline />
-    <Grid item xs={false} sm={4} md={7} className={classes.image} />
-    
-      <Grid style={{backgroundColor: '#2c3531', color: '#ffffff'}} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        
-      <div  className={classes.paper}>
+    <Grid item xs={false} sm={4} md={7} className={classes.image}/>
+           
+      <div id="signup-wrapper" className={classes.paper}>
         
         <Typography component="h1" variant="h5">
           Upload
         </Typography>
         <form  className={classes.form} noValidate>
         {isLoading()}
+        <Button 
+        variant="contained" 
+        color="#51fbee" 
+        component="span">
         <input
         accept="image/*"
         className={classes.input}
@@ -157,13 +163,12 @@ export default function ImageUpload() {
         multiple
         type="file"
         onChange={onChange}
-
       />
+            </Button>
+{/*       
       <label htmlFor="contained-button-file">
-        <Button variant="contained" color="primary" component="span">
-          Upload A Photo
-        </Button>
-      </label>
+
+      </label> */}
       <PlacesAutocomplete
         searchOptions={searchOptions}
         
@@ -185,6 +190,7 @@ export default function ImageUpload() {
             label="Type Address"
             name="location"
             autoComplete="location"
+            style={{backgroundColor: '#fff', color: '#000000' }}
             {...getInputProps({ placeholder: "Type address" })} 
           />
             <div>
@@ -208,6 +214,7 @@ export default function ImageUpload() {
        </PlacesAutocomplete>
 
             <TextField 
+            style={{backgroundColor: '#fff', color: '#000000' }}
             variant="outlined"
             margin="normal"
             required
@@ -234,6 +241,7 @@ export default function ImageUpload() {
             autoComplete="caption"
             value={caption} 
             autoFocus
+            style={{backgroundColor: '#fff', color: '#000000' }}
             // style={{backgroundColor: 'grey', border: 'white'}}
             onChange={(e) => setCaption(e.target.value)}
         
@@ -244,6 +252,7 @@ export default function ImageUpload() {
             margin="normal"
             required
             fullWidth
+            style={{backgroundColor: '#fff', color: '#000000' }}
             id="description"
             label="description" 
             name="description"
@@ -255,9 +264,9 @@ export default function ImageUpload() {
         
             />
             
-            <button onClick={onSubmit}>
+            {/* <button onClick={onSubmit}>
           Upload
-        </button>
+        </button> */}
 
           <Button
             type="button"
@@ -272,25 +281,25 @@ export default function ImageUpload() {
           </Button>
 
         </form>
-      </div>
-    
-    </Grid>
-    <div class="preview">
+         <div class="preview">
             {(previewSource) && (
               <div>
                 <h3 className="preview-text">Upload preview:</h3>
                 <img src={previewSource} alt="chosen" className="preview-image"/>
               </div>
             )}
+            </div>
             
-              <div class="map_card">
+
+               </div>
+               <div class="map_card">
              <h2>Preview</h2>
              <div class="minimap_wrapper">
                <MiniMap lat={coordinates.lat} lng={coordinates.lng} />
                </div>
                </div>
-               </div>
-  </Grid>
-           
+  
+ </div>
+    
   )
 }
