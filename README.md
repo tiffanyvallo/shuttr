@@ -1,4 +1,4 @@
-# Cyber Playground
+# Shuttr - A Photo Location Finding App
   
 
 ## User Stories - Shuttr
