@@ -1,5 +1,6 @@
+
 # shuttr 📸
-  
+
 Have you ever wanted to take amazing photos but don’t know where to go to take them? 
 We have the solution for you.
 We wanted to build an innovative app for the creatives who love to take aesthetic photos but did not know where the prime locations were. 
@@ -73,7 +74,7 @@ To use this app you will also need to clone the server repo found [here](https:/
 
 ```
 $ git clone https://github.com/tiffanyvallo/shuttr.git
-$ cd bankTechTest
+$ cd shuttr
 $ yarn install
 ```
 Once yarn is installed you can run the project on the client side using this code
