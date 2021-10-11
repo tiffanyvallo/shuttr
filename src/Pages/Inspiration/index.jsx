@@ -33,7 +33,7 @@ const images = [
   },
   {
     url: 'https://res.cloudinary.com/dryaxqxie/image/upload/v1623939955/jtopwat1d4jttdthmxuv.jpg',
-    title: 'Street Art',
+    title: 'StreetArt',
     width: '33.3%',
   },
   {
